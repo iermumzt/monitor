@@ -1697,207 +1697,207 @@ define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "so
                     //console.log($scope.isScreen);
                 });
             }
-            var resize = function(_flag) {
-                var bw, bh, vw, vh, mw, mh, allwidth, allheight,moniW,botW;
-                if (isFullScreen) {
-                    screenStatus();
-                    if ($element.find(".video-play-menus").hasClass("video_play")) {
-                        $scope.isScreen = false;
-                    }else{
-                        if ($scope.noai) {
-                            $scope.isScreen = false;
-                        }else{
-                            $scope.isScreen = true;
-                        }
-                    }
-                    //$scope.isScreen = true;
-                    $element.find('.video-player-module-wrap').css({
-                        "width": "100%",
-                        "height": "100%",
-                    });
-                    if ($scope.videoPlayerManager) $scope.videoPlayerManager.resetSize($element.find(".video-player-module-wrap").width(), $element.find(".video-player-module-wrap").height());
-                    return;
-                }else{
-                    $scope.isScreen = false;
-                    $scope.putface = [];
-                    $scope.downface = [];
-                    if ($element.find(".video-play-menus").hasClass("video_play")) {
-                        $scope.results = true;
-                        $scope.noai = true;
-                        //$element.find(".pro-video-live a span").text("看直播");
-                        if ($scope.haveface.length > 0) {
-                            $scope.emp = false;
-                        } else {
-                            $scope.emp = true;
-                        }
-                    }
-                }
-                $element.height($("body").outerHeight(true) - $("body>nav").height());
-                if ($(window).width()<1300) {
-                    allwidth = 1300;
-                }else{
-                    allwidth = $(window).width();
-                };
-                // if ($(window).height() < 750) {
-                //   allheight = 750;
-                // } else {
-                //   allheight = $(window).height();
-                // }
-
-                if (!_flag) $element.find(".poin-wrap").width(allwidth - $(".left-nav").width()-247);
-                $element.find(".poin-wrap").height($("body").height()- $("body>nav").height() - 14);
-                $element.find(".poin-wrap div.moni-video div.contrast").height($("body").height()- $("body>nav").height() - 14);
-                $element.find(".poin-wrap div.moni-video div.contrast div.ident").height($("body").height() - $("body>nav").height() - 14);
-                $scope.ulHeight = $("body").height() - $("body>nav").height() - 14;
-                moniW = $element.find(".poin-wrap").width()-3;
-                botW =  $(".poin-wrap").width() - ($(".contrast").outerWidth(true) | 0);
-                bw = $element.find(".poin-wrap").width()-$(".contrast").width()+60;
-                if ($(window).width() <= 1750) {
-                    bw = $element.find(".poin-wrap").width() - $(".contrast").width();
-                } else{
-                    bw = $element.find(".poin-wrap").width() - $(".contrast").width() + 60;
-                };
-                bh = $element.find(".poin-wrap").height() -($(".video-play-menus").outerHeight(true) | 0);
-                if (bw * 9 / 16 > bh) {
-                    mw = (bh * 16 / 9)*0.9;
-                    mh = (bh-220) * 0.9;
-                    vw = bw-160;
-                    vh = (mh + 24)*100/90;
-                    $element.find('.moni-video').css({
-                        "width": moniW + "px",
-                        "height": ($element.find(".poin-wrap").height()-$element.find('.botsnap').height()) + "px",
-                    });
-                    if ($(window).width() <= 1366) {
-                        $element.find('.moni-video').css({
-                            "width": moniW + "px",
-                            "height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height()-11) + "px",
-                        });
-                    }
-                    $element.find('.botsnap').css({
-                        "width": (botW-3) + "px",
-                    });
-                    $element.find('.bot-wrap').css({
-                        "width": vw + "px",
-                        "height": vh + "px",
-                        "margin-left":10,
-                        //"margin-left": (vw-mw-50)/2,//24
-                        "display": "inline-block"
-                    });
-                    $element.find('.video-player-module-wrap').css({
-                        "width": (vw-24) + "px",
-                        // "width": mw + "px",
-                        "height": mh + "px",
-                    });
-                    $element.find('.morepic').css({
-                        "width":  vw-4+ "px",
-                        "height": mh + "px",
-                        // "height":  vh-4+ "px",
-                    });
-                    if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize((vw - 24), mh);
-                    if ($scope.smiling) {
-                        $element.find('.morepic').css({
-                            "width": vw + 34 + "px",
-                            "height": mh + 220 + "px",
-                        });
-                        $element.find('.bot-wrap').css({
-                            "width": vw + 24 + "px",
-                            "height": vh + 220 + "px",
-                        });
-                        $element.find('.video-player-module-wrap').css({
-                            "width": vw  + "px",
-                            "height": mh + 220 + "px",
-                        });
-                        if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(vw  , mh+220);
-                    } else {
-                        if ($scope.results) {
-                            $element.find('.morepic').css({
-                                "width": vw + 34 + "px",
-                                "height": mh + 220 + "px",
-                            });
-                            $element.find('.bot-wrap').css({
-                                "width": vw + 24 + "px",
-                                "height": vh + 220 + "px",
-                            });
-                            $element.find('.video-player-module-wrap').css({
-                                "width": vw  + "px",
-                                "height": mh + 220 + "px",
-                            });
-                            if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(vw , mh + 220);
-                        }
-                    }
-                } else {
-                    mw = bw * 0.90;
-                    mh = (bw * 9 / 16) * 0.90;
-                    vw = bw;
-                    vh = (mh + 24)*100/90;
-                    $element.find('.moni-video').css({
-                        "width": moniW + "px",
-                        "height": ($element.find(".poin-wrap").height()-$element.find('.botsnap').height()) + "px",
-                    });
-                    if ($(window).width() <= 1366) {
-                        $element.find('.moni-video').css({
-                            "width": moniW + "px",
-                            "height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height() - 110) + "px",
-                        });
-                    }
-                    $element.find('.botsnap').css({
-                        "width": (botW - 3) + "px",
-                    });
-                    $element.find('.bot-wrap').css({
-                        "width": mw + 24 + "px",
-                        "height": mh + 24 + "px",
-                        "margin-left": 10,
-                        //"margin-left": (vw-mw-50)/2,
-                        "display": "inline-block"
-                    });
-                    $element.find('.video-player-module-wrap').css({
-                        "width": mw + "px",
-                        //"height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height()) + "px",
-                        "height": mh + "px",
-                    });
-                    $element.find('.morepic').css({
-                        "width": mw-4 + "px",
-                        "height": mh-4 + "px",
-                    });
-                    if (mh + 244 > $element.find(".poin-wrap").height()) {
-                        $element.find(".poin-wrap").height(mh + 244);
-                        $element.find(".moni-video").height(mh+24);
-                        $element.find(".poin-wrap div.moni-video div.contrast").height(mh + 244);
-                    }
-
-                    if ($scope.smiling) {
-                        $element.find('.morepic').css({
-                            "width": mw +34 + "px",
-                        });
-                        $element.find('.bot-wrap').css({
-                            "width": mw + 24 + "px",
-                        });
-                        $element.find('.video-player-module-wrap').css({
-                            "width":mw  + "px",
-                        });
-                    }else{
-                        if ($scope.results) {
-                            $element.find('.morepic').css({
-                                "width": mw + 34 + "px",
-                            });
-                            $element.find('.bot-wrap').css({
-                                "width": mw + 24 + "px",
-                            });
-                            $element.find('.video-player-module-wrap').css({
-                                "width": mw  + "px",
-                            });
-                        }
-                    }
-                    if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(mw, mh);
-                }
-                $scope.camerh = mh-4;
-                $scope.$broadcast("camerh", $scope.camerh);
-                //if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(mw, mh);
-                if (_flag) $timeout(function() {
-                    // $scope.onChangeLayout();
-                    if ($scope.resize) $scope.resize();
-                }, 0, false);
-            };
+            // var resize = function(_flag) {
+            //     var bw, bh, vw, vh, mw, mh, allwidth, allheight,moniW,botW;
+            //     if (isFullScreen) {
+            //         screenStatus();
+            //         if ($element.find(".video-play-menus").hasClass("video_play")) {
+            //             $scope.isScreen = false;
+            //         }else{
+            //             if ($scope.noai) {
+            //                 $scope.isScreen = false;
+            //             }else{
+            //                 $scope.isScreen = true;
+            //             }
+            //         }
+            //         //$scope.isScreen = true;
+            //         $element.find('.video-player-module-wrap').css({
+            //             "width": "100%",
+            //             "height": "100%",
+            //         });
+            //         if ($scope.videoPlayerManager) $scope.videoPlayerManager.resetSize($element.find(".video-player-module-wrap").width(), $element.find(".video-player-module-wrap").height());
+            //         return;
+            //     }else{
+            //         $scope.isScreen = false;
+            //         $scope.putface = [];
+            //         $scope.downface = [];
+            //         if ($element.find(".video-play-menus").hasClass("video_play")) {
+            //             $scope.results = true;
+            //             $scope.noai = true;
+            //             //$element.find(".pro-video-live a span").text("看直播");
+            //             if ($scope.haveface.length > 0) {
+            //                 $scope.emp = false;
+            //             } else {
+            //                 $scope.emp = true;
+            //             }
+            //         }
+            //     }
+            //     $element.height($("body").outerHeight(true) - $("body>nav").height());
+            //     if ($(window).width()<1300) {
+            //         allwidth = 1300;
+            //     }else{
+            //         allwidth = $(window).width();
+            //     };
+            //     // if ($(window).height() < 750) {
+            //     //   allheight = 750;
+            //     // } else {
+            //     //   allheight = $(window).height();
+            //     // }
+            //
+            //     if (!_flag) $element.find(".poin-wrap").width(allwidth - $(".left-nav").width()-247);
+            //     $element.find(".poin-wrap").height($("body").height()- $("body>nav").height() - 14);
+            //     $element.find(".poin-wrap div.moni-video div.contrast").height($("body").height()- $("body>nav").height() - 14);
+            //     $element.find(".poin-wrap div.moni-video div.contrast div.ident").height($("body").height() - $("body>nav").height() - 14);
+            //     $scope.ulHeight = $("body").height() - $("body>nav").height() - 14;
+            //     moniW = $element.find(".poin-wrap").width()-3;
+            //     botW =  $(".poin-wrap").width() - ($(".contrast").outerWidth(true) | 0);
+            //     bw = $element.find(".poin-wrap").width()-$(".contrast").width()+60;
+            //     if ($(window).width() <= 1750) {
+            //         bw = $element.find(".poin-wrap").width() - $(".contrast").width();
+            //     } else{
+            //         bw = $element.find(".poin-wrap").width() - $(".contrast").width() + 60;
+            //     };
+            //     bh = $element.find(".poin-wrap").height() -($(".video-play-menus").outerHeight(true) | 0);
+            //     if (bw * 9 / 16 > bh) {
+            //         mw = (bh * 16 / 9)*0.9;
+            //         mh = (bh-220) * 0.9;
+            //         vw = bw-160;
+            //         vh = (mh + 24)*100/90;
+            //         $element.find('.moni-video').css({
+            //             "width": moniW + "px",
+            //             "height": ($element.find(".poin-wrap").height()-$element.find('.botsnap').height()) + "px",
+            //         });
+            //         if ($(window).width() <= 1366) {
+            //             $element.find('.moni-video').css({
+            //                 "width": moniW + "px",
+            //                 "height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height()-11) + "px",
+            //             });
+            //         }
+            //         $element.find('.botsnap').css({
+            //             "width": (botW-3) + "px",
+            //         });
+            //         $element.find('.bot-wrap').css({
+            //             "width": vw + "px",
+            //             "height": vh + "px",
+            //             "margin-left":10,
+            //             //"margin-left": (vw-mw-50)/2,//24
+            //             "display": "inline-block"
+            //         });
+            //         $element.find('.video-player-module-wrap').css({
+            //             "width": (vw-24) + "px",
+            //             // "width": mw + "px",
+            //             "height": mh + "px",
+            //         });
+            //         $element.find('.morepic').css({
+            //             "width":  vw-4+ "px",
+            //             "height": mh + "px",
+            //             // "height":  vh-4+ "px",
+            //         });
+            //         if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize((vw - 24), mh);
+            //         if ($scope.smiling) {
+            //             $element.find('.morepic').css({
+            //                 "width": vw + 34 + "px",
+            //                 "height": mh + 220 + "px",
+            //             });
+            //             $element.find('.bot-wrap').css({
+            //                 "width": vw + 24 + "px",
+            //                 "height": vh + 220 + "px",
+            //             });
+            //             $element.find('.video-player-module-wrap').css({
+            //                 "width": vw  + "px",
+            //                 "height": mh + 220 + "px",
+            //             });
+            //             if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(vw  , mh+220);
+            //         } else {
+            //             if ($scope.results) {
+            //                 $element.find('.morepic').css({
+            //                     "width": vw + 34 + "px",
+            //                     "height": mh + 220 + "px",
+            //                 });
+            //                 $element.find('.bot-wrap').css({
+            //                     "width": vw + 24 + "px",
+            //                     "height": vh + 220 + "px",
+            //                 });
+            //                 $element.find('.video-player-module-wrap').css({
+            //                     "width": vw  + "px",
+            //                     "height": mh + 220 + "px",
+            //                 });
+            //                 if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(vw , mh + 220);
+            //             }
+            //         }
+            //     } else {
+            //         mw = bw * 0.90;
+            //         mh = (bw * 9 / 16) * 0.90;
+            //         vw = bw;
+            //         vh = (mh + 24)*100/90;
+            //         $element.find('.moni-video').css({
+            //             "width": moniW + "px",
+            //             "height": ($element.find(".poin-wrap").height()-$element.find('.botsnap').height()) + "px",
+            //         });
+            //         if ($(window).width() <= 1366) {
+            //             $element.find('.moni-video').css({
+            //                 "width": moniW + "px",
+            //                 "height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height() - 110) + "px",
+            //             });
+            //         }
+            //         $element.find('.botsnap').css({
+            //             "width": (botW - 3) + "px",
+            //         });
+            //         $element.find('.bot-wrap').css({
+            //             "width": mw + 24 + "px",
+            //             "height": mh + 24 + "px",
+            //             "margin-left": 10,
+            //             //"margin-left": (vw-mw-50)/2,
+            //             "display": "inline-block"
+            //         });
+            //         $element.find('.video-player-module-wrap').css({
+            //             "width": mw + "px",
+            //             //"height": ($element.find(".poin-wrap").height() - $element.find('.botsnap').height()) + "px",
+            //             "height": mh + "px",
+            //         });
+            //         $element.find('.morepic').css({
+            //             "width": mw-4 + "px",
+            //             "height": mh-4 + "px",
+            //         });
+            //         if (mh + 244 > $element.find(".poin-wrap").height()) {
+            //             $element.find(".poin-wrap").height(mh + 244);
+            //             $element.find(".moni-video").height(mh+24);
+            //             $element.find(".poin-wrap div.moni-video div.contrast").height(mh + 244);
+            //         }
+            //
+            //         if ($scope.smiling) {
+            //             $element.find('.morepic').css({
+            //                 "width": mw +34 + "px",
+            //             });
+            //             $element.find('.bot-wrap').css({
+            //                 "width": mw + 24 + "px",
+            //             });
+            //             $element.find('.video-player-module-wrap').css({
+            //                 "width":mw  + "px",
+            //             });
+            //         }else{
+            //             if ($scope.results) {
+            //                 $element.find('.morepic').css({
+            //                     "width": mw + 34 + "px",
+            //                 });
+            //                 $element.find('.bot-wrap').css({
+            //                     "width": mw + 24 + "px",
+            //                 });
+            //                 $element.find('.video-player-module-wrap').css({
+            //                     "width": mw  + "px",
+            //                 });
+            //             }
+            //         }
+            //         if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(mw, mh);
+            //     }
+            //     $scope.camerh = mh-4;
+            //     $scope.$broadcast("camerh", $scope.camerh);
+            //     //if (!$scope.single && $scope.videoPlayerManager) $scope.videoPlayerManager.resetSize(mw, mh);
+            //     if (_flag) $timeout(function() {
+            //         // $scope.onChangeLayout();
+            //         if ($scope.resize) $scope.resize();
+            //     }, 0, false);
+            // };
             $scope.$on("sizechange", function(event, data) {
                 $scope.sizechange = data;
                 resize();
