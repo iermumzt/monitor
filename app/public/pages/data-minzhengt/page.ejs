@@ -1,6 +1,6 @@
 
     
-<div class='container-fluid main f' ng-controller='DataStatisticsController'>
+<div class='container-fluid main f' ng-controller='DataMinzhengtController'>
   <!--<div statistics-left-nav current-menu = "currentMenu"></div>-->
   <div class="right-nav">
     <div class="overview">
@@ -24,13 +24,15 @@
         </div>
         <a class = "query" ng-click = query()>查询</a>
       </div>
-      <div class="record">
+      <div class="record" ng-controller='MonitorController'>
+
         <%# 视频播放器 #%>
         <div class="poin-wrap">
           <div class="moni-video">
             <div class="bot-wrap" ng-mouseenter="showOver = true" ng-mouseleave="showOver = false">
               <div class='video-player-module-wrap ng-show' ng-hide="single"></div>
               <div class='morepic ng-hide' ng-show="single" on-finish-render-filters ng-controller='MultiViewController'>
+              <!--<div class='morepic ng-hide' ng-show="single" on-finish-render-filters >-->
                 <div class="multi">
                   <div class='top-menus' ng-show="single">
                     <div class="poinMenus" ng-hide="setMulti">
@@ -65,8 +67,8 @@
                     <div class="screenShow" ng-hide='showMultiView' ng-class="{'c':!setMulti}">
                       <a class="cancelMobileFull ng-hide" ng-show="mobileFull" ng-click='cancelMobileFull()'>退出全屏</a>
                       <div camera-multi-view class="cameraList" on-change-layout="onChangeLayout" set-multi='setMulti' cameras-list="camerasList"
-                        ng-class="{noborder: !setMulti,ff: mobileFull}" current-playing-videos="currentPlayingVideos" is-init="isInit" wheel-time="wheelTime"
-                        is-fullscreen="isFullscreen" multi-type='multiType' edit-type='editType' resize="resize" okpush="okpush" playing-camera="playingCamera"></div>
+                           ng-class="{noborder: !setMulti,ff: mobileFull}" current-playing-videos="currentPlayingVideos" is-init="isInit" wheel-time="wheelTime"
+                           is-fullscreen="isFullscreen" multi-type='multiType' edit-type='editType' resize="resize" okpush="okpush" playing-camera="playingCamera"></div>
                     </div>
                     <div class="screenRatio ng-hide" ng-show="setMulti">
                       <div class="scrTitle">
@@ -128,7 +130,7 @@
                           </ul>
                         </div>
                       </div> -->
-                      
+
                     </div>
                     <div class="f">
                     </div>
@@ -145,8 +147,6 @@
           </div>
         </div>
         <%# 视频播放器 #%>
-
-
 
 
 
