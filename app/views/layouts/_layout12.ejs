@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
+  <head>
+    <% include head_meta %>
+    <%- include(page_config.component_path + "s-bootstrap-css/component") %>
+    <% include head_link %>
+    <%- include(page_config.component_path + "s-baidu-tongji/component-init") %>
+    <% include head_super_script %>
+  </head>
+  <body class = '<%=page_config.bodyClass + " " + page_config.language%>'>
+    <%-body %>
+  </body>
+</html>

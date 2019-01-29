@@ -1,0 +1,136 @@
+<!-- 底部  15910967037 -->
+<a class='m-to-top' onclick='document.body.scrollTop=0;'><i class = 'mpic-p1'></i><span></span></a>
+<a class='m-download' href="/public/app.html" target="_blank"><i class = 'mpic-p2'></i><span></span></a>
+<div class='footer'>
+  <div class='f'>
+    <div class='f1'>
+      <a class='weibo' href="http://weibo.com/p/1006065333721822/home?from=page_100606&amp;mod=TAB#place" target='_blank'><i class = 'homepic-p1'></i><i class = 'mpic-p1'></i><span><%=page_config.translater.get("新浪微博", page_config.language); %></span></a>
+      <a class='weixin' onclick="mweixin()"><i class = 'homepic-p1'></i><i class = 'mpic-p1'></i><span><%=page_config.translater.get("官方微信", page_config.language); %></span><img class="miermuwx" data-defer="/public/images/weixin.jpg"></a>
+      <a class='app' href="/public/app.html"><i class = 'mpic-p1'><i class = 'homepic-p1'></i></i><span><%=page_config.translater.get("APP下载", page_config.language); %></span></a>
+      <img data-defer="/public/images/weixin.jpg">
+    </div>
+    <div class='f2'>
+      <h3><%=page_config.translater.get("QQ群", page_config.language); %></h3>
+      <a>132201149</a>
+      <a>222063498</a>
+      <a>307558437</a>
+    </div>
+    <div class='f3'>
+      <h3><%=page_config.translater.get("客服电话", page_config.language); %></h3>
+      <a>400-898-8800</a>
+      <a>
+        <%=page_config.translater.get("周一到周日", page_config.language); %><span>9:00-12:00,</span><span class='sj'>13:00-18:00</span></a>
+    </div>
+    <div class='f4'>
+      <% if(page_config.language === "zh-cn" || page_config.language === "en") {%>
+        <h3 class='bc'><%=page_config.translater.get("商务合作", page_config.language); %></h3>
+        <a  href="tel:18611660114">18611660114</a>
+        <a class="hide" href="mailto:madong@iermu.com">
+          <%=page_config.translater.get("马先生", page_config.language); %>  <%=page_config.translater.get("邮箱", page_config.language); %>: madong@iermu.com</a>
+        <a class="wx hide"><span>
+          <%=page_config.translater.get("微信号", page_config.language); %>: kevin0404</span><img class="showMaCode1" onclick = "mbig()" data-defer="/public/images/ma-code.jpg" src="/public/images/ma-code.jpg"></a>
+        <% } %>
+    </div>
+    <div class='f5'>
+      <h3><%=page_config.translater.get("购买链接", page_config.language); %></h3>
+      <a target="_blank" href="https://aiermu.tmall.com/"><i class = 'pic-p1'></i><span><%=page_config.translater.get("天猫", page_config.language); %></span></a>
+      <a target="_blank" href="http://mall.jd.com/index-1000008608.html"><i class = 'pic-p1'></i><span><%=page_config.translater.get("京东", page_config.language); %></span></a>
+      <!-- <a target="_blank" href="http://shop.dangdang.com/17391 " class="dangdang"><i class = 'pic-p1'></i><span><%=page_config.translater.get("当当", page_config.language); %></span></a> -->
+      <a target="_blank" class="yhd" href="http://product.suning.com/0000000000/162033524.html"><i class = 'pic-p1'></i><span><%=page_config.translater.get("苏宁易购", page_config.language); %></span></a>
+      <a target="_blank" class="bd0 hide" href="http://x.baidu.com/"><i class = 'pic-p1'></i><span><%=page_config.translater.get("百度0元购", page_config.language); %></span></a>
+    </div>
+  </div>
+  <% if(page_config.language === "zh-cn" || page_config.language === "en") {%>
+    <p class='di bc kf c '>
+      <a href="tel:400-898-8800">
+        <%=page_config.translater.get("商务合作", page_config.language); %>:
+        <a class="hide" href="mailto:madong@iermu.com"><%=page_config.translater.get("马先生", page_config.language); %>  <%=page_config.translater.get("邮箱", page_config.language); %>: madong@iermu.com</a>
+          <a  href="tel:18611660114">18611660114</a>
+
+    </p>
+    <p class='di bc kf m hide'>
+      <a href="mailto:madong@iermu.com">
+        <%=page_config.translater.get("邮箱", page_config.language); %>: madong@iermu.com</a>
+    </p>
+    <p class='di bc kf m hide' >
+      <a class="mwx">
+        <%=page_config.translater.get("微信号", page_config.language); %>: kevin0404<img class="showMaCode" onclick="aaa()" data-defer="/public/images/ma-code.jpg" src="/public/images/ma-code.jpg"></a>
+    </p>
+    <p class='di bc kf w'>
+      <a class="kk" href="tel:400-898-8800">
+      <%=page_config.translater.get("客服电话", page_config.language); %>:400-898-8800</a>
+      <a class="kk c"> <%=page_config.translater.get("周一到周日", page_config.language); %><span>9:00-12:00,</span><span class='sj'>13:00-18:00</span></a>
+    </p>
+    <!-- href="http://weixin.qq.com/r/3-t_ZmnEnTTirS0F967N"-->
+    <% } %>
+      <p class='di co'><span>&copy;<%=page_config.translater.get("北京爱耳目科技有限公司", page_config.language); %></span><span><%=page_config.translater.get("京ICP备13039528号-1", page_config.language); %></span><span class="line">|</span>
+        <a class="private" href="/private">
+          <%=page_config.translater.get("服务协议/隐私保护", page_config.language); %>
+        </a>
+      </p>
+      <p class='di addr'><span><%=page_config.translater.get("北京市朝阳区融科望京中心B座16层", page_config.language); %></span></p>
+</div>
+<div class='hidden'>
+  <a class='weibo'>
+    <wb:bulkfollow uids="5333721822" type="1" width="150" count="1" color="C2D9F2,FFFFFF,0082CB,666666" info="n"></wb:bulkfollow>
+  </a>
+</div>
+<script type="text/javascript">
+function hasClass(obj, cls) {
+  return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+}
+
+function addClass(obj, cls) {
+  if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+}
+
+function removeClass(obj, cls) {
+  if (hasClass(obj, cls)) {
+    var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+    obj.className = obj.className.replace(reg, ' ');
+  }
+}
+
+function toggleClass(obj, cls) {
+  if (hasClass(obj, cls)) {
+    removeClass(obj, cls);
+  } else {
+    addClass(obj, cls);
+  }
+}
+var showMa = document.getElementsByClassName("showMaCode")[0];
+var showMa1 = document.getElementsByClassName("showMaCode1")[0];
+var miwx = document.getElementsByClassName("miermuwx")[0];
+var aaa = function() {
+  toggleClass(showMa, "big");
+  removeClass(miwx, "s");
+}
+var mbig = function() {
+  toggleClass(showMa1, "big");
+  removeClass(miwx, "s");
+}
+
+var mweixin = function() {
+  toggleClass(miwx, "s");
+  removeClass(showMa1, "big");
+  removeClass(showMa, "big");
+}
+
+window.addEventListener('scroll', winScroll);
+
+function winScroll(e) {
+  // alert(1);
+  var obj = document.getElementsByClassName("showMaCode")[0];
+  var obj1 = document.getElementsByClassName("showMaCode1")[0];
+  var weixin = document.getElementsByClassName("miermuwx")[0];
+  if (hasClass(obj, "big")) {
+    removeClass(obj, "big");
+  }
+  if (hasClass(obj1, "big")) {
+    removeClass(obj1, "big");
+  }
+  if (hasClass(weixin, "s")) {
+    removeClass(weixin, "s");
+  }
+}
+</script>

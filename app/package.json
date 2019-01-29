@@ -1,0 +1,37 @@
+{
+  "name": "iermu",
+  "version": "2.0.0",
+  "description": "iermu website node server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "iermu",
+    "node",
+    "express",
+    "ejs"
+  ],
+  "author": "zhouweiming",
+  "license": "ISC",
+  "dependencies": {
+    "angular-websocket": "^2.0.1",
+    "charenc": "0.0.1",
+    "cookie-parser": "~1.4.0",
+    "crypt": "0.0.1",
+    "dateformat": "^1.0.12",
+    "ejs": "~2.3.3",
+    "express": "^4.16.4",
+    "express-partials": "~0.3.0",
+    "is-buffer": "^1.1.0",
+    "multiparty": "^4.1.2",
+    "request": "^2.88.0",
+    "underscore": "~1.8.3",
+    "utils-extend": "^1.0.8"
+  },
+  "devDependencies": {
+    "async": "^2.0.0-rc.4",
+    "body-parser": "^1.15.1",
+    "node-html-encoder": "0.0.2"
+  }
+}

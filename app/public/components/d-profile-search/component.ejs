@@ -1,0 +1,22 @@
+<div class="m-header-search" ng-mouseleave="LostFocus()">
+  <div class="header-search-box">
+    <div class="header-searchInput" ng-class="{'cs':focused}">
+      <form action="javascript:;">
+        <input type="search" placeholder="<%=page_config.translater.get('请输入关键字', page_config.language); %>" class="search-input" id="search-input" ng-model="kws" ng-focus="getFocus()"   ng-keydown="onInputFn($event)"  auto-focus ng-class="{'o':focused}" autofocus>
+        <i class="mpic-profile-search"></i>
+        <i class="mpic-clear" ng-show="kws&&focused" ng-click="clearText()"></i>
+      </form>
+    </div>
+    <div class="header-searchBtn">
+      <a href="/search" class="c-btn btn-search ng-hide"><%=page_config.translater.get("搜索", page_config.language); %></a>
+      <a href="javascript:;" class="c-btn btn-cancle" ng-click="cancelSearch()"><%=page_config.translater.get("取消", page_config.language); %></a>
+    </div>
+  </div>
+  <div class="header-search-suggest" ng-hide='!focused'>
+    <ul class="list-suggest">
+      <li  ng-repeat="item in videoList | filter:myFilter | limitTo:5 ">
+        <a ng-href="{{::item.playUrl}}" target='_blank'  ng-bind="item.description"></a>
+      </li>
+    </ul>
+  </div>
+</div>

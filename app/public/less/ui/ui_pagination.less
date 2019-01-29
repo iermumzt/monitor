@@ -1,0 +1,120 @@
+.zbase-ui.pagination {
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+  &>p {
+    display: none;
+  }
+  .pager {
+    margin: 0;
+    background-color: white;
+    display: inline-block;
+    li {
+      border: 0;
+      float: left;
+      display: block;
+      height: 40px;
+      text-align: center;
+      a {
+        .x-font-size(14px);
+        cursor: pointer;
+        border: 0;
+        padding: 0;
+        color: #1db1ea;
+        .x-border-radius(2px);
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+        &:hover {
+          background-color: #1db1ea;
+          color: white;
+        }
+      }
+      &.prev,
+      &.next {
+        text-align: center;
+        margin: 0 20px;
+        &.disabled {
+          a {
+            border: 1px solid #e3e3e0;
+            color: #e3e3e0;
+            &:hover {
+              color: #e3e3e0;
+              background-color: #fff;
+            }
+          }
+        }
+        a {
+          padding: 3px 5px;
+          margin-top: 7px;
+          border: 1px solid #1db1ea;
+          color: #1db1ea;
+          float: none;
+          &:hover {
+            color: white;
+          }
+        }
+      }
+      &.prevs,
+      &.nexts {
+        a {
+          color: #666;
+        }
+      }
+      &.n {
+        margin: 0 5px;
+        width: auto;
+        a {
+          padding: 1px 4px;
+        }
+        &.selected {
+          a {
+            background-color: #1db1ea;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  &.pagination-2 {
+    .pager {
+      float: right;
+    }
+  }
+  &.pagination-3 {
+    &>p {
+      display: block;
+      float: left;
+      color: #4f4f4f;
+      .x-font-size(14px);
+      padding: 12px 0;
+      span {
+        color: #4f4f4f;
+        .x-font-size(14px);
+      }
+    }
+    .pager {
+      float: right;
+      li.prev,
+      li.next {
+        margin: 0 5px;
+      }
+    }
+  }
+  &.pagination-4 {
+    &>p {
+      display: block;
+      float: left;
+      color: #4f4f4f;
+      .x-font-size(14px);
+      padding: 12px 0;
+      span {
+        color: #4f4f4f;
+        .x-font-size(14px);
+      }
+    }
+    .pager {
+      display: none;
+    }
+  }
+}

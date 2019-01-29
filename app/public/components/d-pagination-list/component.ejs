@@ -1,0 +1,7 @@
+<div class="zbase-ui zbase-ui-pagination">
+  <div class="more-btn" ng-click="showMorePages()" ng-class="{show: (pageType == 2 && hidePage != 2),nomore: currentPageIndex >= pageCount, mload : mLoading}">
+    <span class="more" ng-bind-html='((currentPageIndex >= pageCount && !mLoading) ? "<%=page_config.translater.get("没有更多了", page_config.language); %>" : "<%=page_config.translater.get("查看更多", page_config.language); %>")'></span>
+    <i class="mpic-jiazai"></i>
+  </div>
+  <div class='pagination-wrap' ng-class = "{show: (pageType == 1 && hidePage != 1)}"></div>
+</div>

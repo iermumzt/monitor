@@ -1,0 +1,582 @@
+div.video-player-wrap{
+  &.has-error{
+    &>div.video-ops-wrap{
+      &>.size-controller{
+        display: none;
+      }
+      &>.video-player{
+        background-color: #000;
+        p.error{
+          .x-font-size(14px);
+          width: 100%;
+          text-align: center;
+          color: white;
+          .x-layout-vertical-middle(10px);
+        }
+      }
+      /*&>.bottom-controller{
+        display: none;
+      }*/
+    }
+  }
+  &.on-show-edit-menus{
+    &>div.video-ops-wrap{
+      &>.bottom-controller{
+        &>div.bc-menu{
+          &.share, &.yuntai, &.config{
+            display: block;
+          }
+        }
+      }
+    }
+    &.on-has-yuntai{
+      &>div.video-ops-wrap{
+        &>.bottom-controller{
+          &>div.bc-menu{
+            &.yuntai{
+              display: block !important;
+              &>.e-cloud-config{
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.on-show-yuntai-menu{
+      div.video-ops-wrap{
+        &>.cl-no{
+          display: none;
+        }
+        &>.bottom-controller{
+          &>.yuntai{
+            &>.cloud-op{
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    &.on-show-yuntai-menu-nomanua{
+      div.video-ops-wrap{
+        &>.bottom-controller{
+          &>.yuntai{
+            &>.cloud-op{
+              height: 80px;
+              top: -86px;
+              ul{
+                li.manua{
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &.on-show-yuntai-buy{
+      div.video-ops-wrap{
+        &>.cl-no{
+          display: block;
+        }
+        &>.bottom-controller{
+          &>.yuntai{
+            &>.cloud-op{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &.on-yuntai-man{
+      div.video-ops-wrap{
+        &>.cl-notice{
+          display: block;
+          opacity:1;
+          width: 204px;
+          margin-left: -96px
+        }
+        &>.cl-notice-limit{
+          width: 258px;
+          margin-left: -129px;
+        }
+        &>.video-player{
+          object{
+            position: absolute;
+            // z-index: -1;
+            pointer-events: none;
+          }
+        }
+        &>.bottom-controller{
+          &>div.bc-menu{
+            &.yuntai{
+              a{
+                cursor: inherit;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.on-yuntai-auto{
+      div.video-ops-wrap{
+        &>.cl-notice{
+          display: block;
+          width: 265px;
+          opacity:1;
+        }
+      }
+    }
+    &.on-yuntai-close{
+    }
+    &.on-granted{
+      &>div.video-ops-wrap{
+        &>.bottom-controller{
+          &>div.bc-menu{
+            &.config, &.share{
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.on-has-history{
+    &>.video-exts{
+      display: block;
+    }
+    &.on-show-history-menus{
+      &>.video-exts{
+        div.time-list-wrap{
+          div.time-list-menu-wrap{
+            display: block;
+          }
+          @media screen and (max-width: 1000px){
+            div.time-list-menu-wrap{
+              display: none;
+            }
+            a.mtime-list-menu-wrap{
+              display: inline-block;
+            }
+          }
+        }
+        div.timeline{
+          display: block;
+          ul{
+            display: block;
+          }
+        }
+        div.days{
+          display: block;
+        }
+      }
+      div.video-ops-wrap{
+        div.yuntaiops{
+          display: none !important;
+        }
+      }
+      &.on-show-edit-menus{
+        &>div.video-ops-wrap{
+          &>.bottom-controller{
+            &>div.bc-menu{
+              &.jianji{
+                display: block;
+              }
+              &.yuntai{
+                display: none !important;
+              }
+            }
+          }
+        }
+        &.on-jianji{
+          &>div.video-exts{
+            div.timeline{
+              div.jianji-op{
+                display: block;
+              }
+            }
+          }
+        }
+      }
+      &.on-history-date{
+        &>.video-exts{
+          div.timeline{
+            ul{
+              &.time-steps{
+                li{
+                  &.h{
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.on-history-time{
+        &>.video-exts{
+          div.timeline{
+            div.l-wrap{
+              div.scroll-wrap{
+                div.timeline-main{
+                  div.timetags{
+                    span{
+                      &:first-child{
+                        padding-left: 20px;
+                      }
+                      &:last-child{
+                        padding-right: 20px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.on-show-history-hourlist{
+        &>.video-exts{
+          div.hour-list{
+            display: block;
+          }
+          div.timeline, div.days{
+            display: none;
+          }
+        }
+      }
+    }
+    &.on-history-playing{
+      &>div.video-ops-wrap{
+        &>.bottom-controller{
+          &>div.bc-menu{
+            &.pause{
+              display: block;
+            }
+            &.yuntai{
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.on-mouse-moving{
+    &>div.video-ops-wrap{
+      &>.size-controller{
+        .x-opacity(1);
+        .x-transition(opacity .5s);
+      }
+    }
+  }
+
+  &.on-full-screen{
+    &>div.video-ops-wrap{
+      &>div.video-player{
+        object{
+          z-index: 5;
+        }
+      }
+      &>.bottom-controller{
+        position: fixed;
+        bottom: 0;
+        .x-opacity(0);
+        z-index:999;
+        .x-transition(opacity 1s);
+        &:hover{
+          .x-opacity(1);
+        }
+        &>div.bc-menu{
+          &>a{
+            &.e-fullscreen{
+              i{
+                .x-pic-resetscreen_white;
+              }
+            }
+          }
+          &.config, &.share, &.jianji, &.yuntai{
+            display: none !important;
+          }
+        }
+      }
+    }
+    &.on-mouse-moving{
+      div.video-ops-wrap{
+        &>.bottom-controller{
+          .x-opacity(1);
+        }
+      }
+    }
+    &.on-menus-float{
+      .opacity-bg{
+        display: block;
+      }
+      &>div.video-ops-wrap{
+        &>.bottom-controller{
+          // background-color: transparent;
+          &>div.bc-menu{
+            &>a{
+              &.e-fullscreen{
+                i{
+                  .x-pic-23_fullscreen_white;
+                }
+              }
+            }
+          }
+        }
+      }
+      &>div.video-exts{
+        background-color: transparent;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 170px;
+        padding-bottom: 0;
+        display: none;
+        z-index: 999;
+        div.time-list-wrap{
+          div.play-type-menus{
+            display: none;
+          }
+        }
+        div.timeline{
+          div.l-wrap{
+            &>a{
+              display: none;
+            }
+            div.scroll-wrap{
+              div.timeline-main{
+                div.timetags{
+                  span{
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+        div.days{
+          max-width: inherit;
+          height:171px;
+          margin: 0;
+          div.btn-group{
+            display: block;
+            button{
+              padding: 67px 15px;
+              &.more{
+                display: none;
+                vertical-align: top;
+                padding: 84px 15px;
+              }
+            }
+          }
+        }
+        div.hour-list{
+          ul{
+            li{
+              line-height: 1.8;
+              padding: 10px 0;
+              a{
+                color: white;
+              }
+            }
+          }
+        }
+      }
+      &.on-has-history{
+        &>div.video-ops-wrap{
+          &>.bottom-controller{
+            &>div.bc-menu{
+              &.btn-history, &.splay-zhibo{
+                display: block;
+              }
+            }
+          }
+        }
+        &.on-history-playing{
+          &>div.video-ops-wrap{
+            &>.bottom-controller{
+              &>div.bc-menu{
+                &.splay-zhibo{
+                  button{
+                    background-color: transparent;
+                    span{
+                      color: #1db1ea;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+        }
+        &.on-show-history-menus{
+          div.video-exts{
+            display: block;
+            div.time-list-wrap{
+              display: none;
+            }
+            div.timeline{
+              display: none;
+            }
+            div.days{
+              display: none;
+            }
+          }
+
+          &.on-history-date{
+            div.video-exts{
+              div.days{
+                display: block;
+              }
+            }
+          }
+          &.on-history-time{
+            div.video-exts{
+              div.time-list-wrap{
+                display: block;
+              }
+              div.timeline{
+                display: block;
+              }
+              div.days{
+                display: none;
+              }
+            }
+          }
+          &.on-menus-float-show-timeline{
+            div.video-exts{
+              div.time-list-wrap{
+                display: block;
+              }
+              div.timeline{
+                display: block;
+              }
+              div.days{
+                display: none;
+              }
+            }
+
+          }
+          &.on-show-history-hourlist{
+            div.video-exts{
+              div.timeline{
+                display: none;
+              }
+            }
+          }
+          div.video-ops-wrap{
+            &>.bottom-controller{
+              bottom:170px;
+              .x-opacity(1);
+            }
+          }
+        }
+  
+      }
+      &.on-menus-float-full-screen{
+        &>div.video-ops-wrap{
+          &>.bottom-controller{
+            background-color: transparent;
+            &>div.bc-menu{
+              &>a{
+                &.e-fullscreen{
+                  i{
+                    .x-pic-resetscreen_white;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+  &.on-show-fyuntai{
+     &>div.video-ops-wrap{
+      &>.video-player{
+        object{
+          position: absolute;
+          pointer-events: none;
+        }
+      }
+      div.yuntaiops{
+        display: block !important;
+      }
+     }
+  }
+
+
+  &.on-hidden-all-menus{
+    div.bottom-controller{
+      display: none !important;
+    }
+    div.size-controller{
+      display: none !important;
+    }
+    div.video-exts{
+      display: none !important;
+    }
+  }
+  &.on-mobile{
+    div.video-ops-wrap{
+      div.video-player{
+        &>div{
+          background-color: #000;
+          position: relative;
+          div.d1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            //.x-bg("play-logo.png", no-repeat center center);
+            z-index: 11;
+            height: 100%;
+            width: 100%;
+          }
+          div.d2{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100%;
+            width: 100%;
+          }
+        }
+        video{
+          width: 100%;
+        }
+      }
+    }
+  }
+  &.show-download{
+    div.video-op{
+      div.timeline{
+        div.jianji-op{
+          div.ops{
+            button{
+              width: 33%;
+              padding: 2px 5px;
+              &.download-jianji{
+                display: inline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.on-pause-play{
+    div.video-ops-wrap{
+      div.bottom-controller{
+        div.bc-menu{
+          a.e-pause{
+            i{
+              .x-pic-play;
+            }
+          }
+        }
+      }
+    }
+  }
+}

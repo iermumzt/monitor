@@ -1,0 +1,27 @@
+{
+  "count": 1,
+  "list": [{
+    "paycardid": "1",
+    "paycardno": "abcdefg",
+    "typeid": "1",
+    "paycardtype": "0",
+    "uid": "100004",
+    "createtime": "1460304000",
+    "bindtime": "1460466293",
+    "usetime": "1460466293",
+    "orderid": "6",
+    "ordersn": "2341424126",
+    "status": "2",
+    "type": {
+      "typeid": "1",
+      "paycardtype": "0",
+      "ordertype": "0",
+      "itemid": "1",
+      "name": "7天百度云录制月付",
+      "money": "30.00",
+      "starttime": "1460390400",
+      "expiretime": "1460476800"
+    }
+  }],
+  "request_id": "1460626513633"
+}

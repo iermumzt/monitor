@@ -1,0 +1,153 @@
+div.snap{
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  div.nav{
+    width: 100%;
+    padding: 6px 0 15px 0;
+    background: transparent;
+    opacity: 0.8;
+    margin-top:10px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    span.idpic1{
+      float: left;
+      width: 23px;
+      height:15px;
+      display: inline-block;
+      .x-bg("pro/professional_monitor_capture.png",no-repeat,center center);
+      background-size:90% 90%;
+      margin-left:15px;
+      margin-top:4px;
+    }
+    h3{
+      color:#fff;
+      float: left;
+      line-height:21px;
+      margin-left:10px;
+    }
+    i.toright{
+      float: right;
+      display: inline-block;
+      width: 23px;
+      height:23px;
+      .x-bg("pro/professional_monitor_retract.png",no-repeat,center center);
+      background-size:100% 100%;
+      margin-right:20px;
+      cursor: pointer;
+    }
+  }
+  div.nocon{
+    color:#838486;
+    text-align: center;
+    margin-top:60px;
+  }
+  ul.collection{
+    margin-left:15px;
+    height: 120px;
+    margin-top: 30px;
+    overflow-x: auto;
+    overflow-y:hidden;
+    white-space: nowrap;
+    width: 96%;
+    &::-webkit-scrollbar {
+      height:4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #707890;
+    }
+    &::-webkit-scrollbar-thumb {
+      background:#7e859d;
+      .x-box-shadow-base(0,0,4px,#7e859d,inset);
+      .x-border-radius(4px);
+    }
+    li{
+      display: inline-table;
+      margin-right: 15px;
+      overflow: hidden;
+
+      div.lpic{
+        float: left;
+        width: 80px;
+        height:80px;
+        .x-border-radius(50%);
+        .x-bg("defaultphoto.jpg", no-repeat, center center);
+        background-size: cover;
+        div.imgurl{
+          .x-border-radius(50%);
+          width: 80px;
+          height:80px;
+          background-size: cover;
+          position: relative;
+          i{
+            width: 22px;
+            height:22px;
+            display: inline-block;
+            background-size: 100% 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            &.noMark{
+              .x-bg("gismap/monitor_snap_stranger.png", no-repeat, center center);
+            }
+            &.nameMark{
+              .x-bg("gismap/monitor_snap_know.png", no-repeat, center center);
+            }
+            &.idMark{
+              .x-bg("gismap/monitor_snap_ID.png", no-repeat, center center);
+            }
+          }
+        }
+      }
+      div.rtxt{
+        float: left;
+        width: 108px;
+        margin: 21px 0 0 10px;
+        h3{
+          margin-bottom: 3px;
+          &.strange {
+            color:#ee624e;
+          }
+          &.name {
+            color: #fff;
+          }
+          &.id {
+            color: #f19848;
+          }
+        }
+        p{
+          color:#afb0b2;
+          .x-font-size(14px);
+          // &.p1{
+          //   margin-top: 6px;
+          // }
+          &.p3{
+            .x-font-size(12px);
+            span {
+              .x-font-size(12px);
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1300px){
+    div.nav{
+      padding:6px 0;
+    }
+    ul.collection{
+      height:90px;
+      margin-top:20px;
+      li{
+        div.lpic{
+          width: 70px;
+          height:70px;
+          div.imgurl{
+            width: 70px;
+            height:70px;
+          }
+        }
+      }
+    }
+  }
+}

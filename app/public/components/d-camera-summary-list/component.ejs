@@ -1,0 +1,4 @@
+<div class = 'camera-summary-list'>
+  <div camera-summary item = 'item' de-list = 'lyList'  class = 'item thumbnail pull-left {{::item._clz}}' ng-click = 'onSelectedItem(item, $index, $event)' ng-class = "{selected: checkSelected(item, $index),hidden: (hiddenFourItem && $index == 3)}" get-curr-id='getCurrId' get-selected-ids='getSelectedIds' hide-mask='configSta' show-cks='showCks'  ng-repeat = 'item in videoList'>
+  </div>
+</div>

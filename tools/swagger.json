@@ -1,0 +1,64 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "iermu api / doc",
+        "version": "1.0"
+    },
+    "host": "www.iermu.com",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/view_share": {
+            "get": {
+                "tags": [
+                    "Web url api"
+                ],
+                "summary": "分享/播放链接",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "shareid",
+                        "description": "摄像机的shareid",
+                        "required": true,
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "uk",
+                        "description": "摄像机的所有者的用户id",
+                        "required": true,
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "uname",
+                        "description": "摄像机的所有者的用户名称",
+                        "required": false,
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "uportrait",
+                        "description": "摄像机的所有者的用户头像（目前为百度云用户，这里只需要传百度云头像后面的随机字符串）",
+                        "required": false,
+                        "type": "string",
+                        "default": ""
+                    }
+                ]
+            }
+        },
+        "/fenxiangxieyi.html": {
+            "get": {
+                "tags": [
+                    "Web URL api"
+                ],
+                "summary": "分享协议链接"
+            }
+        }
+    }
+}

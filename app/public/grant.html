@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- 为移动设备添加 viewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=no">
+  <metaname="screen-orientation" content="portrait">
+    <metaname="x5-orientation" content="portrait">
+      <!-- iOS 设备适配代码Star-->
+      <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <!-- 设置苹果工具栏颜色 -->
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+      <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+      <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+      <meta name="format-detection" content="telephone=no">
+      <title></title>
+      <style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      .wrap {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .explorerTip {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 99999;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      
+      .explorerTip img {
+        width: 90%;
+        display: block;
+        margin: 6% auto;
+      }
+      
+      .main {
+        -webkit-box-flex: 7.5;
+        -webkit-flex: 7.5;
+        -ms-flex: 7.5;
+        flex: 7.5;
+        width: 100%;
+        background-color: #01adf0;
+        position: relative;
+      }
+      
+      .main img.bo {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        /*order:3;*/
+      }
+      
+      .main img.to {
+        width: 50%;
+        position: absolute;
+        top: 7%;
+        left: 25%;
+        /*order:1;*/
+      }
+      
+      .main .grant-code {
+        margin: 0 auto;
+        display: block;
+        position: absolute;
+        top: 23%;
+        z-index: 3;
+        width: 214px;
+        height: 35%;
+        left: 50%;
+        margin-left: -107px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .grant-code p {
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        flex: 2;
+        display: flex;
+        align-items: center;
+      }
+      
+      .grant-code p.b {
+        margin-bottom: 12px;
+      }
+      
+      .grant-code span.code {
+        display: block;
+        font-size: 20px;
+        color: #333;
+        width: 200px;
+        height: 38px;
+        border-radius: 35px;
+        background-color: #ffed00;
+        letter-spacing: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 3;
+        font-family: "Microsoft Yahei", "Hiragino Sans GB";
+      }
+      
+      .arrow {
+        display: inline-block;
+        width: 11px;
+        height: 12px;
+        background-image: url('/public/images/grant-arrows.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        flex: 1;
+      }
+      
+      .main a[class^="br"] {
+        border: 1px solid #4dcaff;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        margin-left: -40%;
+        z-index: 1;
+        width: 80%;
+        height: 42%;
+        border-radius: 4px;
+      }
+      
+      .main a.br0 {
+        background-color: #4dcaff;
+      }
+      
+      .main a.br1 {
+        top: 21%;
+        margin-left: -39%;
+      }
+      
+      .main a.br2 {
+        top: 22%;
+        margin-left: -38%;
+      }
+      
+      .footer {
+        display: -webkit-box;
+  3     display: -webkit-flex;
+  4     display: -ms-flexbox;
+  5     display: flex;
+        flex-direction: column;
+        align-items: center;
+        -webkit-box-flex: 2.5;
+        -webkit-flex: 2.5;
+        -ms-flex: 2.5;
+        flex: 2.5;
+      }
+      
+      .footer a {
+        flex: 1;
+        border-radius: 5px;
+        font-size: 17px;
+        border: 1px solid #02adee;
+        text-align: center;
+        width: 80%;
+        display: -webkit-box;
+  3     display: -webkit-flex;
+  4     display: -ms-flexbox;
+  5     display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+      
+      .footer a.hint {
+        color: #fff;
+        background-color: #01adf0;
+        margin-top: 8%;
+        margin-bottom: 2%;
+      }
+      
+      .footer a.down {
+        color: #02adee;
+        margin-top: 2%;
+        margin-bottom: 8%;
+      }
+      
+      @media only screen and (max-width: 320px) {
+        .footer a.hint {
+          margin-top: 5%;
+        }
+        .footer a.down {
+          margin-bottom: 5%;
+        }
+      }
+      </style>
+</head>
+<!-- flex布局 [[ -->
+
+<body>
+  <div class="wrap">
+    <div class="explorerTip" onclick='this.style.display="none";'>
+      <img src="/public/images/grant-wx2browser.png" style='width: 80%;' />
+    </div>
+    <div class="main">
+      <img class="to" src="/public/images/grant-desc.png">
+      <img class="bo" src="/public/images/grant-bg.png">
+      <a class="br0"></a>
+      <a class="br1"></a>
+      <a class="br2"></a>
+      <div class="grant-code">
+        <p>打开“爱耳目智能摄像机”App</p>
+        <span class="arrow"></span>
+        <p>添加摄像机</p>
+        <span class="arrow"></span>
+        <p>收到邀请口令</p>
+        <span class="arrow"></span>
+        <p class="b">输入下方邀请口令</p>
+        <span class="code"></span>
+      </div>
+    </div>
+    <div class="footer">
+      <a class="hint">复制邀请口令并接受要求</a>
+      <a href="/public/app.html" class="down">下载爱耳目智能摄像机客户端</a>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/js/lib/ronate.js"></script>
+<script type="text/javascript" src="/public/js/lib/ixutils.js"></script>
+<script type="text/javascript">
+var code, uname, description, link, needWarn = false;
+
+code = IX.getUrlParam("code");
+uname = IX.getUrlParam("uname") || '';
+desc = IX.getUrlParam("desc") || '';
+document.getElementsByClassName("code")[0].innerHTML = code; //.toUpperCase()
+
+if (IX.browser.versions.weixin) {
+  if (IX.browser.versions.android || (!IX.browser.versions.ios9 && IX.browser.versions.ios)) {
+    needWarn = true;
+    $("a.hint")[0].removeAttribute("href");
+  } else {
+    link = "http://www.iermu.com/device/grant?code=" + code + "&desc=" + desc + "&uname=" + uname;
+  }
+} else {
+  link = "iermu://app?mod=device/grant&code=" + code + "&desc=" + desc + "&uname=" + uname;
+}
+if (link) {
+  $("a.hint").attr("href", link);
+}
+$("a.hint").click(function() {
+  if (needWarn) {
+    $("div.explorerTip").show();
+    return false;
+  } else {
+    setTimeout(function() {
+      window.location.href = "/appdownload";
+    }, 3000);
+  }
+});
+</script>
+
+</html>

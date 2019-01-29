@@ -1,0 +1,64 @@
+
+<div class='container-fluid main' ng-controller='MultiViewController'>
+  <div class="left-nav ng-hide" ng-show="setMulti">
+    <div camera-tree-list show-add-mark="showAddMark" enable-rudder='enableRudder' set-multi="setMulti" on-select-categorys="onSelectCategorys" cancel-Select-categorys="cancelSelectCategorys" multi-cids='multiCids' multi-type='multiType' get-cameras-by-cids="getCamerasByCids" videos-list="videosList" categorys-bind-data="categorysBindData"></div>
+  </div>
+  <div class='right-wrap' on-finish-render-filters>
+    <div class="multi">
+      <div class='top-menus'>
+        <ul class='pull-right'>
+          <!-- <li class="pull-left edit ng-show" ng-click="editTypeClick()" ng-hide="setMulti">
+            <a type="button">
+              <i class="pic-edit"></i>编辑
+            </a>
+          </li>
+          <li class='pull-left split' ng-hide="setMulti || setdrag"></li> -->
+          <li class='pull-left ng-show' ng-click='toggleEnableConfig()' ng-hide="setdrag" ng-class='{"checked":setMulti}'><a type='button'><i class="pic-mon-config"></i>设置</a></li>
+          <li class='pull-left split' ng-hide="setMulti || setdrag"></li>
+          <li class='pull-left' ng-click='fullscreen()' ng-hide="setMulti || setdrag"><a class="fullscreen" type='button'><i class="pic-map-fullscreen" ng-hide="isFullscreen"></i><i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i><span class="fs" ng-bind-html='isFullscreen ? "退出全屏" : "全屏"'></span></a></li>
+        </ul>
+      </div>
+      <div class="mutiConfig" ng-class='{m: !setMulti}'>
+        <div class="screenRatio ng-hide" ng-show="setMulti">
+          <ul>
+            <li class="c-screen">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle t" data-toggle="dropdown">
+                  <span class="layout" ng-bind-html="!smultiType ? '请选择' : (smultiType.lid === '1'  ? '单画面' : (smultiType.rows * smultiType.rows)+'画面') "></span><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li ng-repeat = 'layout in multiList | limitTo:5'><a ng-click="setLayout(layout)" ng-bind-html="(layout.lid === '1' ? '单' : layout.rows * layout.rows)+'画面' " ng-class="{eff: currentMultiType.lid === layout.lid}"></a></li>
+                </ul>
+              </div>
+            </li>
+            <li ng-repeat = 'layout in multiList' ng-click="setLayout(layout)" ng-hide="$index<5" ng-class="{checked: multiType.lid === layout.lid,s: currentMultiType.lid === layout.lid}"><a><i ng-class="'pic-multi-sc' + ($index-4)"></i><i class="pic-multi-eff"></i></a></li>
+          </ul>
+        </div>
+        <div class="screenShow" ng-hide='showMultiView' ng-class="{'c':!setMulti}">
+          <a class="cancelMobileFull ng-hide" ng-show="mobileFull" ng-click='cancelMobileFull()'>退出全屏</a>
+          <div camera-multi-view  class="cameraList" on-change-layout="onChangeLayout" set-multi='setMulti' cameras-list="camerasList" ng-class="{noborder: !setMulti,ff: mobileFull}" current-playing-videos="currentPlayingVideos" is-init = "isInit" wheel-time = "wheelTime" is-fullscreen = "isFullscreen" multi-type='multiType' edit-type='editType' resize="resize"></div>
+          <div class="f ng-hide" ng-show="setMulti">
+            <div class="timing">
+              <i class="pic-checkbox" ng-class="{'pic-checked':checked}" ng-click="wheeled()"></i>
+              <span>轮播间隔（秒）：</span>
+              <div class="btn-group dropup time">
+                <button type="button" class="btn btn-default dropdown-toggle s" data-toggle="dropdown">
+                  <span class="time" ng-bind-html="currentTime.desc + '秒'"></span><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu times" role="menu">
+                  <li ng-repeat = 'time in times'><a ng-click="setWheelTime(time)" ng-bind-html="time.desc + '秒'"></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="btns">
+              <button class="ok" ng-click="saveEdit()"><span>保存</span></button>
+              <button class="cancel" ng-click="cancelEdit()"><span>取消</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="f">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "type": "1",
+  "tid": "6",
+  "location_type": "amap",
+  "location_name": "成都银环艺术学校",
+  "location_address": "金泉街道蜀跃路57号",
+  "location_latitude": "30.706190",
+  "location_longitude": "104.006415",
+  "time": "1483515511",
+  "marker": {
+    "bid": "6",
+    "name": "融科望京中心",
+    "intro": "物灵人在此办公",
+    "type": "0",
+    "minfloor": "-2",
+    "maxfloor": "22",
+    "time": "1483515511",
+    "preview": [{
+      "pid": "5",
+      "floor": "3",
+      "image": "map/building_preview1483514854612.jpg",
+      "time": "1483515511",
+      "device": [{
+        "deviceid": "137892434827",
+        "left": "0.320000",
+        "top": "0.640000",
+        "time": "1483515511"
+      }]
+    }, {
+      "pid": "6",
+      "floor": "4",
+      "image": "map/building_preview1483515433587.jpg",
+      "time": "1483515511",
+      "device": [{
+        "deviceid": "137893665643",
+        "left": "0.530000",
+        "top": "0.210000",
+        "time": "1483515511"
+      }]
+    }]
+  },
+  "request_id": "1483515511357"
+}

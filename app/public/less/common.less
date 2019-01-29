@@ -1,0 +1,132 @@
+@screen_small1_width: 1280px;
+@screen_small_width: 1320px;
+@screen_big_width: 1440px;
+
+.glyphicon {
+  font-family: "Glyphicons Halflings"!important;
+}
+
+.font-ltxh-all {
+  &,
+  & * {
+    font-family: @x-ltxh-font-family;
+  }
+  &.en,
+  &.en * {
+    font-family: @x-base-font-family2;
+  }
+}
+
+.font-yahei-all() {
+  &,
+  & * {
+    font-family: @x-base-font-family;
+  }
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.visibility-visible {
+  visibility: visible;
+}
+
+.hl_keywords {
+  color: red;
+  .x-font-size(@x-base-font-size);
+}
+
+body {
+  &.guangchang {
+    * {
+      font-family: "Microsoft Yahei", "Hiragino Sans GB";
+    }
+    padding-left: 60px;
+    min-width: 1100px;
+    .x-clearfix();
+    &.no-slidebar {
+      padding-left: 0;
+    }
+  }
+  &.my-area {
+    * {
+      font-family: "Microsoft Yahei", "Hiragino Sans GB";
+    }
+    min-width: 1100px;
+  }
+  .hl_keywords {
+    color: red !important;
+    .x-font-size(14px) !important;
+  }
+  .container {
+    &.main {
+      margin-top: 65px;
+    }
+  }
+  .container-fluid {
+    &.main {
+      margin-top: 50px;
+      &.s, &.f {
+        width: 980px;
+        min-height: 600px;
+        margin-top: 81px;
+        margin-bottom: 50px;
+        padding: 0;
+      }
+      div.sr {
+        float: left;
+        width: 220px;
+      }
+      div.sl {
+        width: 760px;
+        float: left;
+      }
+      &.f{
+        .x-display-flex();
+      }
+      div.fl{
+        .x-flex-box();
+        width: 220px;
+        padding-right: 40px;
+      }
+      div.fr{
+        .x-flex-box(1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1000px) {
+  body {
+    &.guangchang {
+      padding-left: 0;
+      min-width: 320px;
+    }
+    &.no-top-nav{
+      div.container-fluid.main.s{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @screen_small_width) {
+  div.container-fluid.main{
+    &.s, &.f{
+      width: 1231px;
+    }
+    div.sl {
+      width: 1010px;
+    }
+    div.sr {
+      width: 221px;
+    }
+    
+  }
+}
+@media screen and (min-width: @screen_big_width) {
+  body.guangchang {
+    padding-left: 180px;
+  }
+}

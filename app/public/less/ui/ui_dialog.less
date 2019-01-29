@@ -1,0 +1,130 @@
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+
+.zbase-ui.autodialog {
+  z-index: 9999;
+  overflow: initial;
+  .modal-header {
+    border-bottom: 0;
+    .x-clearfix();
+    padding: 20px 20px 0 20px;
+    button {
+      .x-opacity(1);
+      img.close{
+        width: 25px;
+        height: 25px;
+      }
+      span {
+        .x-font-size(20px);
+        font-weight: normal;
+      }
+      &.close{
+        margin-top: -8px;
+        margin-right: -9px;
+      }
+    }
+    h4 {
+      .x-font-size(20px);
+      color: #11395c;
+      font-weight: bolder;
+    }
+  }
+  .modal-content {
+    .x-border-radius(6px);
+    border: none;
+    // .x-opacity(0.92);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .modal-dialog {
+    margin: 0 auto;
+    z-index: 1041;
+  }
+  .modal-body {
+    padding-top: 3px;
+  }
+  .modal-backdrop {
+    opacity: .99;
+  }
+  &.noheader {
+    .modal-header {
+      display: none;
+    }
+  }
+  &.nofooter {
+    .modal-footer {
+      display: none;
+    }
+  }
+  &.modal.nofade {
+    .modal-dialog {
+      //.fn_transform(none);
+      .x-transition(none);
+    }
+  }
+  &.alert-dialog {
+    .modal-backdrop {
+      opacity: .5;
+    }
+    .modal-dialog {
+      .modal-content {
+        .x-box-shadow-base(0 3px 3px rgba(0, 0, 0, .5));
+        .modal-body {
+          padding: 0;
+          .alert {
+            margin-bottom: 0;
+            background-color: white;
+            background-image: none;
+            border: none;
+            button {
+              span {
+                color: #333;
+              }
+            }
+            strong {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.loginDialog {
+  div.modal-dialog {
+    div.modal-content {
+      div.modal-body {
+        div.p {
+          padding: 5px;
+          p.content {
+            .x-font-size(13px);
+            color: #4e5f6f;
+          }
+          div.btns-3 {
+            margin: 9px 4px 2px;
+            text-align: right;
+            a {
+              padding: 5px 10px;
+              border-radius: 2px;
+              margin-right: 15px;
+              .x-font-size(13px);
+              cursor: pointer;
+              &.zb-login {
+                background: #1db1ea;
+                color: #fff;
+              }
+              &.zb-cancel {
+                background: #d7dedf;
+                color: #798d98;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

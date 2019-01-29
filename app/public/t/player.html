@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iermu player demo</title>   
+    <meta charset="utf-8">
+    <script type="text/javascript" src = '/public/js/lib/jquery.min.js'></script>
+    <script type="text/javascript" src = '/public/js/ui/swfobject.js'></script>
+    <!-- <script type="text/javascript" src="/public/js/bootstraps/bootstrap.js"></script> -->
+     <script type="text/javascript" src = '/public/js/ui/blsplayer.js'></script>
+    <!-- <script type="text/javascript" src="js/json2.js"></script> -->
+    <!-- <script type="text/javascript" src="BlsPlayer.js"></script> -->
+
+    <script type="text/javascript">
+        var srs_player = null;
+        //var url = "rtmp://182.92.80.26:1935/live/livestream playpath=mp4:vod/demo.flowplayervod/buffalo_soldiers.mp4";
+        //var url = "rtmp://rtmp01.hddn.com/play playpath=mp4:vod/demo.flowplayervod/buffalo_soldiers.mp4";
+        
+        //var url="rtmp://bj.cam.baidu.com:1935/live/bb5ad0d25aa011e591b070e2840af337";
+        //var url="rtmp://rtmp9.public.topvdn.cn:1935/live/537018889_134283008_1498551750_18a5261e9fee97ba4b2fca8b65956d4a";
+        //var url = "rtmp://121.42.236.168/iermu/test1";
+        var url = "rtmp://121.42.236.168/iermu playpath=test";
+        var hls_cur_time = 0;
+        //$(function(){
+            
+            var bls_player = new BlsPlayer("player_id", 640, 360);
+            bls_player.on_player_ready = function() {
+
+                this.play(url, 1);
+                //bls_player.play_hls_source("http://yf-bae-baiducam00.yf01.baidu.com:8501/hls/qingge.m3u8")
+                //bls_player.play_hls_source("http://cq02-bcs-dev-0.cq02.baidu.com:8949/monitor/bin-release/137892997787.m3u8")
+                //bls_player.play_hls_source("https://pcs.baidu.com/rest/2.0/pcs/device?method=vod&shareid=10f39c4c3f9edc32c1a7411c1d21c38e&uk=3541479930&x_ip=61.135.169.80&st=1411119685&et=1411119695")
+                
+                //bls_player.play_hls_source("https://pcs.baidu.com/rest/2.0/pcs/device?method=vod&access_token=21.bb113700a85a78bf78b3f027fdd4e824.2592000.1413029809.441424926-1508471&deviceid=137892615755&et=1410953957&st=1410943957")
+                this.enable_double_click_full_screen(true);
+            };
+            bls_player.on_stream_metadata = function(metadata) {
+                //bls_player.scale_vedio_size(2);
+                console.dir(metadata);
+            };
+            bls_player.on_debug = function(data) {
+                console.log(data);
+            };
+            bls_player.on_connection_status = function(info) {
+                console.dir(info);
+            };
+            bls_player.on_player_timer = function(time, buffer_length) {
+
+            };
+            bls_player.on_hls_time_update = function(time){
+                hls_cur_time = time;
+            }
+            bls_player.on_hls_play_state_change = function(state){
+                console.log(state);
+            }
+            bls_player.start("BlsPlayer.swf");
+        //});
+    </script>
+</head>
+<body>
+<div id="player_id">
+    
+</div>
+</body>

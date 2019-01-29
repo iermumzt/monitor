@@ -1,0 +1,6 @@
+{
+  "depends": {
+    "js": ["angular"],
+    "css": ["bootstrap"]
+  }
+}

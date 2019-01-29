@@ -1,0 +1,49 @@
+<div class = 'preset-thumbnail-list'>
+  <div class = 'item item{{$index}}'  ng-repeat = 'item in items' ng-class="{hidden:editPresetStatus}">
+    <div class="t-loading" ng-class="{show:(presetLoading && currentIndex == $index)}"><span class='spinner-loader'>Loading&#8230;</span><span class="txt-loading"><%=page_config.translater.get('云台旋转中', page_config.language); %>…</span></div>
+    <div class="v-loading" ng-class="{show:(presetLoading && currentIndex == $index)}"></div>
+    <div class = 'thumbnail' ng-class="{'selected':currentIndex == $index}">
+      <div class="p-thumb">
+        <img src="/public/images/preset-del.png" class="p-del-preset" ng-class="{show:delPresetsStatus}" ng-click="delPresetFn(item)" />
+        <div class="p-pic-default">
+          <img src="/public/images/mbackground.png">
+        </div>
+        <a ng-click="moveByPresetFn(item, $index)" target='_blank'>
+          <img class = 'story-thumbnail' ng-src = '{{item.thumbnail}}' onerror = "this.style.visibility='hidden'" />
+        </a>
+      </div>
+      <div class = 'caption'>
+        <a ng-click="moveByPresetFn(item, $index)" target='_blank' class = 'title' ng-bind-html="item.title"></a>
+        <a class="p-edit" ng-click = 'editPresetFn(item)'><img src="/public/images/edit-gray.png" /></a>
+      </div>
+    </div>
+  </div>
+  <div class = 'item edit-preset' ng-class="{show:editPresetStatus,'pic-load':picLoading}">
+    <div class="t-loading" ng-class="{show:isLoadding}"><span class='spinner-loader'>Loading&#8230;</span></div>
+    <div class="v-loading" ng-class="{show:isLoadding}"></div>
+    <div class = 'thumbnail'>
+      <div class="p-thumb">
+        <div class="p-pic-default">
+          <img src="/public/images/mbackground.png">
+        </div>
+        <a href="" target='_blank'>
+          <img class = 'story-thumbnail' ng-src = '{{cThumbnail}}' onerror = "this.style.visibility='hidden'"  onload = "this.style.visibility='visible'"/>
+        </a>
+      </div>
+      <div class = 'caption ext'>
+        <span class='p-label'><%=page_config.translater.get("常用标签:", page_config.language); %></span>
+        <a class = 'gate' ng-click="getTextValue('<%=page_config.translater.get("门口", page_config.language); %>')"><span><%=page_config.translater.get("门口", page_config.language); %></span></a>
+        <a class = 'window' ng-click="getTextValue('<%=page_config.translater.get("窗户", page_config.language); %>')"><span><%=page_config.translater.get("窗户", page_config.language); %></span></a>
+        <a class = 'parlor'ng-click="getTextValue('<%=page_config.translater.get("客厅", page_config.language); %>')"><span><%=page_config.translater.get("客厅", page_config.language); %></span></a>
+      </div>
+      <div class="p-text">
+        <input type="text" placeholder="<%=page_config.translater.get('请输入常用位置名称', page_config.language); %>" ng-model='textValue' maxlength='10'>
+      </div>
+      <div class="p-button">
+        <button type="button" ng-click = "submitEditPresetFn()" class="btn btn-default confirm"><%=page_config.translater.get("确定", page_config.language); %></button>
+        <button type="button" class="btn btn-default cancel " ng-click='cancelEditPresetFn()'><%=page_config.translater.get("取消", page_config.language); %></button>
+        
+      </div> 
+    </div>
+  </div>
+</div>

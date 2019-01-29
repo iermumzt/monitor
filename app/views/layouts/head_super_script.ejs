@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  var CURRENT_PROJECT_SOURCES = [];
+  if(!document.location.origin)
+    document.location.origin = document.location.protocol + "//" + document.location.hostname + (document.location.port ? ':' + document.location.port: '');
+  var IS_MOBILE = <%=page_config.isMobile %>;
+  var CURRENT_LOCATION_REFER = <%-JSON.stringify(page_config.referer) %>;
+  var CURRENT_PROJECT_MODE = '<%=page_config.currentMode %>';
+  var CURRENT_PROJECT_TIMESTAMP = '<%=page_config.timeStamp %>';
+  var CURRENT_PROJECT_TIME = <%=page_config.currentTime %>;
+  var CURRENT_PROJECT_SIGN = '<%=page_config.sign %>';
+  var CURRENT_PROJECT_EXPIRE = '<%=page_config.expire %>';
+  var CURRENT_PROJECT_LANGUAGE = '<%=page_config.language %>';
+  var CURRENT_PROJECT_PARAMS = <%-JSON.stringify(page_config.pageParams) %>;
+  var CURRENT_PROJECT_DATA = <%-JSON.stringify(page_config.pageData) %>;
+  var CURRENT_PROJECT_CDN_DOMAINS = <%-JSON.stringify(page_config.webSiteDomains) %>;
+  var CURRENT_USERINFO = <%-JSON.stringify(page_config.currentUser) %>;
+  var CURRENT_PROJECT_TOPDOMAIN = '<%=page_config.topDomain %>';
+  var CURRENT_PROJECT_DIRECTIVES = <%-JSON.stringify(page_config.directives) %>;
+  <% if(page_config.currentMode == "develop") {%>
+    var qwqwqwqwqwqw = <%-JSON.stringify(page_config.cookies) %>;
+  <% } %>
+</script>

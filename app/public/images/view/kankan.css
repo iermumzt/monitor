@@ -1,0 +1,90 @@
+body{margin:0;padding:0}
+.info{background:none;color: #fff;border:none;}
+#cam-play-title{left:5px;font-family:'Microsoft YaHei';position:relative;margin:0 auto;width:306px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;display:inline-block;}
+.camvodSelectDay .btn{width:8px;height:12px;line-height:5px;font-family:serif;}
+
+.camFeedBack{margin:100px auto;font-size:14px;font-family:Microsoft Yahei;color:#989898;}
+.camFeedBack textarea{width:710px;height:198px;resize:none;padding:14px 13px;border: 1px solid #09AFFF;margin-right: 5px;font-family: Microsoft Yahei;outline: 0;}
+.camFeedBack #email{width:636px;padding:10px;border:1px solid #09AFFF;margin-right:5px;font-family:Microsoft Yahei;outline:0;color:#989898;}
+.main-content .tips-info.tips-error {color: red;font-size: 12px;}
+.email .tips-info{color: red;font-size: 12px;}
+.btn-info { border-color: #46B8DA; background-color: #93B841; color: #FFFFFF;}/*改*/
+p { font-size: 18px;line-height: 1.72222; }
+.btn {border: medium none; border-radius: 4px;font-size: 15px;font-weight: normal; line-height: 1.4;padding: 10px 15px; transition: all 0.25s linear 0s;}
+
+#playercontainer_wrapper{position: relative; width: 960px; height: 540px; margin: 0 auto;}
+.webox { background: none repeat scroll 0 0 rgba(10, 10, 10, 0.5); border-radius: 5px; padding: 8px;position: fixed;z-index: 999;height: 117px;}
+.webox #inside { background-color: #FFFFFF; height: 240px;}
+.webox #inside h1 {-moz-user-select: none; background: none repeat scroll 0 0 #F1F7FC;cursor: move;display: block; font-size: 16px;font-weight: normal; height: 30px; line-height: 30px; margin: 0; padding: 0 0 0 5px;position: relative;}
+.webox #inside h1 a {cursor: pointer;display: inline-block; font-size: 14px;height: 17px;position: absolute; right: 6px; top: 0; width: 17px;}
+.webox #inside h4 { padding: 20px 0;}
+.background { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);  height: 100%; left: 0; position: fixed;top: 0; width: 100%;z-index: 999;}
+
+#m-table{line-height:1.5;margin:20px;}
+#m-table th,#m-table td{padding:10px;border:1px solid #ddd;text-align:center;width: 20%;}
+#m-table tbody tr:hover{background:#f0f0f0;}
+#m-table .cola{width:100px;}
+#webox {overflow: hidden;}
+.btn1 {background: none repeat scroll 0 0 #FDAF08;border: medium none;color: #FFFFFF;cursor: pointer;font-size: 14px;height: 40px;width: 115px;}
+#webox1 {position: absolute; top: 200px; left: 50%; width: 400px; margin-left: -200px; padding: 5px 8px 20px; text-align: center; z-index: 100; height: 160px;}
+#webox1 h1{-moz-user-select: none; background: none repeat scroll 0 0 ;display: block; font-size: 22px; font-weight: normal; height: 30px; line-height: 30px; margin: 0; padding: 0 0 0 5px; position: relative;}
+#jiazai{.x-bg(../../images/view/jiazai.gif, no-repeat scroll center rgba(0, 0, 0, 0));}
+#webox1 .span{ cursor: pointer; display: inline-block; font-size: 22px; height: 30px; position: absolute; right: 6px; top: 0; width: 17px;}
+#webox1 h4{font-size: 20px; text-align: center; margin-top: -10px;}
+#webox1 .m-table1{margin-top: -3px;width:342px;}
+#webox1 .m-table1-tr{color: rgb(221, 221, 221); background: none repeat scroll 0px 0px rgb(238, 239, 255);}
+#webox1 .m-table1-btn{margin-top: -2px;margin-bottom: -2px;height: 30px;width: 85px;}
+.cam-container{width:100%;position:relative;overflow: hidden;}
+.btn-group{position: relative;height:60px;}
+.viewer .btn-group{left: 48px;z-index: 2;}
+#setCam{font-family:'Microsoft YaHei';top:8px;}
+#setShare{font-family:'Microsoft YaHei';top:8px;}
+#camDescription{margin:3px auto;font-family:'Microsoft YaHei';}
+#selectTimespan{position:absolute;bottom:7px;z-index:2;left:49px;}
+#timestamp{width:420px;display:inline-block;text-align:center;z-index:0;}
+#lianjie{float: left; margin-right: 15px; margin-left: 19px; margin-top: 1px;}
+.cam-date-30 {
+    height: 43px;
+    position: absolute;
+    right: 0;
+    top: 0;
+   width: 1620px;
+}
+.cam-date-prev {
+    background: url("../../images/view/cam-dayselect-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.cam-date-next {
+    background: url("../../images/view/cam-dayselect-arrow.png") no-repeat scroll -108px 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+.camvodSelectDay .btn {
+     height: 35px;
+    line-height: 16px;
+    padding: 4px 5px;
+    white-space: normal;
+    width: 44px;
+}
+.camvodSelectDay .btn {
+    background-color: #a2d46e;
+    font-family: serif;
+}
+.camvodSelectDay .cam-date-btn-select {
+    background-color: #faa732;
+}
+.camvodSelectDay {
+    height: 43px;
+    left: 50%;
+    margin: 0 0 10px -165px;
+    overflow: hidden;
+    position: relative;
+    width: 372px;
+}
+
+
+
+
+
+
+
+

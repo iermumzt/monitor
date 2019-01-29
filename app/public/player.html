@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src = '/public/js/lib/jquery.min.js'></script>
+    <script type="text/javascript" src = '/public/js/ui/swfobject.js'></script>
+    <script type="text/javascript" src = '/public/js/ui/blsplayer.js'></script>
+    <style type="text/css">
+      *{
+          border: 0;
+          margin: 0;
+          padding: 0;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+      }
+      html, body{
+        width: 100%;
+        height: 100%;
+      }
+      @media screen and (min-width: 1200px){
+        fieldset{
+          float: left;
+          width: 50%;
+          height: 50%;
+          border: 1px solid #ccc;
+          padding: 10px;
+        }
+      }
+      input[type='text']{
+        border: 1px solid #ccc;
+        height: 30px;
+        width: 75%;
+      }
+      input[type='button']{
+        border: 1px solid #ccc;
+        width: 15%;
+        height: 30px;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>html5 播放器 - rtmp</legend>
+      <input type = 'text' placeholder = '请输入测试地址' >
+      <input type = 'button' value = 'ok' for = 'html5_rtmp'>
+      <div>
+        <video></video>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>html5 播放器 - hls</legend>
+      <input type = 'text' placeholder = '请输入测试地址' value = 'http://clive.baidu.com/rand_1459141181_2290701_play.m3u8?auth_key=nrREx8xyjWqlYCCAyee0cTjvZveeRGuc9OhLXY%2Fnso%2FwYnAGmIlIC4klQbe4%2FbC7EB6IDYS0f%2Fjh7H69f5SCOdK0NgIfQVYL%2FR3Faq6UJAeYEGWFPQxn7pAt4EUr6uA7E4mzKB%2FBrHDannctiHqNsvNKxppsaPneMgfTKfqQEq6VttNNaiyEfrGkUkqbOSDsPR48vE8sbZ4vAWkasGtxy8dmyIujgnVcl5X808dvGzUn798yTY0JGJO%2FY034pS5iSy9bXWYgcYh0tPDnZ2b6MKI5pjlE9mf7rlOHanv%2F5JCbETXs3uadoqkAhPMe7wCCtbV%2B6CU' >
+      <input type = 'button' value = 'ok' for = 'html5_hls'>
+      <div>
+        <video></video>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>flash 播放器 - rtmp</legend>
+      <input type = 'text' placeholder = '请输入测试地址' value = 'rtmp://bj.cam.baidu.com:1935/live/092b62908b2b11e4b20f70e2840af337?deviceid=137893136107&sign=DTAES-CqnyQSm05YocyMV8Skl5IwA2-rIMWr2vUo%2F9Fz4l7KG8iPmNncfI%3D&time=1459141754&expire=1459141774&liveid=145914175403834' >
+      <input type = 'button' value = 'ok' for = 'flash_rtmp'>
+      <div id = 'rtmp_flash'>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>flash 播放器 - hls</legend>
+      <input type = 'text' placeholder = '请输入测试地址' value = 'http://clive.baidu.com/rand_1459141181_2290701_play.m3u8?auth_key=nrREx8xyjWqlYCCAyee0cTjvZveeRGuc9OhLXY%2Fnso%2FwYnAGmIlIC4klQbe4%2FbC7EB6IDYS0f%2Fjh7H69f5SCOdK0NgIfQVYL%2FR3Faq6UJAeYEGWFPQxn7pAt4EUr6uA7E4mzKB%2FBrHDannctiHqNsvNKxppsaPneMgfTKfqQEq6VttNNaiyEfrGkUkqbOSDsPR48vE8sbZ4vAWkasGtxy8dmyIujgnVcl5X808dvGzUn798yTY0JGJO%2FY034pS5iSy9bXWYgcYh0tPDnZ2b6MKI5pjlE9mf7rlOHanv%2F5JCbETXs3uadoqkAhPMe7wCCtbV%2B6CU' >
+      <input type = 'button' value = 'ok' for = 'flash_hls'>
+      <div id = 'hls_flash'>
+      </div>
+    </fieldset>
+  </body>
+  <script type="text/javascript">
+    var id = 1;
+    var getId = function(){
+      id ++;
+      return "v" + id;
+    };
+    var render_html5_rtmp = function(){
+      $("video").eq(0).attr("src", $("input:text").eq(0).val());
+    };
+    var render_html5_hls = function(){
+      $("video").eq(1).attr("src", $("input:text").eq(1).val());
+    };
+    var render_flash_rtmp = function(){
+      $("#rtmp_flash").html("");
+      var _id = getId();
+      var $wrap = $("<div id = '" + _id + "'>").appendTo($("#rtmp_flash"));
+      var player = new BlsPlayer(_id, document.body.clientWidth / 2 - 40, document.body.clientHeight / 2 - 80);
+      player.start("/public/js/ui/BlsPlayer1.swf");
+      player.playType = 1;
+      player.on_player_ready = function(){
+        player.play($("input:text").eq(2).val());
+        player.enable_double_click_full_screen(true);
+      };
+      player.on_connection_status = function(_status) { //info
+        window.console.info("rtmp_flash on_connection_status", _status.code);
+      };
+      player.on_debug = function(data) {
+        console.log(data);
+      };
+      player.on_stream_metadata = function(metadata) {
+          //bls_player.scale_vedio_size(2);
+          console.dir(metadata);
+      };
+    };
+    var render_flash_hls = function(){
+      $("#hls_flash").html("");
+      var _id = getId();
+      var $wrap = $("<div id = '" + _id + "'>").appendTo($("#hls_flash"));
+      var player = new BlsPlayer(_id, document.body.clientWidth / 2 - 40, document.body.clientHeight / 2 - 80);
+      player.start("/public/js/ui/BlsPlayer1.swf");
+      player.playType = 0;
+      player.on_player_ready = function(){
+        player.play_hls_source($("input:text").eq(3).val());
+      };
+      player.on_connection_status = function(_status) { //info
+        window.console.info("hls_flash on_connection_status", _status.code);
+      };
+
+      player.on_hls_play_state_change = function(_state) {
+        window.console.info("hls_flash on_hls_play_state_change", arguments);
+      };
+    };
+    $(function(){
+      render_html5_rtmp();
+      render_html5_hls();
+      render_flash_rtmp();
+      render_flash_hls();
+
+      $("input:button").click(function(){
+        var _for = this.getAttribute("for");
+        switch(_for){
+          case "html5_rtmp": 
+            render_html5_rtmp();
+            break;
+          case "html5_hls": 
+            render_html5_hls();
+            break;
+          case "flash_rtmp": 
+            render_flash_rtmp();
+            break;
+          case "flash_hls": 
+            render_flash_hls();
+            break;
+        }
+      });
+    });
+  </script>
+</html>

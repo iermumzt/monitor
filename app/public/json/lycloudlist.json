@@ -1,0 +1,54 @@
+{
+  "count": 6,
+  "list": [
+    {
+      "connect_type": "2",
+      "cvr_type": "1",
+      "cvr_day": "7",
+      "cvr_start_time": "1501516800",
+      "cvr_end_time": "1533052800",
+      "cvr_free":0
+    },
+    {
+      "connect_type": "2",
+      "cvr_type": "2",
+      "cvr_day": "7",
+      "cvr_start_time": "1533052800",
+      "cvr_end_time": "1564588800",
+      "cvr_free":1
+    },
+    {
+      "connect_type": "2",
+      "cvr_type": "1",
+      "cvr_day": "30",
+      "cvr_start_time": "1564588800",
+      "cvr_end_time": "1627747200",
+      "cvr_free":0
+    },
+    {
+      "connect_type": "2",
+      "cvr_type": "2",
+      "cvr_day": "30",
+      "cvr_start_time": "1627747200",
+      "cvr_end_time": "1659283200",
+      "cvr_free":1
+    },
+    {
+      "connect_type": "2",
+      "cvr_type": "1",
+      "cvr_day": "7",
+      "cvr_start_time": "1659283200",
+      "cvr_end_time": "1690819200",
+      "cvr_free":0
+    },
+    {
+      "connect_type": "2",
+      "cvr_type": "1",
+      "cvr_day": "30",
+      "cvr_start_time": "1690819200",
+      "cvr_end_time": "1722441600",
+      "cvr_free":0
+    }
+  ],
+  "request_id": "1504581757390"
+}

@@ -1,0 +1,273 @@
+div.zbase-ui.video-player-wrap {
+  .fn_keyframes_pic(@name){
+      .genCss(){
+        0% {
+          .x-transform(scale(0));
+          opacity: 1
+        }
+        60% {
+          opacity: 0.8
+        }
+        100% {
+          opacity: 0;
+          .x-transform(scale(1));
+        }
+      }
+      @keyframes @name{
+        .genCss();
+      }
+      @-moz-keyframes @name{
+        .genCss();
+      }
+      @-webkit-keyframes @name{
+        .genCss();
+      }
+      @-o-keyframes @name{
+        .genCss();
+      }
+    }
+    @css3_ani_big:pic;
+    .fn_keyframes_pic(@css3_ani_big);
+
+  div.player-main {
+    ul.yuntaiops {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 30px;
+      width: 40px;
+      height: 140px;
+      z-index: 9;
+      background: black;
+      .x-border-radius(20px);
+      li {
+        cursor: pointer;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        &.up {
+          height: 10px;
+        }
+        &.active {
+          i {
+            .x-opacity(0.4);
+            .transition(opacity .2s linear);
+          }
+        }
+        i {
+          &.pic-cloud-op {
+            .x-pic-cloud-op;
+            height: 32px;
+            z-index: 2;
+            margin-top: 8px;
+            // .x-transform(scale(.7));
+          }
+          &.pic-cloud-auto {
+            .x-pic-cloud-auto;
+            height: 32px;
+            z-index: 2;
+            margin-top: 10px;
+          }
+          &.pic-cloud-manua {
+            .x-pic-cloud-manua;
+            height: 32px;
+            z-index: 2;
+            margin-top: 3px;
+          }
+        }
+      }
+    }
+    div.player-wrap {
+      position: relative;
+      div.cl-notice-limit {
+        width: 258px;
+        margin-left: -129px;
+      }
+      div.cl-notice {
+        display: none;
+        width: 265px;
+        height: 42px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        margin-left: -133px;
+        top: 40px;
+        z-index: 1;
+        .x-border-radius(5px);
+        text-align: center;
+        .x-opacity(0.7);
+        &.manua-notice {
+          width: 204px;
+          margin-left: -96px
+        }
+        span {
+          line-height: 42px;
+          .x-font-size(14px);
+          //float: left;
+          margin-top: 1px;
+        }
+        i {
+          vertical-align: middle;
+          .x-transform(scale(0.8));
+          &.pic-cloud-notice {
+            .x-pic-cloud-notice;
+            margin-left: 3px;
+            float: left;
+            margin-top: 1.5px;
+          }
+          &.pic-cloud-close {
+            cursor: pointer;
+            .x-pic-cloud-close;
+            float: right;
+            margin-top: 10px;
+            margin-right: 3px;
+          }
+        }
+      }
+      div.cl-no {
+        display: none;
+        width: 336px;
+        height: 136px;
+        position: absolute;
+        left: 50%;
+        margin-left: -160px;
+        z-index: 1;
+        .x-border-radius(5px);
+        text-align: center;
+        top: 50%;
+        margin-top: -94px;
+        div.l {
+          width: 336px;
+          height: 136px;
+          background-color: #000;
+          z-index: 1;
+          .x-border-radius(5px);
+          .x-opacity(0.7);
+        }
+        div.u {
+          width: 336px;
+          height: 136px;
+          position: absolute;
+          top: 0;
+          p {
+            .x-font-size(16px);
+            color: #fff;
+            &.t {
+              margin-top: 42px;
+              margin-bottom: 3px;
+            }
+          }
+          i {
+            &.pic-cloud-close {
+              cursor: pointer;
+              .x-pic-cloud-close;
+              float: right;
+              margin-top: 10px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      div.ma-player {
+        object {
+          // z-index: -1;
+          pointer-events: none;
+        }
+      }
+      div.player {
+        span[class^="dbs"] {
+          position: absolute;
+          z-index: 6;
+          i.pic-cloud-dblclick {
+            .x-animation(@css3_ani_big;2000ms;ease-out;infinite);
+            .x-pic-cloud-dblclick;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width:736px) {
+      ul.yuntaiops {
+        .x-transform(scale(0.6));
+      }
+      div.player-wrap{
+        div.cl-notice{
+          .x-transform(scale(0.6));
+          top:15px;
+        }
+      }
+    }
+  }
+  div.menu {
+    &.cloud-config {
+      position: relative;
+      a.cloud-config {
+        display: inline-block;
+        i {
+          &.pic-cloud-op {
+            .x-pic-cloud-op;
+            height: 32px;
+            z-index: 2;
+            margin-top: 8px;
+            // .x-transform(scale(.7));
+          }
+          &.pic-cloud-auto {
+            .x-pic-cloud-auto;
+            height: 32px;
+            z-index: 2;
+            margin-top: 10px;
+          }
+          &.pic-cloud-manua {
+            .x-pic-cloud-manua;
+            height: 32px;
+            z-index: 2;
+            margin-top: 6px;
+          }
+        }
+      }
+      div.cloud-op {
+        background-color: #7d7d7d;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        top: -126px;
+        left: -47px;
+        display: none;
+        .x-opacity(0.8);
+        ul {
+          li {
+            cursor: pointer;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            height: 40px;
+            line-height: 40px;
+            span {
+              width: 7px;
+              height: 7px;
+              background-color: #fff;
+              .x-border-radius(8px);
+              display: inline-block;
+              vertical-align: middle;
+              margin: 11px 15px;
+            }
+            &.ns {
+              border-bottom: 0;
+            }
+            &:hover {
+              background-color: #696a6a;
+            }
+          }
+          div.f {
+            width: 120px;
+            height: 6px;
+            .sp1 {
+              .x-arrow-down-style(#7d7d7d, 6px);
+              position: absolute;
+              left: 53px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

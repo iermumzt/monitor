@@ -1,0 +1,96 @@
+.zbase-ui.switch-ctrl {
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  a {
+    cursor: pointer;
+    &.prev {
+      display: inline-block;
+      i {
+        &.wc-mpic-left_btn {
+          //.x-mpic-left_btn;
+          border: 0px solid white;
+          width: 42px;
+          height: 42px;
+          position: absolute;
+          border-radius: 50%;
+          //.x-border-radius(@radius:21px);
+          background-color: #1db1ea;
+          margin-left: -41px;
+          margin-top: -41px;
+          span {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            transform: rotate(20deg);
+            -ms-transform: rotate(225deg);
+            /* Internet Explorer */
+            -moz-transform: rotate(225deg);
+            /* Firefox */
+            -webkit-transform: rotate(225deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(225deg);
+            /* Opera */
+            border-width: 3px 3px 0px 0px;
+            border-style: solid;
+            border-color: white;
+            margin-top: 13px;
+            margin-left: -5px;
+          }
+        }
+      }
+    }
+    &.next {
+      display: inline-block;
+      i {
+        &.wc-mpic-right_btn {
+          //.x-mpic-right_btn;
+          border: 0px solid white;
+          width: 42px;
+          height: 42px;
+          position: absolute;
+          border-radius: 50%;
+          background-color: #1db1ea;
+          margin-left: 2px;
+          margin-top: -41px;
+          span {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            transform: rotate(20deg);
+            -ms-transform: rotate(45deg);
+            /* Internet Explorer */
+            -moz-transform: rotate(45deg);
+            /* Firefox */
+            -webkit-transform: rotate(45deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(45deg);
+            /* Opera */
+            border-width: 3px 3px 0px 0px;
+            border-style: solid;
+            border-color: white;
+            margin-top: 13px;
+            margin-left: -10px;
+          }
+        }
+      }
+    }
+  }
+  li {
+    display: inline-block;
+    margin: 0 4%;
+    height: 10px;
+    width: 10px;
+    background-color: #a6a6a6;
+    margin-bottom: 17px;
+    cursor: pointer;
+    .x-border-radius(10px);
+    &.active {
+      background-color: #1db1ea;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
+}

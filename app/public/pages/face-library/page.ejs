@@ -1,0 +1,156 @@
+
+<div class='container-fluid main' ng-controller='FaceLibraryController' >
+  <div class="face-libary-total">
+    <div class="face-total">
+      <div class="face-top">
+        <div class="fenlei" ng-class="{'hideTime': tabNum === 1 || tabNum === 2}">
+          <p>分类</p>
+          <ul>
+            <li ng-click="tabChange(0)" ng-class="{'active': tabNum === 0}">全部</li>
+            <li ng-click="tabChange(1)" ng-class="{'active': tabNum === 1}">认识的人</li>
+            <li ng-click="tabChange(2)" ng-class="{'active': tabNum === 2}">待确认</li>
+            <li ng-click="tabChange(3)" ng-class="{'active': tabNum === 3}">更多</li>
+          </ul> 
+        </div>
+        <div class="time" ng-hide = "tabNum === 1 || tabNum === 2">
+          <p>时间</p>
+          <div class='input-group date' id='datetimepicker1'>  
+            <input type='text' class="form-control" readonly ng-model="dateOne"/>  
+            <span class="input-c">  
+              <span class="calendar"></span>  
+            </span>  
+          </div>
+          <div class='input-group date' id='datetimepicker2'>  
+            <input type='text' class="form-control" readonly ng-model="dateTwo" />  
+            <span class="input-c">  
+              <span class="calendar"></span>  
+            </span>  
+          </div> 
+          <div class="search" ng-click="query()">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-search"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="showUser">
+      <ul class="infor-user ng-hide" id = 'page-user' ng-show = "tabNum === 0">
+        <li class="lis" ng-class='{hidden:isLoading}' ng-repeat="user in pexl track by $index">
+          <div class="t-user">
+            <p class="portrait-i">
+              <span ng-style = "{'background-image':'url(' + user.image_url + ')'}"  style="background-image: url('user.image_url')" class="user_face"></span>
+            </p>
+          </div>
+          <div class="inform">
+            <p ng-class="{'strang':!user.face, 'id': user.face && user.face.name === ''}" ng-bind="!user.face ? '陌生人' : (user.face.name !== '' ? user.face.name : 'ID：'+user.face.face_id)"></p>
+            <p class = 'desc' ng-bind = 'user.desc'></p>
+            <p class = 'time' ng-bind="user.time*1000 | date:'yyyy/MM/dd HH:mm:ss'"></p>
+            <p class = 'pixel' ng-bind='"图片像素："+ user.imgw +" x "+ user.imgh'></p>
+            <p class='similarity' ng-bind='"相似度:"+(user.score | limitTo:2)+"%"'></p>
+          </div>
+        </li>
+        <div class = 'no-user ng-hide' ng-show="user_clus.length === 0">
+          <div class="img-show">
+            <img data-defer="/public/images/gismap/no_data.png" >
+            <p class = 'no-data'>暂无相关数据哦 ~</p>
+          </div>
+        </div>
+        <div loading lw="100%" lh="420px" is-loading="isLoading"></div> 
+      </ul>
+      <ul class="infor-user ng-hide" id = 'page-user' ng-show = "tabNum === 1" >
+        <li class="lis under-user" ng-repeat="under in user_under_clus track by $index">
+          <a href="/face-library-id/{{under.face_id}}" target="_blank">
+            <div class="t-user">
+              <p class="portrait-i">
+                <span ng-style = "{'background-image':'url(' + under.image_url + ')'}"  style="background-image: url('under.image_url')" class="user_face"></span>
+              </p>
+            </div>
+            <div class="inform under">
+              <p ng-bind="under.name"></p>
+              <p class = 'desc' ng-bind = "under.remark === '' ? '暂无备注' : under.remark"></p>
+            </div>
+          </a>
+        </li>
+        <div class = 'no-user ng-hide' ng-show="user_under_clus.length === 0">
+          <div class="img-show">
+            <img data-defer="/public/images/gismap/no_data.png" >
+            <p class = 'no-data'>暂无相关数据哦 ~</p>
+          </div>
+        </div>
+      </ul>
+      <ul class="infor-user ng-hide" id = 'page-user' ng-show = "tabNum === 2">
+        <li class="lis" ng-repeat="no in user_no_clus track by $index">
+          <a href="/face-library-id/{{no.face_id}}" target="_blank">
+            <div class="t-user">
+              <p class="portrait-i">
+                <span ng-style = "{'background-image':'url(' + no.image_url + ')'}"  style="background-image: url('no.image_url')" class="user_face"></span>
+              </p>
+            </div>
+            <div class="inform under">
+              <p class="id" ng-bind="'ID：'+no.face_id"></p>
+              <p class = 'desc' ng-bind = "no.remark === '' ? '暂无备注' : no.remark "></p>
+            </div>
+          </a>
+        </li>
+        <div class = 'no-user ng-hide' ng-show="user_no_clus.length === 0">
+          <div class="img-show">
+            <img data-defer="/public/images/gismap/no_data.png" >
+            <p class = 'no-data'>暂无相关数据哦 ~</p>
+          </div>
+        </div>
+      </ul>
+      <ul class="infor-user ng-hide" id = 'page-user' ng-show = "tabNum === 3">
+        <li class="lis ng-hide" ng-class='{hidden:isMoreLoading}' ng-show = "tabNum === 3" ng-repeat="more in user_more_clus track by $index">
+          <div class="t-user">
+            <p class="portrait-i">
+              <span ng-style = "{'background-image':'url(' + more.image_url + ')'}"  style="background-image: url('more.image_url')" class="user_face"></span>
+            </p>
+          </div>
+          <div class="inform">
+            <p class = "strang">陌生人</p>
+            <p class = 'desc' ng-bind = 'more.desc'></p>
+            <p class = 'time' ng-bind="more.time*1000 | date:'yyyy/MM/dd HH:mm:ss'"></p>
+          </div>
+        </li>
+        <div loading lw="100%" lh="420px" is-loading="isMoreLoading"></div> 
+        <div class = 'no-user ng-hide' ng-show="user_more_clus.length === 0">
+          <div class="img-show">
+            <img data-defer="/public/images/gismap/no_data.png" >
+            <p class = 'no-data'>暂无相关数据哦 ~</p>
+          </div>
+        </div>
+      </ul>
+      <div page-show size="pageSize" ng-class='{hidden:isLoading || tabNum !== 0}' count="userCount" is-loading="isLoading" on-page-changed="onPageChanged" current-page-index="currentPageIndex"></div>
+      <div page-show size="pageSize" ng-class='{hidden:isMoreLoading || tabNum !== 3}' count="userMoreCount" is-loading="isMoreLoading" on-page-changed="onPageMoreChanged" current-page-index="currentMorePageIndex"></div>
+    </div>
+  </div>
+  <div class="reminder-num ng-hide" ng-show="remindNum > 0">
+    <div class="re-num">
+      <span class="num" ng-bind="remindNum"></span>
+    </div>
+    <div class="remind-grup">
+      <div class="right-show-user">
+        <ul>
+          <li class="lis under-user" ng-repeat="data in remin_num track by $index">
+            <a href="/face-library-id/{{data.face.face_id}}" target="_blank">
+              <div class="t-user">
+                <p class="portrait-i">
+                  <span ng-style = "{'background-image':'url(' + data.image_url + ')'}"  style="background-image: url('data.image_url')" class="user_face"></span>
+                </p>
+                <span class="red"></span>
+              </div>
+              <div class="inform">
+                <p ng-bind="data.face.name !== '' ? data.face.name : 'ID：'+data.face.face_id"></p>
+                <p>
+                  <span ng-bind="data.time*1000 | date:'HH:mm:ss'"></span></span><%=page_config.translater.get("进入视野", page_config.language); %>
+                </p>
+              </div>
+              <i class = 'glyphicon glyphicon-chevron-right j-com'></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="snap ng-show" ng-hide="results">
+  <div class="nav">
+    <span class="idpic1"></span>
+    <h3>抓拍结果</h3>
+    <!-- <i class="toright" ng-click="down()"></i> -->
+  </div>
+  <div class="nocon" ng-show="eyes">暂无抓拍结果</div>
+  <ul class="collection" ng-hide="eyes">
+    <li ng-repeat="user in allface track by $index">
+      <div class="lpic">
+        <div class="imgurl" ng-style = "{'background-image':'url(' + user.image_url + ')'}" style="background-image: url('user.image_url')">
+          <i class="noMark" ng-class="{'nameMark':user.face && user.face.name !== '','idMark': user.face && user.face.name === ''}"></i>
+        </div>
+      </div>
+      <div class="rtxt">
+        <h3 class = "strange" ng-class="{'name': user.face && user.face.name !== '', 'id': user.face && user.face.name === ''}">{{user.face ? (user.face.name!="" ? user.face.name : 'ID:'+user.face.face_id) :'陌生人'}}</h3>
+        <p class="p1" ng-bind = "user.desc"></p>
+        <!-- <p class="p2" ng-bind = "user.time*1000 | date:'yyyy-MM-dd'"></p> -->
+        <p class="p3">
+          <span ng-bind="user.time*1000 | date:'HH:mm:ss'"></span><%=page_config.translater.get(" 进入视野", page_config.language); %>
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>

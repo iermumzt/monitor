@@ -1,0 +1,28 @@
+div.camera-summary-list {
+  .x-clearfix();
+  div.item{
+    width: 231px;
+    margin: 0 10px 20px;
+    padding: 0;
+    border:0;
+    .x-border-radius(0);
+  }
+}
+@media screen and (max-width:1000px) {
+  div.camera-summary-list {
+    margin-left: 0px;
+    width: 100%;
+    div.item {
+      width: 50%;
+      margin: 0;
+      padding-right: 10px;
+    }
+  }
+}
+@media screen and (max-width: 413px) {
+  div.camera-summary-list {
+    div.item {
+      width: 100%;
+    }
+  }
+}

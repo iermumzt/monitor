@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src='/public/js/ui/swfobject.js'></script>
+  <script type="text/javascript" src='/public/js/ui/blsplayer.js'></script>
+  <style type="text/css">
+  * {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    fieldset {
+      float: left;
+      width: 50%;
+      height: 50%;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  }
+  
+  input[type='text'] {
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 75%;
+  }
+  
+  input[type='button'] {
+    border: 1px solid #ccc;
+    width: 15%;
+    height: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  </style>
+</head>
+
+<body>
+  <div id='rtmp_flash'>
+  </div>
+</body>
+<script type="text/javascript">
+var render_flash_rtmp = function(playUrl) {
+  var player = new BlsPlayer("rtmp_flash", document.body.clientWidth, document.body.clientHeight);
+  player.start("/public/js/ui/BlsPlayer.swf");
+  player.playType = 1;
+  player.on_player_ready = function() {
+    player.play(playUrl);
+  };
+  player.on_connection_status = function(_status) { //info
+    window.console.info("rtmp_flash on_connection_status", _status.code);
+  };
+
+  window.onresize = function(){
+    player.set_vedio_size(document.body.clientWidth, document.body.clientHeight);
+  };
+};
+var render_flash_hls = function(playUrl) {
+  var player = new BlsPlayer("rtmp_flash", document.body.clientWidth, document.body.clientHeight);
+  player.start("/public/js/ui/BlsPlayer.swf");
+  player.playType = 0;
+  player.on_player_ready = function() {
+    player.play_hls_source(playUrl);
+  };
+  player.on_connection_status = function(_status) { //info
+    window.console.info("hls_flash on_connection_status", _status.code);
+  };
+
+  player.on_hls_play_state_change = function(_state) {
+    window.console.info("hls_flash on_hls_play_state_change", arguments);
+  };
+
+  window.onresize = function(){
+    player.set_vedio_size(document.body.clientWidth, document.body.clientHeight);
+  };
+};
+window.onload = (function() {
+
+  var getUrlParam = function(key, defV) {
+    var paramList = window.location.search.substring(1).split("&");
+    var len = paramList.length;
+    for (var i = 0; i < len; i += 1) {
+      var _p = paramList[i];
+      if (_p.indexOf(key + "=") == 0)
+        return _p.substring(key.length + 1);
+    }
+    return defV;
+  };
+
+  var playType = Number(getUrlParam("t"));
+  var playUrl = decodeURIComponent(getUrlParam("l"));
+
+  if(playType === 0) {
+    render_flash_hls(playUrl);
+  } else {
+    render_flash_rtmp(playUrl);
+  }
+});
+</script>
+
+</html>

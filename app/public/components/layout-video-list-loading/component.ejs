@@ -1,0 +1,10 @@
+<% for (let i = 0; i < itemCount; i ++) {%>
+<div class="dib <%=clz%>">
+  <a class='img-a'>
+    <img src='<%=page_config.webSiteDomains[0] %>public/images/mbackground.png'>
+    <div class='mouse-over'></div>
+    <p class='bg'></p>
+    <p class='ellipsis'><%=page_config.translater.get("加载中", page_config.language); %>...</p>
+  </a>
+</div>
+<%}%>

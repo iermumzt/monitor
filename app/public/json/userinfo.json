@@ -1,0 +1,16 @@
+{"uid":"202208",
+"username":"wuaihuaella8",
+"email":"",
+"emailstatus":"0",
+"mobile":"",
+"phonestatus":"0",
+"domain":"zhy",
+"connect":[
+{"connect_type":"1","status":1},
+{"connect_type":"2",
+"connect_cid":"536963260",
+"user_token":"536963260_0_1467259382_14d89c29d048f16c6ca2fe79c38e73fd",
+"init":"[Config]\r\nIsDebug=0\r\nLocalBasePort=8200\r\nIsCaptureDev=1\r\nIsPlayDev=1\r\nUdpSendInterval=2\r\nConnectTimeout=10000\r\nTransferTimeout=10000\r\n[Tracker]\r\nCount=3\r\nIP1=121.42.156.148\r\nPort1=80\r\nIP2=182.254.149.39\r\nPort2=80\r\nIP3=203.195.157.248\r\nPort3=80\r\n[LogServer]\r\nCount=1\r\nIP1=120.26.74.53\r\nPort1=80\r\n",
+"status":"1"}],
+"avatar":"http:\/\/tb.himg.baidu.com\/sys\/portrait\/item\/4ada77756169687561656c6c61377957",
+"request_id":"1448592813828"}

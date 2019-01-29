@@ -1,0 +1,101 @@
+div.search-box {
+  .ier-wrapper {
+    text-align: center;
+    padding-bottom: 30px;
+    .ier-input {
+      padding-left: 20px;
+      padding-right: 32px;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      border-color: #1db1ea;
+      border-radius: 35px;
+      /* (height/2) + border-width */
+      border-style: solid;
+      border-width: 1px;
+      color: #666666;
+      .x-font-size(16px);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      .x-font-size(15px);
+      height: 42px;
+      width: 554px;
+      background-position-y: 4px;
+      .m-submit {
+        display: none;
+        i {
+          .x-mpic-m-search;
+        }
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      ::-ms-reveal {
+        display: none;
+      }
+    }
+    a.clear {
+      cursor: pointer;
+      i.pic-del {
+        .x-pic-13_close_gray;
+        vertical-align: text-bottom;
+        padding-left: 24px;
+        position: absolute;
+        margin: 16px 0 0 -28px;
+      }
+    }
+    .ier-submit {
+      padding-left: 14px;
+      color: #1db1ea;
+      .x-font-size(15px);
+      i {
+        .x-pic-19_search_blue;
+        vertical-align: middle;
+        padding-left: 24px;
+      }
+      &:hover {
+        color: #1db1ea;
+        cursor: pointer;
+      }
+    }
+    .m-submit {
+      display: none;
+      padding-left: 10px;
+      color: #1db1ea;
+      .x-font-size(15px);
+      i {
+        .x-mpic-m-search;
+      }
+      &:hover {
+        color: #1db1ea;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1000px) {
+  div.search-box {
+    display: none;
+    padding: 0;
+    width: 100%;
+    .ier-wrapper {
+      padding: 5px 15px 5px 15px;
+      text-align: center;
+      width: 100%;
+      .ier-input {
+        height: 35px;
+        padding: 0;
+        max-width: 90%;
+        .m-submit {
+          display: inline-block;
+        }
+      }
+      .ier-submit {
+        display: none;
+      }
+      .m-submit {
+        display: inline-block;
+      }
+    }
+  }
+}

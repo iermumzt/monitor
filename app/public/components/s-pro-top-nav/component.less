@@ -1,0 +1,190 @@
+body {
+  &>.navbar.pro-top-header {
+    background-color: #28272D;
+    // .x-bg("gismap/nav-bg.jpg", repeat-x, center center);
+    // background-size: contain;
+    .x-box-shadow-base(0px, 0px, 21px, 0px, rgba(0, 0, 0, 0.145));
+    .container-fluid {
+      position: relative;
+      z-index: 12;
+      opacity: 0.97;
+      .navbar-header {
+        .navbar-brand {
+          padding: 5px 15px 0 25px;
+          color: #717379;
+          img {
+            float: left;
+            width: 206px;
+            margin-top: 5px;
+          }
+          p {
+            float: right;
+            padding-top: 13px;
+          }
+        }
+      }
+      .navbar-menus {
+        &#navbar {
+          .x-tlayout-align-center();
+          ul.top-menus {
+            li {
+              margin: 0 20px;
+              border-bottom: 2px solid transparent;
+              cursor: pointer;
+              &.login-user {
+                img {
+                  .x-border-radius(50%);
+                  height: 30px;
+                  width: 30px;
+                  margin-top: 10px;
+                  vertical-align: top;
+                }
+                span {
+                  padding: 14px 0 0 10px;
+                  display: inline-block;
+                }
+              }
+              a {
+                background-image: none;
+                outline: none;
+                padding: 5px 8px;
+                margin: 11px 0 7px;
+                color: #717379;
+              }
+              a:focus {
+                background-color: transparent;
+              }
+              a:hover {
+                background-color: transparent;
+                color: #afb0b4;
+              }
+              &.active {
+                a {
+                  color: #fff;
+                  background-color: transparent;
+                  border-bottom: none;
+                }
+                span{
+                  width: 25px;
+                  height:3px;
+                  display: block;
+                  margin: 0 auto;
+                  background-color: rgb(89,142,251);
+                }
+              }
+              &.right {
+                a {
+                  color: #1db1ea;
+                  background-color: white;
+                }
+              }
+            }
+          }
+          @media (max-width: 768px) {
+            ul.top-menus {
+              li {
+                margin: 0 10px;
+              }
+            }
+          }
+          @media screen and (max-width:1400px){
+            ul.top-menus {
+              li {
+                margin: 0 10px;
+              }
+            }
+          }
+        }
+        &#navbar1 {
+          padding-right: 18px;
+          ul.navbar-right {
+            width: auto;
+            margin-right: 0;
+            li {
+              a {
+                color: #717379;
+                .x-font-size(13px);
+                &.split {
+                  padding-right: 0 !important;
+                  padding-left: 0 !important;
+                }
+              }
+              a:hover {
+                background-color: transparent;
+              }
+              @padding-left-right: 8px;
+              &.uinfo {
+                div.uphoto {
+                  width: 34px;
+                  height: 34px;
+                  float: left;
+                  margin: 9px 0;
+                  .x-border-radius(17px);
+                  .x-bg("gismap/uphoto-default.png", repeat-x, center center);
+                  img {
+                    width: 100%;
+                    .x-border-radius(17px);
+                  }
+                }
+                a {
+                  float: left;
+                  display: none;
+                  &.login {
+                    display: block;
+                    padding-left: @padding-left-right;
+                    padding-right: @padding-left-right;
+                  }
+                  &.user-info {
+                    padding-right: @padding-left-right;
+                    color: #fff;
+                    .x-font-size(14px);
+                    width: 110px;
+                    .x-text-ellipsis(110px);
+                    padding-left: 11px;
+                    &:hover {
+                      color: #afb0b4;
+                    }
+                  }
+                  &.logout {
+                    padding-left: @padding-left-right;
+                    color: #fff;
+                    &:hover {
+                      color: #afb0b4;
+                    }
+                  }
+                  &.split {
+                    display: block;
+                    &:not(.s1) {
+                      display: none;
+                    }
+                  }
+                }
+                &.has-login {
+                  a {
+                    display: block;
+                    &.login {
+                      display: none;
+                    }
+                    &.split {
+                      display: block;
+                      &.s1 {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+              &.active {
+                a {
+                  background-color: transparent;
+                  color: #00b0ed;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  margin: 0 10px;
+}

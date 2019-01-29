@@ -1,0 +1,53 @@
+
+<% if(page_config.activityData) {%>
+  <div class = 'iermu-activity hide'>
+    <script>
+      var CURRENT_PROJECT_ACTIVITY = <%-JSON.stringify(page_config.activityData) %>;
+    </script>
+    <a class = 'pass'><span class = 'bg'></span><%=page_config.translater.get("跳过", page_config.language); %>&nbsp;<span class = 'time'></span></a>
+    <a class = 'main' href = '#' target = '_blank'></a>
+    <style>
+      <% if(page_config.activityData.mobile_bg_path) {%>
+        .iermu-activity{
+            background-image:url(<%=page_config.activityData.mobile_bg_path%>);
+        }
+      <%}%>
+      <% if(page_config.activityData.mobile_main_path) {%>
+        .iermu-activity a.main{
+          background-image:url(<%=page_config.activityData.mobile_main_path%>);
+        }
+      <%}%>
+
+      @media screen and (min-width: 768px){
+      <% if(page_config.activityData.web_bg_path) {%>
+        .iermu-activity{
+          background-image:url(<%=page_config.activityData.web_bg_path%>);
+        }
+      <%}%>
+      <% if(page_config.activityData.web_main_path) {%>
+        .iermu-activity a.main{
+          background-image:url(<%=page_config.activityData.web_main_path%>);
+        }
+      <%}%>
+      }
+      @media screen and (max-height: 480px){
+      <% if(page_config.activityData.mobile_bg_path) {%>
+        .iermu-activity{
+          background-image:url(<%=page_config.activityData.mobile_bg_path%>);
+        }
+      <%}%>
+      <% if(page_config.activityData.mobile_main_path) {%>
+        .iermu-activity a.main{
+          background-image:url(<%=page_config.activityData.mobile_main_path%>);
+        }
+      <%}%>
+      }
+    </style>
+  </div>
+  <script type = 'text/javascript'>
+    CURRENT_PROJECT_SOURCES.push('<%=page_config.activityData.web_bg_path%>');
+    CURRENT_PROJECT_SOURCES.push('<%=page_config.activityData.web_main_path%>');
+    CURRENT_PROJECT_SOURCES.push('<%=page_config.activityData.mobile_bg_path%>');
+    CURRENT_PROJECT_SOURCES.push('<%=page_config.activityData.mobile_main_path%>');
+  </script>
+<%}%>

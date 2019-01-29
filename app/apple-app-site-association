@@ -1,0 +1,23 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "4FWB3R3FB3.com.CmsDvr.BDCCam",
+                "paths": [ "/video/*", "/device/grant" ]
+            },
+            {
+                "appID": "4FWB3R3FB3.com.CmsDvr.BDCCamInternational",
+                "paths": [ "/video/*", "/device/grant" ]
+            },
+            {
+                "appID": "5TNE934KLP.iermuinhouse",
+                "paths": [ "/video/*", "/device/grant" ]
+            },
+            {
+                "appID": "4FWB3R3FB3.com.CmsDvr.Thailand",
+                "paths": [ "/video/*", "/device/grant" ]
+            }
+        ]
+    }
+}

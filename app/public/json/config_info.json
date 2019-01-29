@@ -1,0 +1,19 @@
+{
+  "deviceid": "137894281147",
+  "intro": "",
+  "model": "IPC",
+  "nameplate": "HDM",
+  "platform": "5",
+  "resolution": "720",
+  "sn": "259998552512155635763435",
+  "mac": "00:20:1b:23:bf:bb",
+  "wifi": "NETGEAR94",
+  "ip": "10.0.0.23",
+  "sig": "100",
+  "firmware": "7.125_5_26",
+  "firmdate": "2017-3-16",
+  "channel": "0",
+  "api_server_host": "192.168.3.70",
+  "api_server_port": "9443",
+  "request_id": "1490681987953"
+}

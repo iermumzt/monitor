@@ -1,0 +1,147 @@
+
+<div class='container-fluid main' ng-controller='GisMapController' >
+  <div class="left-nav" ng-hide="isFullscreen">
+    <div camera-tree-list  on-select-item="onSelectDevice" show-add-mark="showAddMark" enable-rudder='enableRudder' categories="categories" change-dragging-icon="changeDraggingIcon" is-in-map="isInMap" set-map="setMap" categorys-bind-data="categorysBindData" tree-current-device="treeCurrentDevice" drag-camera="dragCamera" marker-list="markerList" select-camera = "selectCamera" edit-able="editable" > </div>
+  </div>
+  <div class='right-wrap'>
+    <div class='' ng-hide='showBuildingManage' ng-controller='GisController'>
+      <div class='top-menus map'>
+        <ul class='pull-right'>
+          <li class='pull-left' ng-click='toggleEnableEdit()' ng-class='{"checked":editable}'><a type='button'><i class="pic-map-edit"></i>编辑</a></li>
+          <li class='pull-left split'></li>
+          <li class='pull-left' ng-click='addNewBuilding()' ng-class="{checked:isbuildAdding,c:'isIpad'}" ><a class="addbuild" type='button'><i class="pic-map-build"></i>添加楼宇</a></li>
+          <li class='pull-left split' ng-hide="isIpad"></li>
+          <li class='pull-left' ng-click='fullscreen()' ng-hide="isIpad"><a class="fullscreen" type='button'><i class="pic-map-fullscreen" ng-hide="isFullscreen"></i><i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i><span class="fs" ng-bind-html='isFullscreen ? "退出全屏" : "全屏"'></span></a></li>
+        </ul>
+      </div>
+      <div class='gis-context'>
+        <div id="mapContainer" ng-drop="true" ></div>
+        <div id='panel'></div>
+      </div>
+      <div class='foot-menus map ng-hide' ng-show='editable'>
+        <button class='pull-right cancel' ng-click='cancel()'>取消</button>
+        <button class='pull-right save' ng-click='save()'>保存</button>
+      </div>
+    </div>
+    <div class='ng-hide building-manage-wrap' ng-show='showBuildingManage' ng-controller='BuildingController'>
+      <div class='top-menus'>
+        <a type='button' class='pull-left back' ng-click='showGisMap()'><span>&lt;</span>返回</a>
+        <ul class='pull-right'>
+          <li class='pull-left' ng-click='toggleEnableEdit()' ng-class='{"checked":editable,"c":isIpad}'>
+            <a type='button'><i class="pic-map-edit"></i>编辑</a></li>
+          <li class='pull-left split' ng-hide="isIpad"></li>
+          <li class='pull-left' ng-click='fullscreen()' ng-hide="isIpad">
+            <a class="fullscreen" type='button'><i class="pic-map-fullscreen" ng-hide="isFullscreen"></i><i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i><span class="fs" ng-bind-html='isFullscreen ? "退出全屏" : "全屏"'></span></a>
+          </li>
+        </ul>
+      </div>
+      <div class='context'>
+        <div class="sl">
+          <!-- <div class="build-showFloor">
+            <a ng-repeat='camera in currentFloorCameras' once-title='camera.description'></a>
+          </div> -->
+          <div class="wrap" ng-class="{'nopadding': isFullscreen}">
+            <div class="build-nodata" ng-hide="currentFloorImage">
+              <div class="block">
+                <img src="/public/images/gismap/build-noimg.png">
+                <div class="n"><span>暂无室内地图</span><span ng-show="editable">，请右方添加</span></div>
+              </div>
+            </div>
+            <!-- <div ng-drag-clone="" style="width:19px !important;height:27px !important;">
+              {{clonedData.name}}
+            </div> -->
+            <div class="imgload ng-hide" ng-show="imgIsLoadding">
+                <div class="ball-clip-rotate">
+                  <div></div>
+                </div>
+              </div>
+            <div class="img-content" ng-show="currentFloorImage" ng-drop="true" ng-drop-success="onDropComplete($data,$event)">
+              
+              <img class="showImg" ng-src='{{currentFloorImage && prefix + currentFloorImage.image || ""}}'>
+              <div ng-repeat='camera in currentFloorImage.device track by $index' ng-drag="camera.drag" draggable="camera.drag" ng-drag-data="camera" class="build-icon ng-scope" style="top:{{camera.top * 100}}%;left:{{camera.left * 100}}%;" ng-mousemove="moveDrag()" ng-click="openLive($event,camera)"  allowClone="true"><img ng-src="{{camera.src}}" draggable="{{camera.drag}}"></div>
+              <div class="show-live" ng-class="{show:showLive}">
+                <div class="amap-info-content amap-info-outer">
+                  <div class="info">
+                    <div class="info-title"><span class="title" ng-bind-html="currentDevice.description"></span>
+                      <a class="w-close" ng-click="closeLive()"><i class="pic-close"></i></a>
+                      <a class="adel" ng-class="{show:editable}" ng-click="delFloorImgDev()"><img src="/public/images/gismap/modal-del.png"></a>
+                    </div>
+                    <div class="info-content">
+                    </div>
+                    <a class="show-monitor" ng-click="showMonitor()"><span>点击查看&nbsp;&gt;</span></a>
+                  </div>
+                </div>
+                <!-- <div class="amap-info-sharp" style="height: 23px;"></div> -->
+              </div>
+            </div>
+            <div class="show-floor">
+              <a class="build-edit ng-hide" ng-click="editBuildFloors()" ng-show="editable">编辑</a>
+              <a class="up" ng-click='floorUp()' role='button'><span></span></a>
+              <ul class="floors" ng-class="{'nofloorimg':sceneData.currentFloorImages.length === 0}">
+                <li ng-repeat='floor in floors' ng-bind='floor.name' ng-class="{checked:currentFloor.id === floor.id}" ng-click='selectFloor(floor)'>
+                </li>
+              </ul>
+              <a class="down" ng-click='floorDown()' ng-class="{show:true}" role='button'><span></span></a>
+            </div>
+          </div>
+        </div>
+        <div modal close-modal="openlogin" title="编辑场景" visible="showModal" class="edit-Scene" ng-model="sceneData">
+          <div class="form-group">
+            <label class="title">选择场景&nbsp;:&nbsp;</label>
+            <select ng-model="sceneData.currentSceneId" ng-change="floorChange()" ng-options="scene.id as scene.name for scene in sceneData.scenes"></select>
+          </div>
+          <div class="form-group" ng-class="{isdisable:isdisable}">
+            <label class="title">输入楼层&nbsp;:&nbsp;</label>
+            <input type="text" name="categoryName" maxlength="3" ng-model="sceneData.minfloor" ng-disabled="isdisable"><span></span>
+            <input type="text" name="categoryName" maxlength="3" ng-model="sceneData.maxfloor" ng-disabled="isdisable">
+          </div>
+          <a class="btn cancel" ng-click="sceneCancel()">取消</a>
+          <a class="btn submit" ng-click="sceneSubmit()">保存</a>
+        </div>
+
+        <div modal close-modal="openlogin" title="提示" visible="showModal2" class="submit-del-floorImg" ng-model="delFloorImgData">
+          <div class="submitInfo" ng-bind="delFloorImgData.device.length > 0 ? '楼层图片上存在已标注的摄像机，确认删除吗？':'确认删除楼层图片么？'"></div>
+          <a class="btn cancel" ng-click="delFloorImgCancel()">取消</a>
+          <a class="btn submit" ng-click="delFloorImg(delFloorImgData,$event)">确定</a>
+        </div>
+
+        <div class="sr" ng-hide="isFullscreen">
+          <a role='button' class="floorImgUp" ng-click="floorImgsUp()"><span></span></a>
+          <div class="ul-wrap">
+            <ul class="floorImgs">
+              <!--  <li class="uploadImg" ng-class="{show:true}" ><img src="/public/images/gismap/build-add.png">
+                <input type="file" id = 'file1' class = 'pass-filebtn' name = 'openImg'>
+              </li> -->
+              <li class='new-floor-image ng-hide' ng-show='editable'>
+                <div class="uploadify" id="filePicker">选择图片</div>  
+                <a class='file-uploader'>
+                  <img src="/public/images/gismap/build-add-a.png">
+                </a>
+              </li>
+              <li class="no-floor-image ng-hide" ng-show='!editable && sceneData.currentFloorImages.length === 0'>
+                <img src="/public/images/gismap/build-noimg.png">
+              </li>
+              <li ng-repeat='image in sceneData.currentFloorImages' class='image-item' ng-click='showImageDevices(image)' ng-class="{active:image.pid === currentFloorImage.pid}" ng-style="getStyle(image)"> 
+                <div class="imgload ng-hide" ng-show="imgIsLoadding2 && $index == 0">
+                  <div class="ball-clip-rotate">
+                    <div></div>
+                  </div>
+                </div>
+                <img class="xuanfu" src="/public/images/gismap/xuanfu.png">
+                <img class="showthum" ng-src="{{prefix + image.image}}">
+                <a class="delfloorimg ng-hide" ng-click="submitDelFloorImg(image,$event)" ng-show="editable"><i class="pic-delfloorimg"></i></a>
+              </li>
+            </ul>
+          </div>
+          <a class="floorImgDown" role='button' ng-touchstart="floorImgsDown()" ng-click="floorImgsDown()"><span></span></a>
+          <div class='foot-menus-build ng-hide' ng-show='editable'>
+            <button class='pull-right cancel' ng-click='cancel()'>取消</button>
+            <button class='pull-left save' ng-click='save()'>保存</button>
+          </div>
+        </div>
+
+      </div>
+     
+    </div>
+  </div>
+</div>

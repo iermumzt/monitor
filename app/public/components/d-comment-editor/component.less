@@ -1,0 +1,309 @@
+div.comment-editor-wrap {
+  div.ce-title {
+    .x-clearfix();
+    &>div {
+      float: left;
+      margin-left: 2px;
+      a, span {
+        color: #1db1ea;
+        .x-font-size(14px);
+        cursor: pointer;
+      }
+      a {
+        float: left;
+      }
+      span.line {
+        color: #1db1ea;
+        float: left;
+        display: inline-block;
+        margin: 0px 5px !important;
+      }
+      p.ip {
+        color: #999999
+      }
+    }
+    &>p {
+      float: right;
+      color: rgb(153, 153, 153);
+      .x-font-size(12px);
+    }
+  }
+  div.content-wrap {
+    margin: 10px 0 15px 0;
+    .x-display-flex();
+    .x-flex-direction(row);
+    -webkit-box-orient: horizontal;
+    textarea {
+      .x-flex-box(1);
+      resize: none; // width: 100%;
+      min-height: 80px;
+      border: 1px solid #e6e6e6;
+      .x-font-size(14px);
+      padding: 5px;
+      .x-breakword;
+      &.showm {
+        display: none;
+      }
+    }
+    a.c_l {
+      display: none;
+      .x-border-radius(50%);
+      width: 35px;
+      height: 35px;
+      margin-right: 10px !important;
+      .x-bg("jiazia.png", no-repeat, center center);
+      background-size: 100%;
+      img {
+        .x-border-radius(50%);
+        width: 100%;
+        height: 100%;
+      }
+    }
+    div.cmt-input {
+      display: none;
+    }
+  }
+  div.ce-btns {
+    .x-clearfix();
+    position: relative;
+    span {
+      color: red;
+      .x-font-size(12px);
+    }
+    p.ip {
+      display: none;
+    }
+    button {
+      float: right;
+      background-color: #1db1ea;
+      padding: 8px 25px;
+      border: 1px solid #1db1ea;
+      border-radius: 0;
+      span {
+        color: white;
+        font-size: 14px;
+      }
+      &.comment-btn-cancel {
+        border: 1px solid #1db1ea;
+        background-color: transparent;
+        margin-right: 15px;
+        span {
+          color: #1db1ea;
+        }
+      }
+      &:hover {
+        .x-opacity(.8);
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  div.comment-editor-wrap {
+    width: 100% !important;
+    background-color: inherit !important;
+    div.ce-title {
+      width: 100% !important;
+      display: none;
+      a {
+        float: left;
+      }
+      span.line {
+        color: #1db1ea;
+        float: left;
+        display: inline-block;
+        margin: 0px 5px !important;
+      }
+      p.ip {
+        color: #999999
+      }
+    }
+    div.content-wrap {
+      margin: 15px 0;
+      textarea {
+        &.showpc {
+          display: none;
+        }
+        &.showm {
+          display: block;
+        }
+      }
+      a.c_l {
+        display: inline-block;
+      }
+
+      div.cmt-input, textarea {
+        resize: none;
+        .x-flex-box(1);
+        -moz-box-flex: 1.0;
+        /*Firefox*/
+        -webkit-box-flex: 1.0;
+        /*Safari,Opera,Chrome*/
+        box-flex: 1.0;
+        -webkit-box-flex: 1.0;
+        -moz-flex-grow: 1;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+        min-height: 80px;
+        border: 1px solid #e3eef9;
+        .x-font-size(14px);
+        color: #aeaeae;
+        padding: 5px;
+      }
+      textarea {
+        .x-transition(height .6s);
+        .x-text-ellipsis;
+        .x-breakword;
+        .x-opacity(0);
+        /* width: 0; */
+        position: absolute;
+        left: 45px;
+        z-index: -1;
+      }
+      div.cmt-input {
+        display: block;
+      }
+      div.cmt-input, textarea {
+        box-sizing: border-box;
+        height: 36px;
+        padding: 1px 15px;
+        line-height: 36px;
+        border-radius: 36px;
+        border: none !important;
+        background: #f7f7f7;
+        font-size: 14px;
+        min-height: 10px;
+        .x-text-ellipsis;
+        .x-breakword;
+        white-space: inherit;
+      }
+    }
+    div.ce-btns {
+      display: none;
+      width: 100% !important;
+      .x-border-radius(3px);
+      span.errorInfo {
+        display: none;
+      }
+      p.ip {
+        display: inline-block;
+        color: rgb(153, 153, 153);
+        .x-font-size(12px);
+        margin-left: 45px;
+      }
+      button {
+        float: right;
+        background-color: #1db1ea;
+        border-color: #1db1ea;
+        padding: 3px 10px;
+        position: absolute;
+        right: 0px;
+        top: -2px;
+        border: none;
+        border-radius: 2px;
+        &.comment-btn-cancel {
+          margin-right: 76px;
+        }
+        span {
+          .x-font-size(14px);
+          color: #fff;
+        }
+      }
+    }
+    &.comment-wrap {
+      div.content-wrap {
+        div.cmt-input {
+          position: absolute;
+          z-index: -1;
+          .x-opacity(0);
+          display: none;
+        }
+        textarea {
+          // display: inline-block;
+          position: relative;
+          left: 0;
+          z-index: 1;
+          .x-opacity(1); // width: 0;
+          height: 76px;
+          .x-border-radius(8px);
+          .x-line-height(14px);
+          padding: 8px;
+          border: 1px solid #e3e3e3;
+          &::-webkit-input-placeholder {
+            .x-opacity(0);
+          }
+          &::-moz-placeholder {
+            .x-opacity(0);
+          }
+          &:-moz-placeholder {
+            .x-opacity(0);
+          }
+        }
+      }
+      div.ce-btns {
+        display: block;
+        button {
+          width: 66px;
+          height: 26px;
+          line-height: 18px;
+          border-radius: 23px;
+        }
+      }
+    }
+    &.list-comment {
+      div.content-wrap {
+        a.c_l {
+          display: none;
+        }
+        textarea {
+          &::-webkit-input-placeholder {
+            .x-opacity(1);
+          }
+          &::-moz-placeholder {
+            .x-opacity(1);
+          }
+          &:-moz-placeholder {
+            .x-opacity(1);
+          }
+        }
+        div.cmt-input {
+          display: none;
+        }
+      }
+      div.ce-btns {
+        p.ip {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  div.comments-wrap {
+    div.comment-list-wrap {
+      ul {
+        li {
+          a {
+            margin-right: 1px;
+          }
+          img {
+            margin: 0 10px 0 0 !important;
+          }
+          div.comment-content {
+            .x-breakword; // width: 92% !important;
+            p.cc-h {
+              span {
+                &.owner-name {
+                  display: initial !important;
+                }
+              }
+            }
+          }
+        }
+      }
+      div.comment-editor-wrap {
+        div.content-wrap {
+          width: 100% !important;
+        }
+        div.ce-btns {}
+      }
+    }
+  }
+}

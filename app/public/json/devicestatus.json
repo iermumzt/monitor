@@ -1,0 +1,24 @@
+{
+  "power": "1",
+  "light": "0",
+  "invert": "0",
+  "audio": "1",
+  "localplay": "1",
+  "scene": "0",
+  "nightmode": "0",
+  "exposemode": "2",
+  "bitlevel": "2",
+  "bitrate": "1000",
+  "maxspeed": "2000",
+  "minspeed": "50",
+  "email": {
+    "mail_to": "",
+    "mail_cc": "",
+    "mail_server": "",
+    "mail_port": "",
+    "mail_from": "",
+    "mail_user": "",
+    "mail_passwd": ""
+  },
+  "request_id": "1490681987510"
+}

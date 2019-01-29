@@ -1,0 +1,218 @@
+body.guangchang {
+  nav.navbar.left-nav {
+    width: 180px;
+    z-index: 1029;
+    height: 100%;
+    div.menus {
+      margin-top: 70px;
+      ul {
+        li {
+          margin-bottom: 0px;
+          a {
+            padding: 14px 15px 14px 28px;
+            i {
+              .x-font-size(22px);
+              padding-right: 3px;
+              color: #64758a;
+              vertical-align: bottom;
+              &.pic-iermu-logo {
+                .x-pic-27_iermu_blue;
+              }
+              &.pic-zhibo {
+                .x-pic-23_video_blue;
+                width: 27px;
+              }
+              &.pic-like_gray {
+                .x-pic-20_heart_blue;
+                width: 27px;
+              }
+              &.pic-myiermu {
+                .x-pic-23_video_blue;
+                width: 27px;
+              }
+              &.pic-view-history {
+                .x-pic-20_jilu_gray;
+                width: 27px;
+              }
+            }
+            span {
+              .x-font-size(14px);
+              color: #637488;
+              &.t {
+                display: none;
+              }
+            }
+          }
+          &.active {
+            a {
+              background-color: #1db1ea;
+              .x-border-radius(0);
+              i {
+                color: white;
+                &.pic-iermu-logo {
+                  .x-pic-27_iermu_white;
+                  width: 27px;
+                }
+                &.pic-zhibo {
+                  .x-pic-23_zhibo_white;
+                  width: 27px;
+                }
+                &.pic-like_gray {
+                  .x-pic-20_like_white;
+                  width: 27px;
+                }
+                &.pic-view-history {
+                  .x-pic-20_jilu_white;
+                  width: 27px;
+                }
+              }
+              span {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1000px) {
+    nav.navbar.left-nav {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1439px) {
+    nav.navbar.left-nav {
+      width: 60px;
+      div.menus {
+        ul {
+          li {
+            a {
+              padding: 10px 15px;
+              text-align: center;
+              i {
+                display: block;
+                margin: 0 auto;
+                &.pic-zhibo {
+                  width: 23px;
+                }
+              }
+              span {
+                &.t {
+                  margin-top: 5px;
+                  display: block;
+                }
+                &.d {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.en {
+    nav.navbar.left-nav {
+      width: 180px;
+      z-index: 1029;
+      height: 100%;
+      div.menus {
+        margin-top: 70px;
+        ul {
+          li {
+            a {
+              padding: 14px 15px 14px 28px;
+              i {
+                .x-font-size(22px);
+                padding-right: 3px;
+                color: #64758a;
+                vertical-align: bottom;
+                &.pic-iermu-logo {
+                  .x-pic-27_iermu_blue;
+                }
+                &.pic-zhibo {
+                  .x-pic-23_video_blue;
+                  width: 27px;
+                }
+                &.pic-myiermu {
+                  .x-pic-23_video_blue;
+                  width: 27px;
+                }
+              }
+              span {
+                .x-font-size(14px);
+                color: #637488;
+                &.t {
+                  display: none;
+                }
+                &.r {
+                  margin-left: -8px;
+                }
+              }
+            }
+            &.active {
+              a {
+                background-color: #1db1ea;
+                .x-border-radius(0);
+                i {
+                  color: white;
+                  &.pic-iermu-logo {
+                    .x-pic-27_iermu_white;
+                  }
+                  &.pic-zhibo {
+                    .x-pic-23_zhibo_white;
+                  }
+                }
+                span {
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width:1000px) {
+      nav.navbar.left-nav {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1439px) {
+      nav.navbar.left-nav {
+        width: 60px;
+        div.menus {
+          ul {
+            li {
+              a {
+                padding: 10px 15px;
+                text-align: center;
+                i {
+                  display: block;
+                  margin: 0 auto;
+                  &.pic-zhibo {
+                    width: 23px;
+                  }
+                }
+                span {
+                  &.t {
+                    margin-top: 5px;
+                    display: block;
+                    font-size: 13px;
+                  }
+                  &.d {
+                    display: none;
+                  }
+                }
+              }
+              a.m {
+                span.t {
+                  margin-left: -14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

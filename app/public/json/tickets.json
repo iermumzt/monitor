@@ -1,0 +1,29 @@
+{
+    "count": 1,
+    "list": [
+        {
+            "couponid": "1",
+            "couponno": "abcdefg",
+            "typeid": "1",
+            "coupontype": "0",
+            "uid": "100004",
+            "createtime": "1460390400",
+            "bindtime": "1460431092",
+            "usetime": "0",
+            "orderid": "0",
+            "status": "1",
+            "type": {
+                "typeid": "1",
+                "coupontype": "0",
+                "ordertype": "0",
+                "name": "云录制购买满60减30",
+                "money": "30.00",
+                "min_fee": "60.00",
+                "starttime": "1460390400",
+                "expiretime": "1460476800"
+            }
+        }
+    ],
+    "request_id": "1460521450806"
+}
+

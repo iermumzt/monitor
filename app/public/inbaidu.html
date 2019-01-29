@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style type="text/css">
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+  }
+  
+  p {
+    margin: 23px;
+    position: absolute;
+    top: 27%;
+    font-size: 20px;
+  }
+  
+  p span {
+    display: block;
+  }
+  
+  a {
+    display: block;
+    background-color: #1db1ea;
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 44px;
+    position: absolute;
+    bottom: 0;
+  }
+  </style>
+</head>
+
+<body>
+  <p>您选择的是百度摄像机，请复制以下链接到浏览器打开： <span>kankan.baidu.com </span>到该网站可继续购买摄像机的百度云服务。
+  </p>
+  <a onclick="window.history.go(-1);">返回</a>
+</body>
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/ixutils.js"></script>
+<script type="text/javascript">
+  if (IX.getUrlParam("hideback") === "true") {
+    $('a').css("display", "none");
+  } 
+</script>
+
+</html>

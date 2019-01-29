@@ -1,0 +1,34 @@
+div.dib {
+  float: left;
+  .img-a {
+    width: 231px;
+    margin: 0 10px 20px;
+    border: 1px solid #dfe7ef;
+    display: block;
+    height: auto;
+    img {
+      height: 130px;
+      width: 100%;
+    }
+    .ellipsis {
+      margin-left: 10px;
+      color: #999;
+      .x-font-size(14px);
+      padding-bottom: 31px;
+    }
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 1000px) {
+  div.dib {
+    width: 50%;
+    padding-right: 10px;
+    .img-a {
+      width: 100%;
+      margin: 0 0px 10px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

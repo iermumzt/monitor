@@ -1,0 +1,32 @@
+<div class='comment-list-wrap'>
+  <div page-show size="size" count="count" current-page-index="currentPageIndex" type="type" hide-page="0" on-page-changed="onPageChanged"></div>
+  <ul>
+    <li ng-repeat='item in comments'>
+      <!-- <div class="photo"></div> -->
+      <a class='c_l'>
+        <img ng-src="{{item.avatar || 'http://tb.himg.baidu.com/sys/portrait/item/185ee5b08fe585ace4b8bb31393932d807'}}" onerror='this.style.display="none";'>
+      </a>
+      <div class='comment-content'>
+        <p class='cc-h'>
+          <span class='owner-name' ng-bind-html='(item.username || "<%=page_config.translater.get("匿名用户", page_config.language); %>")'></span>
+          <span class='cc-time'>{{item.dateline * 1000 | date: "MM月dd日"}}</span>
+        </p>
+        <p class='cc-c' ng-bind-html='(item.comment)'></p>
+        <ul class="childComment" ng-class='{s : (item.reply_list && item.reply_list.length > 0)}'>
+          <li class="c-comment" ng-repeat='replay in item.reply_list' ng-class="{'z':($last && item.replynum <= 5)}">
+            <!-- <p class='cc-c' ng-bind-html='(replay.comment)'></p> -->
+            <a class="c-replay" ng-click='showCommentEditor($event, item, replay)'> <span class="name" ng-bind-html='(replay.username)'></span><span class="s" ng-bind-html='(replay.parent_cid === replay.reply_cid ? "" : " 回复")'></span><span class="re-name" class="ng-hide" ng-show='replay.parent_cid !== replay.reply_cid' ng-bind-html='("@" + replay.parent_username)'></span>:<span class="re-content" ng-bind-html='(replay.comment)'></span></a>
+            <a class="c-replay-btn" ng-click='showCommentEditor($event, item, replay)'><%=page_config.translater.get("回复", page_config.language); %></a>
+          </li>
+          <a class="more ng-hide" ng-click="showMoreReplys(item)" ng-show="(item.replynum > 5 && !item.loaded)"><span ng-bind='"共" + item.replynum + "条回复"'></span><span class="arrow-down"></span></a>
+          <a class="more ng-hide" ng-click="showMoreReplys(item)" ng-show="(item.replynum > 5 && item.loaded)" ><span ng-bind='"收起回复 "'> </span><span class="arrow-up"></span></a>
+        </ul>
+      </div>
+      <!-- //@{{item.username}}:{{item.comment.length> 10 ? item.comment.substr(0, 10)+"..." : item.comment }} -->
+      <a class="replay-c" ng-click='showCommentEditor($event, item)' onm><i class="mpic-comment"></i><span class="rp"><%=page_config.translater.get("回复", page_config.language); %></span></a>
+      <!-- <div class="line" ng-class = '{show: item.showReply}'></div> -->
+      <div comment-editor='commentEditor' submit-btn-text='<%=page_config.translater.get("回复", page_config.language); %>' place-holder='{{placeHolder}}' class-name='list-comment comment-wrap hide' show-cancel-btn=1 save-comment-fn='saveCommentFn1($event, item)' cancel-edit-fn='cancelReply($event, item)' get-extra-params='getExtraParams1(item)' replay-type='{{replayType}}' reload-comment-list="reloadCommentListFn" type="list" current-comment="currentComment" comment="item" comment-count="5" ></div>
+    </li>
+  </ul>
+  <div page-show size="size" count="count" type="type" current-page-index="currentPageIndex" pull-load="true" on-page-changed="onPageChanged" is-loading="isLoading"></div>
+</div>

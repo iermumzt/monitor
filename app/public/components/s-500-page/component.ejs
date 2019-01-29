@@ -1,0 +1,35 @@
+<style>
+html{
+  font-size: 62.5%;
+}
+
+html,body{
+  height:100%;
+}
+
+body, body *{ 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float:none;
+  outline: none;
+  font-family: 方正兰亭纤黑_GBK,黑体,Microsoft Yahei,Hiragino Sans GB,宋体,Tahoma,Verdana,sans-serif,simsun,Arial;
+}
+ @media screen and (max-width:1000px){
+    div.maintaining{
+      padding: 0 30px 0 30px;
+    }
+    p{
+      font-size: 1.4rem !important;
+    }
+ }
+
+</style>
+  <div class="maintaining" style="max-width: 547px;margin:0 auto;text-align: center;position: relative;top: 25%;">
+    <p style="font-size: 20px;color: #666;margin-bottom: 6px;"><%=page_config.translater.get("非常抱歉,我们正在维护更新网站", page_config.language); %>......</p>
+    <p style="font-size: 16px;color: #999;padding-bottom: 29px;"><%=page_config.translater.get("给您带来的不便,请谅解,稍后再来吧!", page_config.language); %></p>
+    <div style="">
+      <img style="width:100%;" src="http://7xlaxs.com2.z0.glb.qiniucdn.com/public/images/maintaining.png" alt="404 image">
+    </div>
+    
+  </div>

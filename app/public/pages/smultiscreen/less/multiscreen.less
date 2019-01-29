@@ -1,0 +1,81 @@
+body.smultiscreen {
+  overflow: hidden;
+  background-color: #dfdfdf;
+  div.container-fluid {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    div.pagedown {
+      a {
+        display: none;
+        position: fixed;
+        width: 70px;
+        height: 35px;
+        top: 0;
+        z-index: 999;
+        cursor: pointer;
+        background-color: #1ea1db;
+        border-radius: 0 0 37px 37px;
+        /*圆角半径为宽度的值*/
+        .x-opacity(0);
+        .x-transition(opacity 1s);
+        &:hover {
+          .x-opacity(1);
+        }
+        span {
+          .x-font-size(14px);
+          color: #fff;
+          margin-left: 14px;
+          vertical-align: sub;
+        }
+        &.tprev {
+          left: 10px;
+        }
+        &.disprev {
+          background-color: #666666;
+          span {
+            color: #e3e3e0;
+          }
+        }
+        &.tnext {
+          right: 10px;
+        }
+        &.disnext {
+          background-color: #666666;
+          span {
+            color: #e3e3e0;
+          }
+        }
+      }
+    }
+    div.movescr {
+      a {
+        .x-opacity(1);
+        .x-transition(opacity .5s);
+      }
+    }
+    table {
+      margin: 0 auto;
+      tr {
+        td {
+          // border: 2px solid;
+          div.video-op {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.en {
+  div.container-fluid {
+    div.pagedown {
+      a {
+        span {
+          margin-left: 22px;
+        }
+      }
+    }
+  }
+}

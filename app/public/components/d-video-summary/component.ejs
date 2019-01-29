@@ -1,0 +1,26 @@
+<div class="video-summary-item">
+  <div class = 'video-summary'>
+    <div video-thumbnail class = "video-thumbnail" play-url="item.playUrl" thumbnail="item.thumbnail" name = "item.description">
+      <span class = 'has-histoty ng-hide' ng-show = "item.hasHistory" ></span>
+    </div>
+    <div class = 'caption viewinfo'>
+      <a class = 'play' title = '浏览'>
+        <i class = 'pic-play'></i>
+        <i class = 'mpic-play'></i>
+        <span ng-bind="item.viewnum | htmlNum"></span>
+      </a>
+      <a class = 'reply' title = '评论'>
+        <i class = 'pic-play'></i>
+        <i class = 'mpic-play'></i>
+        <span ng-bind="item.commentnum | htmlNum"></span>
+      </a>
+      <a class = 'like' title = '赞'>
+        <i class = 'pic-play'></i>
+        <i class = 'mpic-play'></i>
+        <span ng-bind="item.approvenum | htmlNum"></span>
+      </a>
+    </div>
+    <div ng-transclude>
+    </div>
+  </div>
+</div>

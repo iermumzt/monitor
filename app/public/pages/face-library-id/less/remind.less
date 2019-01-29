@@ -1,0 +1,140 @@
+body.face-library-id {
+  div.container-fluid.main { 
+    div.reminder-num {
+      position: fixed;
+      z-index: 9999;
+      right: 172px;
+      top: 4px;
+      div.re-num {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        .x-border-radius(20px);
+        span.num {
+          position: absolute;
+          color: #fff;
+          display: inline-block;
+          background-color: red;
+          width: 18px;
+          height: 18px;
+          .x-font-size(12px);
+          .x-border-radius(10px);
+          text-align: center;
+          line-height: 14px;
+          top: 1px;
+          right: -3px;
+        }
+      }
+      div.remind-grup {
+        position: absolute;
+        width: 260px;
+        left: -115px;
+        background-color: #3a3a42;
+        margin-top: 6px;
+        display: none;
+        div.right-show-user {
+          ul{
+            max-height: 300px;
+            overflow: auto;
+            li{
+              padding: 10px 10px;
+              display: inline-block;
+              border-bottom: 1px solid #414149;
+              position: relative;
+              width: 100%;
+              a {
+                display: block;
+                div.t-user {
+                  width: 40px;
+                  height: 40px;
+                  display: inline-block;
+                  position: relative;
+                  p.portrait-i {
+                    width: 40px;
+                    height: 40px;
+                    .x-bg("defaultphoto.jpg", no-repeat, center center);
+                    background-size: cover;
+                    display: inline-block;
+                    .x-border-radius(20px);
+                    span.user_face {
+                      width: 40px;
+                      height: 40px;
+                      .x-border-radius(20px);
+                      display: inline-block;
+                      background-size: cover;
+                      background-position: center center;
+                      background-repeat: no-repeat;
+                    }
+                  }
+                  span.red {
+                    display: inline-block;
+                    position: absolute;
+                    right: 0px;
+                    top: 2px;
+                    width: 10px;
+                    height: 10px;
+                    background-color: red;
+                    .x-border-radius(5px);
+                  }
+                }
+                div.inform {
+                  .x-font-size(18px);
+                  display: inline-block;
+                  max-height: 96px;
+                  margin-left: 15px;
+                  margin-top: -30px;
+                  vertical-align: middle;
+                  p {
+                    .x-font-size(12px);
+                    color: #999;
+                    &.nickname {
+                      color: #333;
+                      line-height: 13px;
+                      img {
+                        width: 20px;
+                        vertical-align: sub;
+                        margin-left: 4px;
+                      }
+                    }
+                    span {
+                      .x-font-size(12px);
+                      color: #999;
+                      display: inline-block;
+                      margin-right: 10px;
+                    }
+                    a {
+                      color: #555;
+                      .x-font-size(14px);
+                      span {
+                        color: #00b0ed;
+                        cursor: pointer;
+                        .x-font-size(13px);
+                      }
+                      &.red {
+                        color: #f75353;
+                      }
+                    }
+                  }
+                }
+                i.j-com {
+                  color: #7f7f87;
+                  vertical-align: middle;
+                  top: 25px;
+                  position: absolute;
+                  right: 10px;
+                }
+              }
+              &.under-user {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        &.remind-grup-show-menu {
+          display: block;
+        }
+      }
+    }
+  }
+}

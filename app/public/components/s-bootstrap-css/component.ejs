@@ -1,0 +1,7 @@
+<% if(page_config.currentMode == "develop") {%>
+  <link rel="stylesheet/less" type = 'text/css' href="/public/less/bootstrap/bootstrap.less" />
+<% }else if(page_config.currentMode == "test") {%>
+  <link rel="stylesheet" type = 'text/css' href="/public/css/bootstrap.min.css" />
+<%}else{%>
+  <link rel="stylesheet" type = 'text/css' href="<%=page_config.webSiteDomains[0]%>public/css/bootstrap.min.css" />
+<%}%>

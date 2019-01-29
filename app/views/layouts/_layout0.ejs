@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
+  <head>
+    <% include head_meta %>
+    <%- include(page_config.component_path + "s-bootstrap-css/component") %>
+    <% include head_link %>
+    <%- include(page_config.component_path + "s-baidu-tongji/component-init") %>
+    <% include head_super_script %>
+  </head>
+  <body class = '<%=page_config.bodyClass + " " + page_config.language%>'>
+    <%- include(page_config.component_path + "s-top-nav/component") %>
+    <%-body %>
+    <%- include(page_config.component_path + "s-foot-nav/component") %>
+    <%- include(page_config.component_path + "s-check-navigator/component") %>
+    <%- include script %>
+    <%- include(page_config.component_path + "s-weibo-module/component") %>
+    <%- include(page_config.component_path + "s-baidu-tongji/component-script") %>
+  </body>
+</html>

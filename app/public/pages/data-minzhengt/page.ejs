@@ -1,0 +1,205 @@
+
+    
+<div class='container-fluid main f' ng-controller='DataStatisticsController'>
+  <!--<div statistics-left-nav current-menu = "currentMenu"></div>-->
+  <div class="right-nav">
+    <div class="overview">
+      <div class="choseDevice">
+        <div class="device">
+          <div class="ta_device" ng-click = "choseDeviceClick()">
+            <p class="title ng-hide" ng-show = "!choseDevice">选择设备</p>
+            <p class="date_title ng-hide" ng-show = "choseDevice">全部设备</p>
+            <p class = 'date_title title2 ng-hide' ng-show = "!choseDevice" ng-bind="choseDeviceName"></p>
+            <a class="icon_plus"></a>
+          </div>
+        </div>
+        <div class="time">
+          <div class="ta_date" id="div_date1">
+            <span class="title">选择时间</span>
+            <span class="date_title" id="date1"></span>
+            <a class="opt_sel caret" id="input_trigger1" href="#">
+            </a>
+          </div>
+          <div id="datePicker1"></div>
+        </div>
+        <a class = "query" ng-click = query()>查询</a>
+      </div>
+      <div class="record">
+        <%# 视频播放器 #%>
+        <div class="poin-wrap">
+          <div class="moni-video">
+            <div class="bot-wrap" ng-mouseenter="showOver = true" ng-mouseleave="showOver = false">
+              <div class='video-player-module-wrap ng-show' ng-hide="single"></div>
+              <div class='morepic ng-hide' ng-show="single" on-finish-render-filters ng-controller='MultiViewController'>
+                <div class="multi">
+                  <div class='top-menus' ng-show="single">
+                    <div class="poinMenus" ng-hide="setMulti">
+                      <ul>
+                        <li class="MultiScreenSet" ng-click="toggleEnableConfig()">
+                          <i class="poinSet"></i>
+                        </li>
+                        <li ng-click="fullscreen()">
+                          <i class="poinSetFull"></i>
+                        </li>
+                        <li class="poinUdgement ng-show" ng-hide="smiling" ng-click="PoinHideOrShow()">
+                          <i class="poinSettingFace" ng-class="{'poinSetface':results}"></i>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- <ul class='pull-right'>
+                      <li class='pull-left' ng-click='toggleEnableConfig()' ng-class='{"checked":setMulti}' ng-hide="setMulti">
+                        <a type='button'>
+                          <i class="pic-mon-config"></i>设置</a>
+                      </li>
+                      <li class='pull-left split' ng-hide="setMulti"></li>
+                      <li class='pull-left' ng-click='fullscreen()' ng-hide="setMulti">
+                        <a class="fullscreen" type='button'>
+                          <i class="pic-map-fullscreen" ng-hide="isFullscreen"></i>
+                          <i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i>
+                          <span class="fs">全屏</span>
+                        </a>
+                      </li>
+                    </ul> -->
+                  </div>
+                  <div class="mutiConfig" ng-class='{m: !setMulti}'>
+                    <div class="screenShow" ng-hide='showMultiView' ng-class="{'c':!setMulti}">
+                      <a class="cancelMobileFull ng-hide" ng-show="mobileFull" ng-click='cancelMobileFull()'>退出全屏</a>
+                      <div camera-multi-view class="cameraList" on-change-layout="onChangeLayout" set-multi='setMulti' cameras-list="camerasList"
+                        ng-class="{noborder: !setMulti,ff: mobileFull}" current-playing-videos="currentPlayingVideos" is-init="isInit" wheel-time="wheelTime"
+                        is-fullscreen="isFullscreen" multi-type='multiType' edit-type='editType' resize="resize" okpush="okpush" playing-camera="playingCamera"></div>
+                    </div>
+                    <div class="screenRatio ng-hide" ng-show="setMulti">
+                      <div class="scrTitle">
+                        <h3>格式设置</h3>
+                      </div>
+                      <ul class="picFormat">
+                        <!-- <li class="c-screen">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle t" data-toggle="dropdown">
+                              <span class="layout" ng-bind-html="!smultiType ? '请选择' : (smultiType.lid === '1'  ? '单画面' : (smultiType.rows * smultiType.rows)+'画面') "></span>
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                              <li ng-repeat='layout in multiList | limitTo:3'>
+                                <a ng-click="setLayout(layout)" ng-bind-html="(layout.lid === '1' ? '单' : layout.rows * layout.rows)+'画面' " ng-class="{eff: currentMultiType.lid === layout.lid}"></a>
+                              </li>
+                            </ul>
+                          </div>
+                        </li> -->
+                        <li ng-repeat='layout in multiList' ng-click="setLayout(layout)" ng-hide="$index<1 || $index>11 " ng-class="{checked: multiType.lid === layout.lid,s: currentMultiType.lid === layout.lid}">
+                          <a>
+                            <i class="pic_mu_check"></i>
+                            <i ng-class="'pic-multi-' + $index"></i>
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="scrTitle scrlun">
+                        <h3>轮播设置</h3>
+                        <i class="shuCheckbox" ng-class="{'pic-checked':checked}" ng-click="wheeled()"></i>
+                      </div>
+                      <ul class="shuFormat" ng-class="{'ulCheck':checked}">
+                        <li ng-repeat="time in times" ng-class="{checked:currentTime.desc===time.desc && checked}" ng-click="setWheelTime(time)">
+                          <a>
+                            <i class="shuPic"></i>
+                            <span ng-bind="time.desc + '秒'"></span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="btns">
+                        <button class="cancel" ng-click="cancelEdit()">
+                          <span>取消</span>
+                        </button>
+                        <button class="ok" ng-click="saveEdit()">
+                          <span>保存</span>
+                        </button>
+                      </div>
+                      <!-- <div class="timing">
+                        <i class="pic-checkbox" ng-class="{'pic-checked':checked}" ng-click="wheeled()"></i>
+                        <span>轮播间隔（秒）：</span>
+                        <div class="btn-group dropup time">
+                          <button type="button" class="btn btn-default dropdown-toggle s" data-toggle="dropdown">
+                            <span class="time" ng-bind-html="currentTime.desc + '秒'"></span>
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu times" role="menu">
+                            <li ng-repeat='time in times'>
+                              <a ng-click="setWheelTime(time)" ng-bind-html="time.desc + '秒'"></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div> -->
+                      
+                    </div>
+                    <div class="f">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contrast" ng-hide = "results" ng-class="{'showFace': !results}">
+              <div camera-identification class="ident" show-modal-detail = "showModalDetail" detail-data = "detailData"  get-data="haveface" results="results" noai="noai" emp="emp" eyes="eyes" ul-height="ulHeight"></div>
+            </div>
+          </div>
+          <div class="botsnap">
+            <div camera-bident class="snap" capture-list="noface" results="results" eyes="eyes" emp="emp"></div>
+          </div>
+        </div>
+        <%# 视频播放器 #%>
+
+
+
+
+
+        <div class="data-right">
+          <div class="record-l">
+            <ul class="record-ul">
+              <li>
+                <span>总识别人数：</span>
+                <lable><span ng-bind="captureInfo" class = "num"></span><span class = "ci">人</span></lable>
+              </li>
+            </ul>
+          </div>
+          <div class="baojing">
+            <p>年龄分布</p>
+            <div id="pie" style="height:200px;"></div>
+          </div>
+          <div class="zhaji">
+            <p>类别分布</p>
+            <div id="pie2" style="height:200px;"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="bottom-num">
+        <div class="data-left">
+          <p class="title">
+            <%=page_config.translater.get("地域分布", page_config.language); %>
+          </p>
+          <div class="people">
+            <div id="main" style = "width:100%;height:500px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div modal close-modal="closeModal" title='<%=page_config.translater.get("选择设备", page_config.language); %>' visible="showModal" ng-mode="model" class="choseDeviceItem ng-hide" ng-show="showModal">
+    <div class="showDevice">
+      <div class="input">
+        <input type="text" ng-model = "model.name" placeholder="搜索">
+      </div>
+      <div class="deviceItem">
+        <ul>
+          <li ng-repeat = "item in deviceItem" ng-click = "IsCheckbox(item)">
+            <i class="pic-checkbox" ng-class="{'pic-checked' : item.checkboxIschecked}"></i>
+            <span ng-bind = "item.description"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="button">
+        <a class = "cancelCheck-button" ng-click = "isNoChecked()">取消全选</a>
+        <a class = "cancel-button common-button" ng-click = "cancel()">取消</a>
+        <a class = "sure common-button" ng-click = "sure()">确定</a>
+      </div>
+    </div>
+  </div>
+</div>

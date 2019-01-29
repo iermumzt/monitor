@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+      body{margin: 0;}
+      a{text-decoration: none;}
+    </style>
+  </head>
+  <body class = 'help'>
+      <div class = 'container-fluid main ap' style="position:relative;margin:0 auto;width:1000px">
+        <img src="" id = 'imgg' style = 'display: block;margin: 0 auto;'>
+        <a class="l" href="http://kankan.baidu.com/MyOrder" style="position: absolute;left: 44%;bottom: 50px;color:#1ea1db;">点击查看购买订单信息</a>
+      </div>
+  </body>
+  <script type="text/javascript" src="/js/lib2/jquery.min.js"></script>
+  <script type="text/javascript">
+  var browser={
+    versions:function(){
+    var u = navigator.userAgent, app = navigator.appVersion;      
+    return {//移动终端浏览器版本信息       
+      trident: u.indexOf('Trident') > -1, //IE内核      
+      presto: u.indexOf('Presto') > -1, //opera内核     
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核      
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核      
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/Windows Phone/) || !!u.match(/Android/) || !!u.match(/MQQBrowser/), //是否为移动终端      
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端      
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器     
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器     
+      iPad: u.indexOf('iPad') > -1, //是否iPad      
+      webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部     
+    };      
+    }(),      
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()    
+  };
+  var $img = document.getElementById("imgg");
+  var $ap = document.getElementsByClassName("ap");
+  if(browser.versions.mobile){
+    $img.style.width = "100%";
+  }
+  if(document.location.href.indexOf("t=1") > -1){
+    $img.src = "/public/images/bd1-min.jpg";
+  }else if(document.location.href.indexOf("t=2") > -1){
+    $img.src = "/public/images/7C2FF413698DDC6D9192E0055BE787B4.jpg";
+  }else if(document.location.href.indexOf("t=5") > -1){
+    $(document.getElementsByClassName("l")).css({
+      "left": "50%",
+      "margin-left":"-395px",
+      "bottom": "5px",
+      "color": "#1ea1db",
+      "background-color": "#f6f6f6",
+      "padding": "10px 315px"
+    }).hover(function(){
+      $(document.getElementsByClassName("l")).css("color","#0296d0");
+    },function(){
+      $(document.getElementsByClassName("l")).css("color","#1db1ea");
+    });
+    $(document.getElementsByClassName("ap")).css("margin-bottom","51px");
+    for (var i = 0; i < 10; i++) {
+      $("<img src='http://7xlaxs.com2.z0.glb.qiniucdn.com/public/images/active/m-6/p5-" + (i + 1) + ".jpg' style = 'display: block;margin: 0 auto;'>").appendTo(document.getElementsByClassName("ap"));
+    }
+  }else{
+    $img.src = "/public/images/bd3-min.jpg";
+  }
+  </script>
+</html>

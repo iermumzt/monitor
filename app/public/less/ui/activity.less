@@ -1,0 +1,51 @@
+div.iermu-activity {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: table-cell;
+  vertical-align: middle;
+  z-index: 99999999;
+  padding: 10px;
+  a.pass {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    padding: 5px 12px;
+    .x-font-size(14px);
+    @media screen and (min-width: 1024px) {
+      top: 36px;
+      right: 46px;
+    }
+    span.bg {
+      .x-border-radius(40px);
+      background-color: #000;
+      .x-opacity(0.3);
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      color: white;
+      .x-font-size(14px);
+    }
+  }
+  a.main {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

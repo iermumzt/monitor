@@ -1,0 +1,58 @@
+<div class="myiermu-video no-selected"><!-- selected -->
+  <div class="myiermu-summary">
+    <div class="mask" ng-class = "{show : (item.isGranted && hideMask)}"></div>
+    <div class="maski"></div>
+    <div class="maski2" >
+      <div class='detil'>
+        <div ng-repeat='item in lyList'>
+        <span class="yl">{{item.cvr_day}}</span><span class="yl" ng-show="item.cvr_type == 0">天免费云录像</span><span class="yl" ng-show="item.cvr_type == 1">天事件云录像</span><span class="yl" ng-show="item.cvr_type == 2">天持续云录像</span>
+        <span class="yr" ng-show="item.cvr_free != 1">{{(item.cvr_end_time || item.expire_time) * 1000 | date:'yyyy-MM-dd'}}<%=page_config.translater.get("到期", page_config.language); %></span>
+        <span class="yr" ng-show="item.cvr_free == 1"><%=page_config.translater.get("永久免费", page_config.language); %></span>
+        </div>
+      </div>        
+    </div>
+    <i class=' m pic-selected' ></i>   
+    <p class = "checkbox-m" ng-class = "item.isGranted ? 'hidden' : (item.checkboxIsDisable ? 'checkbox-disable' : '')" ng-click = 'ckIschecked(item)'><i class = 'pic-checkbox'  ng-class = "{'pic-checked' : item.checkboxIschecked}"></i></p> 
+    <p class = "checkbox-m-c"  ng-class = "{show:showCks}" ng-click = 'caCkIschecked(item)'><i class = 'pic-checkbox'  ng-class = "{'pic-checked' : item.checkboxIschecked}"></i></p>
+
+    <div video-thumbnail class = "video-thumbnail" play-url="item.playUrl" thumbnail="item.thumbnail" name = "item.description">
+      <div class="status">
+        <p class = 'v-status' ><span class = 'v-{{item.devStatus}}'>{{item.devStatusC}}</span></p>
+        <p class = 'cloud-valid' ng-class="{hidden: item.connect_type == 2}">
+          <span class = 'c-{{item.cloudStatus}}'>
+            <i class = 'pic-camera'></i>
+            <span class="days" >{{item.cloudValidDays}} </span>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="caption personal-videos">
+      <a class = 'date'  href='{{item.connect_type != "2" && "http://kankan.baidu.com/Service/buy/a=0" || "/record"}}' target='_blank'> <!-- ng-class = '{"visibility-hidden": item.connect_type == 2}' -->
+        <span ng-show = "(item.connect_type == '2' && (item.cvr_free === 1 || item.cvr_type == '0'))">
+          <%=page_config.translater.get(" ", page_config.language); %>
+        </span>
+        <span ng-show = "(item.connect_type == '1' && item.cvr_end_time == '0')">
+          <%=page_config.translater.get("已过期", page_config.language); %>
+        </span>
+        <span ng-show = "((item.connect_type == '1' && item.cvr_end_time != '0') || (item.connect_type == '2' && !item.cvr_free && item.cvr_type != 0))">
+          {{(item.cvr_end_time || item.expire_time) * 1000 | date:'yyyy.MM.dd'}}<%=page_config.translater.get("到期", page_config.language); %>
+        </span>
+      </a>
+      <!-- <a class = 'date' ng-class = '{"visibility-hidden": item.connect_type == 2}' href='http://kankan.baidu.com/Service/buy/a=0'>{{(item.cvr_end_time || item.expire_time) * 1000 | date:'yyyy.MM.dd'}}<%=page_config.translater.get("到期", page_config.language); %></a> -->
+      <div class="atwo" ng-class = '{hidden: item.ismu}'>
+        <a class = 'share-s'>
+          <i class = 'pic-share-{{item.shareStatus}}'></i>
+          <span>{{item.shareStatusC}}</span>
+        </a>
+      </div>
+      <div class="atwo2" ng-class = '{hidden: !item.ismu}'>
+        <a class = 'share-s' title='{{item.shareStatusC}}'>
+          <i class = 'pic-share-{{item.shareStatus}}'></i>
+        </a>
+        <a class = 'share-s' title='{{item.shareStatusC2}}'>
+          <i class = 'pic-share-{{item.shareStatus2}}'></i>
+        </a>
+      </div>      
+    </div>
+  </div>
+</div>

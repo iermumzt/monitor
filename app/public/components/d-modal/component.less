@@ -1,0 +1,90 @@
+@top-title: 18px;
+@content-title: 13px;
+@top-title-color: #11395c;
+@content-title-color: #4e5f6f;
+@placeholder-title-color: #999999;
+div.modal {
+  div.modal-dialog {
+    div.modal-content {
+      .x-border-radius(8px) !important;
+      border:none;
+      box-shadow: none;
+      div.modal-header {
+        padding: 30px;
+        padding-top: 27px;
+        padding-bottom: 15px;
+        button.close {
+          position: relative;
+          right: -16px;
+          top: -12px;
+          cursor: pointer;
+          .x-opacity(1);
+          i.pic-close {
+            float: right;
+            .x-pic-25_close_gray();
+          }
+        }
+        h4.modal-title {
+          .x-font-size(@top-title);
+          color: @top-title-color;
+        }
+      }
+      div.modal-body {
+        padding: 30px;
+        padding-top: 0px;
+        div, p, span, label, textarea , input {
+          .x-font-size(@content-title);
+          color: @content-title-color;
+        }
+        ::-webkit-input-placeholder { /* WebKit browsers */  
+          color:@placeholder-title-color; 
+          font-family: "Microsoft Yahei", "Hiragino Sans GB";
+          .x-font-size(@content-title); 
+          letter-spacing: 0px;
+        }  
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+          color:@placeholder-title-color; 
+          font-family: "Microsoft Yahei", "Hiragino Sans GB";
+          .x-font-size(@content-title); 
+          opacity:  1;  
+          letter-spacing: 0px;
+        }  
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */  
+          color:@placeholder-title-color;
+          font-family: "Microsoft Yahei", "Hiragino Sans GB";
+          .x-font-size(@content-title);  
+          opacity:  1;  
+          letter-spacing: 0px;
+        }  
+        :-ms-input-placeholder { /* Internet Explorer 10+ */  
+          color:@placeholder-title-color; 
+          font-family: "Microsoft Yahei", "Hiragino Sans GB";
+          .x-font-size(@content-title); 
+          letter-spacing: 0px;
+        } 
+        button.modal_btn {
+          .x-border-radius(2px);
+          width: 74px;
+          height: 34px;
+          line-height: 35px;
+          color: #fff;
+          .x-font-size(@content-title);
+          &.cancel {
+            color: #798d98;
+            background-color: #e8e8e8;
+            &:hover {
+              background-color: #d7dedf;
+            }
+          }
+          &.ok {
+            background-color: #1db1ea;
+            margin-right: 20px;
+            &:hover {
+              background-color: #1292cb;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,339 @@
+
+<div class='container-fluid main' ng-controller='MonitorController'>
+  <div class="left-nav">
+    <div camera-tree-list on-select-item="onSelectDevice" single="single" set-multi="setMulti" show-add-mark="showAddMark" enable-rudder='enableRudder' video-player-manager="videoPlayerManager" on-select-categorys="onSelectCategorys" cancel-Select-categorys="cancelSelectCategorys" multi-cids='multiCids' multi-type='multiType'
+    get-cameras-by-cids="getCamerasByCids" select-item="selectItem" videos-list="videosList" categorys-bind-data="categorysBindData" resize="resize"></div>
+    <!-- <div camera-tree-list  on-select-item="onSelectDevice" show-add-mark="showAddMark" enable-rudder='enableRudder' set-multi = "?setMulti"  multi-cids='?multiCids' multi-type='?multiType' get-cameras-by-cids="?getCamerasByCids" videos-list="?videosList"></div> -->
+  </div>
+  <div class='right-wrap'>
+    <div class="poin-wrap">
+      <div class="moni-video">
+        <div class="bot-wrap" ng-mouseenter="showOver = true" ng-mouseleave="showOver = false">
+          <div class="double" ng-show="showOver && !setMulti">
+            <div class="pictrue btn-group" ng-hide="setMulti">
+              <a class="slide1 btn" ng-class="{active:!single}" ng-click="point()">单画面</a>
+              <a class="slide2 btn" ng-class="{active:single}" ng-click="points()">多画面</a>
+            </div>
+          </div>
+          <div class='video-player-module-wrap ng-show' ng-hide="single"></div>
+          <div class='morepic ng-hide' ng-show="single" on-finish-render-filters ng-controller='MultiViewController'>
+            <div class="multi">
+              <div class='top-menus' ng-show="single">
+                <div class="poinMenus" ng-hide="setMulti">
+                  <ul>
+                    <li class="MultiScreenSet" ng-click="toggleEnableConfig()">
+                      <i class="poinSet"></i>
+                    </li>
+                    <li ng-click="fullscreen()">
+                      <i class="poinSetFull"></i>
+                    </li>
+                    <li class="poinUdgement ng-show" ng-hide="smiling" ng-click="PoinHideOrShow()">
+                      <i class="poinSettingFace" ng-class="{'poinSetface':results}"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <ul class='pull-right'>
+                  <li class='pull-left' ng-click='toggleEnableConfig()' ng-class='{"checked":setMulti}' ng-hide="setMulti">
+                    <a type='button'>
+                      <i class="pic-mon-config"></i>设置</a>
+                  </li>
+                  <li class='pull-left split' ng-hide="setMulti"></li>
+                  <li class='pull-left' ng-click='fullscreen()' ng-hide="setMulti">
+                    <a class="fullscreen" type='button'>
+                      <i class="pic-map-fullscreen" ng-hide="isFullscreen"></i>
+                      <i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i>
+                      <span class="fs">全屏</span>
+                    </a>
+                  </li>
+                </ul> -->
+              </div>
+              <div class="mutiConfig" ng-class='{m: !setMulti}'>
+                <div class="screenShow" ng-hide='showMultiView' ng-class="{'c':!setMulti}">
+                  <a class="cancelMobileFull ng-hide" ng-show="mobileFull" ng-click='cancelMobileFull()'>退出全屏</a>
+                  <div camera-multi-view class="cameraList" on-change-layout="onChangeLayout" set-multi='setMulti' cameras-list="camerasList"
+                    ng-class="{noborder: !setMulti,ff: mobileFull}" current-playing-videos="currentPlayingVideos" is-init="isInit" wheel-time="wheelTime"
+                    is-fullscreen="isFullscreen" multi-type='multiType' edit-type='editType' resize="resize" okpush="okpush" playing-camera="playingCamera"></div>
+                </div>
+                <div class="screenRatio ng-hide" ng-show="setMulti">
+                  <div class="scrTitle">
+                    <h3>格式设置</h3>
+                  </div>
+                  <ul class="picFormat">
+                    <!-- <li class="c-screen">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle t" data-toggle="dropdown">
+                          <span class="layout" ng-bind-html="!smultiType ? '请选择' : (smultiType.lid === '1'  ? '单画面' : (smultiType.rows * smultiType.rows)+'画面') "></span>
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li ng-repeat='layout in multiList | limitTo:3'>
+                            <a ng-click="setLayout(layout)" ng-bind-html="(layout.lid === '1' ? '单' : layout.rows * layout.rows)+'画面' " ng-class="{eff: currentMultiType.lid === layout.lid}"></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li> -->
+                    <li ng-repeat='layout in multiList' ng-click="setLayout(layout)" ng-hide="$index<1 || $index>11 " ng-class="{checked: multiType.lid === layout.lid,s: currentMultiType.lid === layout.lid}">
+                      <a>
+                        <i class="pic_mu_check"></i>
+                        <i ng-class="'pic-multi-' + $index"></i>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="scrTitle scrlun">
+                    <h3>轮播设置</h3>
+                    <i class="shuCheckbox" ng-class="{'pic-checked':checked}" ng-click="wheeled()"></i>
+                  </div>
+                  <ul class="shuFormat" ng-class="{'ulCheck':checked}">
+                    <li ng-repeat="time in times" ng-class="{checked:currentTime.desc===time.desc && checked}" ng-click="setWheelTime(time)">
+                      <a>
+                        <i class="shuPic"></i>
+                        <span ng-bind="time.desc + '秒'"></span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="btns">
+                    <button class="cancel" ng-click="cancelEdit()">
+                      <span>取消</span>
+                    </button>
+                    <button class="ok" ng-click="saveEdit()">
+                      <span>保存</span>
+                    </button>
+                  </div>
+                  <!-- <div class="timing">
+                    <i class="pic-checkbox" ng-class="{'pic-checked':checked}" ng-click="wheeled()"></i>
+                    <span>轮播间隔（秒）：</span>
+                    <div class="btn-group dropup time">
+                      <button type="button" class="btn btn-default dropdown-toggle s" data-toggle="dropdown">
+                        <span class="time" ng-bind-html="currentTime.desc + '秒'"></span>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu times" role="menu">
+                        <li ng-repeat='time in times'>
+                          <a ng-click="setWheelTime(time)" ng-bind-html="time.desc + '秒'"></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div> -->
+                  
+                </div>
+                <div class="f">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="newAddSetIcon" ng-hide="single">
+            <ul>
+              <li ng-click="OneToggleConfig()">
+                <i class = "settingBo"></i>
+              </li>
+              <li ng-click="OneAll()">
+                <i class = "settingFull"></i>
+              </li>
+              <li class = "udgement ng-show" ng-hide="smiling" ng-click="HideOrShow()">
+                <i class = "settingFace" ng-class="{'setface':results}"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="contrast" ng-hide = "results" ng-class="{'showFace': !results}">
+          <div camera-identification class="ident" show-modal-detail = "showModalDetail" detail-data = "detailData"  get-data="haveface" results="results" noai="noai" emp="emp" eyes="eyes" ul-height="ulHeight"></div>
+        </div>
+      </div>
+      <div class="botsnap">
+        <div camera-bident class="snap" capture-list="noface" results="results" eyes="eyes" emp="emp"></div>
+      </div>
+    </div>
+    <div modal title="参数设置" visible="showModalConfig" class="edit-Config" ng-model="sceneData" close-modal="cancelEditConfig">
+      <div class='video-ops-wrap' ng-class='{show: editConfigEnable && !setYuntaiEnable}'>
+        <!-- <div class="t-loading" ng-class="{hidden:isShowLoading}"><span class='spinner-loader'>Loading&#8230;</span></div>
+        <div class="v-loading" ng-class="{hidden:isShowLoading}"></div> -->
+        <div class="base-info" ng-click="hideBaseInfo()">
+          <div class="base-title">
+            <span><%=page_config.translater.get("基本信息", page_config.language); %></span><span class="s" ng-class="{'c':cos}"></span>
+          </div>
+          <div ng-show="cos">
+            <label>
+              <%=page_config.translater.get("设备ID：", page_config.language); %>
+            </label><span ng-bind='info.deviceid'></span></div>
+          <div ng-show="cos">
+            <label>
+              <%=page_config.translater.get("固件版本：", page_config.language); %>
+            </label><span ng-bind='info.firmware'></span></div>
+          <div ng-show="cos">
+            <label>
+              <%=page_config.translater.get("版本日期：", page_config.language); %>
+            </label><span ng-bind='info.firmdate'></span></div>
+          <div ng-show="cos">
+            <label>
+              <%=page_config.translater.get("ip地址：", page_config.language); %>
+            </label><span ng-bind='info.ip'></span></div>
+          <div ng-show="cos">
+            <label>
+              <%=page_config.translater.get("MAC地址：", page_config.language); %>
+            </label><span ng-bind='info.mac'></span></div>
+        </div>
+        <div class='r'>
+          <span><%=page_config.translater.get("开关机设置", page_config.language); %></span>
+          <div>
+            <label>
+              <%=page_config.translater.get("开关机：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.power", 1)' ng-class='{checked: status.power == 1}'></i><span><%=page_config.translater.get("开机", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.power", 0)' ng-class='{checked: status.power != 1}'></i><span><%=page_config.translater.get("关机", page_config.language); %></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class='r'>
+          <span><%=page_config.translater.get("摄像机设置", page_config.language); %></span>
+          <div>
+            <label>
+              <%=page_config.translater.get("指示灯：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.light", 1)' ng-class='{checked: status.light == 1}'></i><span><%=page_config.translater.get("开启", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.light", 0)' ng-class='{checked: status.light != 1}'></i><span><%=page_config.translater.get("关闭", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <div>
+            <label class="le">
+              <%=page_config.translater.get("录像：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("cvr.cvr", 1)' ng-class='{checked: cvr.cvr == 1}'></i><span><%=page_config.translater.get("开启", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("cvr.cvr", 0)' ng-class='{checked: cvr.cvr != 1}'></i><span><%=page_config.translater.get("关闭", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <div>
+            <label class="le">
+              <%=page_config.translater.get("画面：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.invert", 0)' ng-class='{checked: status.invert == 0}'></i><span><%=page_config.translater.get("正常", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.invert", 1)' ng-class='{checked: status.invert != 0}'></i><span>180°<%=page_config.translater.get("倒置", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <div>
+            <label class="le">
+              <%=page_config.translater.get("音频：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.audio", 1)' ng-class='{checked: status.audio == 1}'></i><span><%=page_config.translater.get("开启", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.audio", 0)' ng-class='{checked: status.audio != 1}'></i><span><%=page_config.translater.get("关闭", page_config.language); %></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class='r'>
+          <span><%=page_config.translater.get("使用场景设置", page_config.language); %></span>
+          <div>
+            <label>
+              <%=page_config.translater.get("使用场景：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.scene", 0)' ng-class='{checked: status.scene != 1}'></i><span><%=page_config.translater.get("室内", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.scene", 1)' ng-class='{checked: status.scene == 1}'></i><span><%=page_config.translater.get("室外", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <div>
+            <label>
+              <%=page_config.translater.get("夜视模式：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.nightmode", 0)' ng-class='{checked: status.nightmode == 0}'></i><span><%=page_config.translater.get("自动", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.nightmode", 1)' ng-class='{checked: status.nightmode == 1}'></i><span><%=page_config.translater.get("日间模式", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.nightmode", 2)' ng-class='{checked: status.nightmode == 2}'></i><span><%=page_config.translater.get("夜间模式", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <div>
+            <label>
+              <%=page_config.translater.get("曝光模式：", page_config.language); %>
+            </label>
+            <ul class='zbase-ui uradio'>
+              <li><i class='pic-p1' ng-click='editConfig("status.exposemode", 0)' ng-class='{checked: status.exposemode == 0}'></i><span><%=page_config.translater.get("自动", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.exposemode", 2)' ng-class='{checked: status.exposemode == 2}'></i><span><%=page_config.translater.get("低光优先", page_config.language); %></span></li>
+              <li><i class='pic-p1' ng-click='editConfig("status.exposemode", 1)' ng-class='{checked: status.exposemode == 1}'></i><span><%=page_config.translater.get("高光优先", page_config.language); %></span></li>
+            </ul>
+          </div>
+          <p>
+            <%=page_config.translater.get("*曝光模式中的自动模式是室内为低光优先，室外为高光优先", page_config.language); %>
+          </p>
+        </div>
+        <div class='r hidden'>
+          <span><%=page_config.translater.get("码流带宽设置", page_config.language); %></span>
+          <div class="wu">
+            <label>
+              <%=page_config.translater.get("视频码流：", page_config.language); %>
+            </label>
+            <input ng-model='bit.bitrate' type='text' />
+          </div>
+          <p class="wu">
+            <%=page_config.translater.get("提示:码流影响清晰度,码流越大越清晰(*设置范围:50~500)", page_config.language); %>
+          </p>
+          <div>
+            <label>
+              <%=page_config.translater.get("限制带宽：", page_config.language); %>
+            </label>
+            <input ng-model='bw.maxspeed' type='text' class="shuzi" />
+            <span class="Kb">Kbps</span>
+          </div>
+          <p>
+            <%=page_config.translater.get("提示:带宽影响流畅度,带宽越大越流畅(*设置范围:50~2000)", page_config.language); %>
+          </p>
+        </div>
+        <p>
+          <a ng-click='cancelEditConfig()' class='btn btn-cancel'><span><%=page_config.translater.get("取消", page_config.language); %></span></a>
+          <a ng-click='saveConfig()' class='btn btn-save'><span><%=page_config.translater.get("确定", page_config.language); %></span></a>
+        </p>
+      </div>
+    </div>
+    <div modal class = "detail" visible="showModalDetail" ng-model="detailData">
+      <div class="close-a">
+        <button type="button" class="close" ng-click = "CloseModal()"><i class="pic-close"></i></button>
+        <div class="name">
+          <div class="lpic">
+            <div class="imgurl" ng-style = "{'background-image':'url(' + detailData.image_url + ')'}" style="background-image: url('detailData.image_url')">
+            </div>
+          </div>  
+          <div class = "info">
+            <p class="nickname">
+              <a class='nickname' ng-bind="detailData.face.name"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <ul class = "detailToal">
+        <li><span class = "split">姓名</span><span ng-bind = "detailData.face.name"></span></li>
+        <li><span class = "split">身份证</span><span ng-bind = "detailData.face.id_card"></span></li>
+        <li><span class = "split">来访次数</span><span ng-bind = "detailData.face.visits" class = "num"></span></li>
+        <li><span class = "split">年龄</span><span ng-bind = "detailData.face.age"></span></li>
+        <li><span class = "split">人员类别</span><span ng-bind = "detailData.face.class"></span></li>
+        <li><span class = "split">地域分布</span><span ng-bind = "detailData.face.area"></span></li>
+      </ul>
+    </div>
+  </div>
+    <!-- ng-show="isScreen || moreScreen" -->
+  <div class="fullface ng-hide" ng-show="isScreen">
+    <div class="full-top">
+      <!-- ng-style = "{'background-image':'url(' + user.image_url + ')'}" style="background-image: url('user.image_url')" -->
+      <div class="evenpic" ng-repeat="user in putface track by $index" ng-style = "{'background-image':'url(' + user.face.image_url + ')'}" style="background-image: url('user.face.image_url')"></div>
+    </div>
+    <div class="fotwrap">
+      <div class="full-fot">
+        <div class="evpeo" ng-repeat="user in downface track by $index">
+          <div class="lep">
+            <div class="fullpic" ng-style="{'background-image':'url(' + user.image_url + ')'}" style="background-image: url('user.image_url')">
+              <i ng-class='{markpic:!user.face,question:user.face.name==""}'></i>
+            </div>
+          </div>
+          <div class="rip">
+            <!-- ng-bind="!user.face ? '陌生人' : user.face.name" -->
+            <h3 ng-class='{marke:!user.face,question:user.face.name==""}'>{{user.face ? (user.face.name!="" ? user.face.name : 'ID:'+user.face.face_id) :'陌生人'}}</h3>
+            <p>
+              <span ng-bind="user.time*1000 | date:'HH:mm:ss'"></span>&nbsp;进入视野</p>
+            <!-- <p class="p2" ng-bind="user.time*1000 | date:'HH:mm:ss'"></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,243 @@
+body.face-library {
+  @top-size: 14px;
+  @top-color: #b3b2b7;
+  background: #29282e;
+  min-width: 1100px;
+  overflow: auto;
+  .t-user() {
+    height: 134px;
+    width: 100px;
+    .x-bg("gismap/professional_monitor_distinguish_frame.png",no-repeat,center center);
+    background-size: 100%;
+    position: relative;
+  }
+  .portrait-i() {
+    width: 92px;
+    height: 125px;
+    .x-bg("defaultphoto.jpg", no-repeat, center center);
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+  .user_face() {
+    width: 92px;
+    height: 125px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .x-pagination() {
+    div.pagination-wrap {
+      nav.pagination {
+        ul.pager {
+          background-color: transparent;
+          li {
+            a {
+              background-color: transparent;
+            }
+            &.n.selected {
+              a {
+                background-color: #1db1ea;
+              }
+            }
+            &.prev,&.next {
+              a {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  div.container-fluid.main {
+    margin-bottom: 15px;
+    div.face-libary-total {
+      background-color: #303136;
+      margin-top: 15px;
+      height: 100%;
+      div.face-total {
+        padding-top: 15px;
+        div.face-top {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          margin-left: 20px;
+          margin-right: 20px;
+          background-color: #38393e;
+          div.fenlei {
+            padding-top: 13px;
+            padding-left: 50px;
+            p {
+              display: inline-block;
+              color: @top-color;
+              .x-font-size(@top-size);
+            }
+            ul {
+              display: inline-block;
+              li {
+                display: inline-block;
+                cursor: pointer;
+                color: @top-color;
+                margin-left: 20px;
+                padding-bottom: 5px;
+                .x-font-size(@top-size);
+                &.active {
+                  color: #2bb2e8;
+                  border-bottom: 2px solid #2bb2e8;
+                }
+              }
+            }
+            &.hideTime {
+              ul {
+                li {
+                  padding-bottom: 12px;
+                }
+              }
+            }
+          }
+          div.time {
+            padding-left: 50px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            p {
+              .x-font-size(@top-size);
+              color: @top-color;
+              display: inline-block;
+              vertical-align: middle;
+              margin-top: -27px;
+              margin-right: 20px;
+            }
+            div.input-group {
+              display: inline-block;
+              width: 170px;
+              margin-right: 15px;
+              cursor: pointer;
+              input {
+                width: 170px;
+                background-color: #4c4d54;
+                border: none;
+                color: @top-color;
+                .x-font-size(@top-size);
+              }
+              span.input-c{
+                display: inline-block;
+                position: absolute;
+                right: 4px;
+                background: #4c4d54;
+                border: none;
+                z-index: 4;
+                top: 4px;
+                span {
+                  .x-bg("signwall/calendar.png", no-repeat, center center);
+                  width: 25px;
+                  height: 25px;
+                  display: block;
+                }
+              }
+              &#datetimepicker2 {
+                margin-right: 0;
+              }
+            }
+            div.search {
+              display: inline-block;
+              vertical-align: top;
+              cursor: pointer;
+              span.input-group-addon {
+                border: none;
+                background: transparent;
+                width: 50px;
+                span.glyphicon-search {
+                  color: #8d8d8f;
+                }
+              }
+            }
+          }
+        }
+      }
+      div.showUser {
+        padding-left: 50px;
+        padding-right: 30px;
+        margin-bottom: 15px;
+        position: relative;
+        ul.infor-user{
+          width:100%;
+          padding-top: 25px;
+          height: 100%;
+          overflow: auto;
+          position: relative;
+          li{
+            padding-bottom: 20px;
+            display: inline-block;
+            margin-right: 20px;
+            div.t-user {
+              .t-user();
+              p.portrait-i {
+                .portrait-i();
+                span.user_face {
+                  .user_face();
+                }
+              }
+            }
+            div.inform {
+              margin-top: 5px;
+              text-align: left;
+              p {
+                color: #fff;
+                .x-font-size(14px);
+                margin-top: 1px;
+                &.desc, &.time,&.pixel,&.similarity{
+                  color: #b7b7b7;
+                  .x-font-size(13px);
+                }
+                &.time,&.pixel,&.similarity{
+                  .x-font-size(12px);
+                }
+                &.desc {
+                  width: 110px;
+                  .x-text-ellipsis(110px);
+                }
+                &.strang {
+                  color: #ee624e;
+                  margin-top: 8px;
+                }
+                &.id {
+                  color: #f19748;
+                }
+              }
+              &.under {
+                text-align: center;
+              }
+            }
+            &.under-user {
+              cursor: pointer;
+            }
+          }
+          div.no-user {
+            height: 100%;
+            div.img-show {
+              .x-layout-vertical-middle(140px);
+              .x-layout-align-center(120px);
+              img {
+                display: inline-block;
+                width: 120px;
+                margin-left: 16px;
+              }
+              p.no-data {
+                .x-font-size(14px);
+                color: #48474c;
+                margin-top: 15px;
+              }
+            }
+          }
+        }
+        div.zbase-ui-pagination {
+          .x-pagination();
+          bottom: 0px;
+        }
+      }
+    }
+  }
+}

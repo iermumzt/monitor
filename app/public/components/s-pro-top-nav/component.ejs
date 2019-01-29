@@ -1,0 +1,24 @@
+<nav class="navbar navbar-fixed-top pro-top-header">
+  <div class="container-fluid">
+    <div class="navbar-header" ng-hide="isZyy">
+      <!-- <a class="navbar-brand" href="#"><img data-defer="/public/images/gismap/logo.png"></a> -->
+    </div>
+    <div id="navbar" class="navbar-menus navbar-left">
+      <ul class="nav navbar-nav top-menus">
+       <li data-menu='index'><a href="/"><%=page_config.translater.get("我的监控", page_config.language); %></a></li> 
+        <!-- <li data-menu='index'><a href="/gismap"><%=page_config.translater.get("电子地图", page_config.language); %></a></li> -->
+        <li data-menu='index' class = "data"><a href="/profile/data-statistics"><%=page_config.translater.get("数据与应用", page_config.language); %></a><span></span></li>
+        <li data-menu='index' class = 'library'><a href="/face-library"><%=page_config.translater.get("人脸图库", page_config.language); %></a></li> 
+      </ul>
+    </div>
+    <div id="navbar1" class="navbar-menus navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+        <li class = 'uinfo'>
+          <div class="uphoto">
+            <img class="uphoto" ng-src="" onerror='this.style.display="none";'>
+          </div>
+          <a class = 'user-info'  href = '/'></a><a class = 'split hide'>|</a><a class = 'logout hide' role='button'><%=page_config.translater.get("退出", page_config.language); %></a><a class = 'login' role='button'><%=page_config.translater.get("登录", page_config.language); %></a><a class = 'split s1'>|</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

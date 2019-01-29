@@ -1,0 +1,276 @@
+@import "@{x-component-path}d-comment-editor/component";
+div.comment-list-wrap {
+  &>ul {
+    &>li {
+      position: relative;
+      border-bottom: 1px solid #e3eef9;
+      .x-clearfix();
+      padding-top: 15px;
+      padding-bottom: 15px;
+      &:first-child {
+        border-top: 1px solid #e3eef9;
+      }
+      &:last-child {
+        border-bottom-color: transparent;
+      }
+      a.c_l {
+        .x-border-radius(50%);
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px !important;
+        .x-bg("jiazia.png", no-repeat, center center);
+        background-size: 100%;
+        img {
+          .x-border-radius(50%);
+          width: 100%;
+          height: 100%;
+        }
+      }
+      div.comment-content {
+        margin-left: 60px;
+        min-height: 50px;
+        padding: 3px 0;
+        .x-breakword;
+        p {
+          &.cc-h {
+            span.owner-name {
+              color: #1db1ea;
+              .x-font-size(12px);
+            }
+            span.cc-time {
+              color: #999999;
+              .x-font-size(12px);
+            }
+          }
+          &.cc-c {
+            color: #3e3e3e;
+            .x-font-size(14px);
+          }
+        }
+        ul.childComment {
+          background: #f9f9f9;
+          &.s {
+            padding: 0 10px 0 20px;
+            margin: 10px 0 0;
+          }
+          li.c-comment {
+            padding: 15px 0;
+            border-bottom: 1px solid #e3eef9;
+            position: relative;
+            &.z {
+              border-bottom: none;
+            }
+
+            a.c-replay {
+              width: 96%;
+              display: inline-block;
+              color: #000;
+              line-height: 20px;
+
+              .x-font-size(14px);
+              span {
+                color: #000;
+                display: inline;
+                .x-font-size(14px);
+                &.name {
+                  color: #1db1ea;
+                }
+                &.re-name {
+                  color: #1db1ea;
+                  margin-left: 5px;
+                }
+                &.re-content {
+                  margin-left: 5px;
+                }
+              }
+            }
+            a.c-replay-btn {
+              width: 4%;
+              min-width: 32px;
+              .x-font-size(14px);
+              color: #1db1ea;
+              cursor: pointer;
+              position: absolute;
+              right: 0;
+              text-align: right;
+            }
+          }
+          a.more {
+            position: relative;
+            width: 100%;
+            color: #1db1ea;
+            display: block;
+            line-height: 48px;
+            cursor: pointer;
+
+            span {
+              .x-font-size(14px);
+              &.arrow-down {
+                min-height: inherit !important;
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-width: 0 0 1px 1px;
+                border-style: solid;
+                .x-transform(rotate(315deg));
+                top: 50%;
+                margin-top: -6px;
+                margin-left: 5px;
+                border-color:#2da5d3;
+              }
+              &.arrow-up {
+                min-height: inherit !important;
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-width: 0 0 1px 1px;
+                border-style: solid;
+                .x-transform(rotate(135deg));
+                top: 50%;
+                margin-top: -2px;
+                margin-left: 5px;
+                border-color:#2da5d3;
+              }
+            }
+          }
+        }
+      }
+      a {
+        color: #1db1ea;
+        .x-font-size(14px);
+        &.replay-c {
+          position: absolute;
+          top: 18px;
+          right: 10px;
+          cursor: pointer;
+          i.mpic-comment {
+            display: none;
+            .x-mpic-mvideo-comments-2x(18px, 18px);
+          }
+          span.rp {
+            display: block;
+            color: #1db1ea;
+            .x-font-size(14px);
+          }
+        }
+      }
+
+      div.comment-editor-wrap {
+        margin-top: 10px;
+        padding: 10px 10px 20px 63px !important;
+        div.ce-btns {
+          button {
+            padding: 3px 15px;
+          }
+        }
+      }
+    }
+  }
+  div.more-btn {
+    // border-top: 1px solid #e3eef9;
+    margin: auto -10px;
+  }
+  div.nomore {
+    margin-top: 11px;
+    .x-bg("nomorecomments.png", no-repeat, center);
+    span {
+      display: none;
+    }
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  div.comment-list-wrap {
+    &>ul {
+      li {
+        &:hover {
+          background-color: transparent;
+        }
+        div.comment-content {
+          // width: 80%;
+          // margin-left: 0;
+          padding: 3px 0;
+          p {
+            &.cc-h {
+              span.cc-time {
+                display: none !important;
+              }
+              a {
+                margin-right: 10px;
+              }
+            }
+            &.cc-c {
+              .x-font-size(12px);
+            }
+          }
+          ul.childComment {
+            &.s {
+              padding: 4px 8px;
+            }
+            li.c-comment {
+              padding: 0 !important;
+              border: none !important;
+              a.c-replay {
+                width: 100%;
+                display: block;
+                line-height: 20px;
+                cursor: pointer;
+                .x-font-size(12px);
+                span {
+                  .x-font-size(12px);
+                  &.name {
+                    color: #1db1ea;
+                  }
+                }
+              }
+              a.c-replay-btn {
+                cursor: pointer;
+                display: none;
+              }
+            }
+            a.more {
+              line-height: 36px;
+              .x-font-size(12px);
+              span{
+                .x-font-size(12px);
+              }
+              span.arrow-up,span.arrow-down{
+                min-height: inherit !important;
+              }
+            }
+          }
+        }
+        a {
+          margin-right: 10px;
+          &.replay-c {
+            margin-top: 0;
+            i.mpic-comment {
+              display: block;
+            }
+            span.rp {
+              display: none;
+            }
+          }
+        }
+
+        div.comment-editor-wrap {
+          margin-top: 0 !important;
+          padding: 0 !important;
+        }
+      }
+    }
+    div.more-btn {
+      display: block;
+    }
+  }
+}
+&.en {
+  div.comment-list-wrap {
+    div.nomore {
+      .x-bg("nomorecomments_en.png", no-repeat, center);
+    }
+  }
+}

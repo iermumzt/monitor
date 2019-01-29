@@ -1,0 +1,38 @@
+
+<div class='container-fluid main' ng-controller='ProLoginController' >
+  <div class = "content">
+    <div class="form">
+      <form class="main form-horizontal" action="{$form_action}" method="post">
+      <input id="cid" name="cid" type="hidden" ng-model = "cid" ng-init = "cid = '<%=page_config.cookies.cid %>'">
+        <fieldset class = 'ng-hide' ng-show = "!en">  
+          <legend>登录专业版</legend>
+          <p class = 'error'></p>
+          <div class="control-group first">   
+            <div class="controls bus">
+              <label class = 'username-label'></label>
+              <label class = 'username-label2'></label> 
+              <input id="domain" name="domain" maxlength="4" ng-model = "domain" type="text" class="bus_name" placeholder="企业名" ng-click = "focususer()" ng-blur = "bluruser()"> 
+              <span>_</span>
+              <input id="username" name="username" placeholder="用户名" ng-model = "username" type="text" class="bus_user" ng-click = "focususer()" ng-blur = "bluruser()"> 
+              <span class = "to-delete2 todelete ng-hide" ng-hide = "username.length === 0 && domain.length === 0" ng-show = "username.length > 0 || domain.length > 0" ng-click = "todelete()"></span>
+            </div>  
+          </div>  
+          <div class="control-group second">   
+            <div class="controls"> 
+              <label class = 'password-label'></label>
+              <label class = 'password-label2'></label> 
+              <input id="pwd1" name="pwd1" placeholder="请输入密码" ng-model = "password" type="text"  class="input-xlarge2" ng-focus = "focuspwd()" ng-blur = "blurpwd()" onfocus="this.type='password'" maxlength = "19">
+              <span class = "to-eye toeye" ng-mousedown = "resetStatus('input-viewpass', null, 'text', $event)" for = '.control-group .controls .input-xlarge2' ng-mouseup = "resetStatus(null, 'input-viewpass', 'password', $event)" ng-mouseleave = "resetStatus(null, 'input-viewpass', 'password', $event)"></span>
+              <span class = "to-eye2 toeye" ontouchstart = "return false;"></span> 
+            </div>  
+          </div> 
+          <span class = "domainpwd">如果忘记密码，请联系企业管理员找回密码</span>
+          <a class = "blue-button" ng-click = "LoginSuccess()">登录</a>
+        </fieldset>  
+      </form>
+    </div>
+    <!-- <a class="navbar-bottom" href="#">
+      <img src="/public/images/sign_wall_icon_logo.png">
+    </a> -->
+  </div>
+</div>

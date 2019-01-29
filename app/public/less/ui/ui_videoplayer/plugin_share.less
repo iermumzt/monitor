@@ -1,0 +1,187 @@
+div.zbase-ui.video-player-wrap {
+  overflow: inherit;
+
+  div.show-share-ops {
+    display: none;
+    position: absolute;
+    width: 440px;
+    height: 210px;
+    z-index: 999;
+    background-color: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 15px 24px;
+    top: 60px;
+    left: -34px;
+    &:before {
+      box-sizing: content-box;
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      top: -16px;
+      ;
+      left: 41px;
+      padding: 0;
+      border-bottom: 8px solid #f9f9f9;
+      border-top: 8px solid transparent;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      display: block;
+      content: '';
+      z-index: 12;
+    }
+    &:after {
+      box-sizing: content-box;
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      top: -18px;
+      ;
+      left: 40px;
+      padding: 0;
+      border-bottom: 9px solid #cccccc;
+      border-top: 9px solid transparent;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      display: block;
+      content: '';
+      z-index: 10
+    }
+
+    div.video-share-jiathis {
+      &>div {
+        .x-clearfix();
+        a {
+          float: left;
+          margin: 0 5px;
+          cursor: pointer;
+          text-decoration: none;
+          span {
+            padding-left: 0 !important;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          &.jiathis_button_cqq {
+            span {
+              .x-pic;
+              .x-pic-public_icon_QQ;
+            }
+          }
+          &.jiathis_button_tsina {
+            span {
+              .x-pic;
+              .x-pic-public_icon_weibo;
+            }
+          }
+          &.jiathis_button_weixin {
+            span {
+              .x-pic;
+              .x-pic-public_icon_wechat;
+            }
+          }
+          &.jiathis_button_qzone {
+            span {
+              .x-pic;
+              .x-pic-public_icon_Qzone;
+            }
+          }
+          &.jiathis_button_tqq {
+            span {
+              .x-pic;
+              .x-pic-public_icon_Qweibo;
+            }
+          }
+          &.jiathis_button_tieba {
+            span {
+              .x-pic;
+              .x-pic-public_icon_baidu
+            }
+          }
+          &.jiathis_button_douban {
+            span {
+              .x-pic;
+              .x-pic-public_icon_douban
+            }
+          }
+          &.jiathis_button_feixin {
+            span {
+              .x-pic;
+              .x-pic-public_icon_feixin;
+            }
+          }
+          &.jiathis_button_yixin {
+            span {
+              .x-pic;
+              .x-pic-public_icon_yixin;
+            }
+          }
+          &.jiathis_button_tianya {
+            span {
+              .x-pic;
+              .x-pic-public_icon_tianya
+            }
+          } // &:last-child {
+          //   width: 14px;
+          //   height: 33px;
+          //   i {
+          //     .x-pic-14_arrow_down;
+          //     display: block;
+          //     margin: 0 auto;
+          //     margin-top: 13px;
+          //   }
+          // }
+        }
+      }
+    }
+    &>div.share-detail {
+      margin-top: 21px;
+      .x-clearfix();
+      p {
+        margin-bottom: 10px;
+        .x-font-size(13px);
+        color: #a4a4a4;
+        a {
+          color: #1db1ea;
+          .x-font-size(13px);
+        }
+      }
+      div {
+        margin-bottom: 10px;
+        label {
+          .x-font-size(13px);
+          color: #a4a4a4;
+          font-weight: normal;
+        }
+        input {
+          border: 1px solid #ddd;
+          padding: 2px 8px;
+          .x-font-size(13px);
+          height: 26px;
+          width: 258px;
+          color: #a4a4a4;
+        }
+        a {
+          .x-font-size(14px);
+          border: 1px solid #1db1ea;
+          background-color: white;
+          color: #1db1ea;
+          padding: 3px 12px;
+          margin-left: 12px;
+          cursor: pointer;
+        }
+      }
+    }
+    @media screen and (max-width: 900px) {
+      left: -400px;
+      &:before {
+        left: 411px;
+      }
+      &:after {
+        left: 410px;
+      }
+    }
+  }
+}

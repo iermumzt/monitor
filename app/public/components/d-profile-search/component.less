@@ -1,0 +1,159 @@
+div.m-header-search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  display: block;
+  height: 50px;
+  div.header-search-box {
+    height: 50px;
+    background: white;
+    position: relative;
+    padding: 7px;
+    display: -webkit-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.2);
+    padding-left: 18px;
+    div.header-searchInput {
+      position: relative;
+      -webkit-box-flex: 1;
+      form {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        input.search-input {
+          width: 100%;
+          line-height:30px;
+          padding-left: 30px;
+          padding-right: 30px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          .x-border-radius(15px);
+          border: 1px solid rgba(153, 153, 153, 0.2);
+          background-color: #fafafa;
+          -webkit-transition: all .1s linear;
+          -o-transition: all .1s linear;
+          transition: all .1s linear;
+          color: #999;
+          &.o {
+            color: #333;
+          }
+        }
+        .search-input::-webkit-input-placeholder{
+          color: #999;
+        }
+        .search-input::-moz-placeholder {
+          //不知道为何火狐的placeholder的颜色是粉红色，怎么改都不行，希望有大牛路过帮忙指点
+          color: #999;
+        }
+        .search-input:-ms-input-placeholder {
+          //由于我的IE刚好是IE9，支持不了placeholder，所以也测试不了(⊙﹏⊙)，有IE10以上的娃可以帮我试试
+          color: #999;
+        }
+        i {
+          position: absolute;
+          &.mpic-profile-search{
+            .x-mpic-profile-search-2x(17px,17px);
+            top: 8px;
+            left: 11px;
+          }
+          &.mpic-clear {
+            .x-mpic-profile-clear-2x(18px,18px);
+            height: 19px;
+            top: 7px;
+            right: 9px;
+          }
+        }
+      }
+    }
+    div.header-searchBtn {
+      display: block;
+      line-height: 1;
+      a {
+        &.c-btn {
+          display: inline-block;
+          .x-border-radius(14rem);
+          width: 50px;
+          margin-bottom: 0;
+          line-height: 34px;
+          .x-font-size(18px);
+          text-align: center;
+          vertical-align: middle;
+          touch-action: manipulation;
+          cursor: pointer;
+          background-color: #01c000;
+          color: #fff;
+          white-space: nowrap;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        &.btn-cancle {
+          display: block;
+          padding: 0;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          background-color: white;
+          color: #1db1ea;
+        }
+      }
+    }
+  }
+  div.header-search-suggest {
+    position: absolute;
+    z-index: 50;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.97);
+    ul.list-suggest {
+      display: block;
+      list-style: none;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 40px;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      li {
+        // padding-left: 1.5rem;
+        // padding-right: 1.5rem;
+        // font-size: 1.4rem;
+        // line-height: 2.7;
+
+        padding: 0 18px;
+        .x-font-size(14px);
+        line-height: 2.7;
+        border-bottom: 1px solid #eff3f7;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        a {
+          color: #333;
+          text-decoration: none;
+          background-color: transparent;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          cursor: auto;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+
+}

@@ -1,0 +1,338 @@
+<style type="text/css">
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      .wrap {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .explorerTip {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 99999;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      
+      .explorerTip img {
+        width: 90%;
+        display: block;
+        margin: 6% auto;
+      }
+      
+      .main {
+       /* -webkit-box-flex: 7.5;
+        -webkit-flex: 7.5;
+        -ms-flex: 7.5;
+        flex: 7.5;*/
+        height: 75%;
+        width: 100%;
+        background-color: #01adf0;
+        position: relative;
+      }
+      
+      .main img.bo {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        /*order:3;*/
+      }
+      
+      .main img.to {
+        width: 50%;
+        position: absolute;
+        top: 7%;
+        left: 25%;
+        /*order:1;*/
+      }
+      
+      .main .grant-code {
+        margin: 0 auto;
+        display: block;
+        position: absolute;
+        top: 23%;
+        z-index: 3;
+        width: 214px;
+        height: 35%;
+        left: 50%;
+        margin-left: -107px;
+        border-radius: 4px;
+
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+
+      }
+      
+      .grant-code p {
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+
+        flex: 2;
+        -webkit-box-flex: 2;
+        -webkit-flex: 2;
+        -ms-flex: 2;
+      }
+      
+      .grant-code p.b {
+        margin-bottom: 12px;
+      }
+      
+      .grant-code span.code {
+        display: block;
+        font-size: 20px;
+        color: #333;
+        width: 200px;
+        min-height: 20px;
+        border-radius: 35px;
+        background-color: #ffed00;
+        letter-spacing: 5px;
+
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+
+        justify-content: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+
+        flex: 3;
+        -webkit-box-flex: 3;
+        -webkit-flex: 3;
+        -ms-flex: 3;
+
+        font-family: "Microsoft Yahei", "Hiragino Sans GB";
+      }
+      
+      .arrow {
+        display: inline-block;
+        width: 11px;
+        height: 12px;
+        background-image: url('/public/images/grant-arrows.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        flex: 1;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+      }
+      
+      .main a[class^="br"] {
+        border: 1px solid #4dcaff;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        margin-left: -40%;
+        z-index: 1;
+        width: 80%;
+        height: 42%;
+        border-radius: 4px;
+      }
+      
+      .main a.br0 {
+        background-color: #4dcaff;
+      }
+      
+      .main a.br1 {
+        top: 21%;
+        margin-left: -39%;
+      }
+      
+      .main a.br2 {
+        top: 22%;
+        margin-left: -38%;
+      }
+      
+      .footer {
+        height: 25%;
+
+        display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+        display: -moz-box; /* 老版本语法: Firefox (buggy) */
+        display: -ms-flexbox; /* 混合版本语法: IE 10 */
+        display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+        display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+
+        justify-content: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+      }
+      
+      .footer a {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        border-radius: 5px;
+        font-size: 17px;
+        border: 1px solid #02adee;
+        text-align: center;
+        width: 80%;
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+
+        justify-content: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+
+        text-decoration: none;
+      }
+      
+      .footer a.hint {
+        color: #fff;
+        background-color: #01adf0;
+        margin-top: 8%;
+        margin-bottom: 2%;
+      }
+      
+      .footer a.down {
+        color: #02adee;
+        margin-top: 2%;
+        margin-bottom: 8%;
+      }
+      
+      @media only screen and (max-width: 320px) {
+        .footer a.hint {
+          margin-top: 5%;
+        }
+        .footer a.down {
+          margin-bottom: 5%;
+        }
+      }
+      </style>
+
+  <div class="wrap">
+    <div class="explorerTip" onclick='this.style.display="none";'>
+      <img src="/public/images/grant-wx2browser.png" style='width: 80%;' />
+    </div>
+    <div class="main">
+      <img class="to" src="/public/images/grant-desc.png">
+      <img class="bo" src="/public/images/grant-bg.png">
+      <a class="br0"></a>
+      <a class="br1"></a>
+      <a class="br2"></a>
+      <div class="grant-code">
+        <p>打开“爱耳目智能摄像机”App</p>
+        <span class="arrow"></span>
+        <p>添加摄像机</p>
+        <span class="arrow"></span>
+        <p>收到邀请口令</p>
+        <span class="arrow"></span>
+        <p class="b">输入下方邀请口令</p>
+        <span class="code"></span>
+      </div>
+    </div>
+    <div class="footer">
+      <a class="hint">复制邀请口令并接受邀请</a>
+      <a href="/public/app.html" class="down">下载爱耳目智能摄像机客户端</a>
+    </div>
+  </div>
+<script type="text/javascript" src="/public/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/public/js/lib/ronate.js"></script>
+<script type="text/javascript" src="/public/js/lib/ixutils.js"></script>
+<script type="text/javascript">
+var code, uname, description, link, needWarn = false;
+
+code = IX.getUrlParam("code");
+uname = IX.getUrlParam("uname") || '';
+desc = IX.getUrlParam("desc") || '';
+document.getElementsByClassName("code")[0].innerHTML = code; //.toUpperCase()
+
+if (IX.browser.versions.weixin) {
+  if (IX.browser.versions.android || (!IX.browser.versions.ios9 && IX.browser.versions.ios)) {
+    needWarn = true;
+    $("a.hint")[0].removeAttribute("href");
+  } else {
+    link = "http://www.iermu.com/device/grant?code=" + code + "&desc=" + desc + "&uname=" + uname;
+    if(IX.browser.versions.ios9 && IX.browser.versions.ios){
+       $("div.explorerTip").show();
+    }
+  }
+} else {
+  link = "iermu://app/path?mod=device/grant&code=" + code + "&desc=" + desc + "&uname=" + uname;
+}
+if (link) {
+  $("a.hint").attr("href", link);
+}
+$("a.hint").click(function() {
+  if (needWarn) {
+    $("div.explorerTip").show();
+    return false;
+  } else {
+    setTimeout(function() {
+      window.location.href = "/appdownload";
+    }, 3000);
+  }
+});
+</script>

@@ -1,0 +1,25 @@
+<div class = 'comment-editor-wrap  {{className}}' ng-class='{show: currentComment === comment.cid}'>
+  <div class = 'ce-title'> 
+    <div ng-class = '{show: (!hasLogin && false)}' class = 'hide'>
+      <a ng-click="ainit();"><%=page_config.translater.get("登录", page_config.language); %></a>
+      <span class= "line">|</span>
+      <a ng-click="ainit();"><%=page_config.translater.get("注册", page_config.language); %></a>
+    </div>
+    <p class="ip">{{inputLength}}/40</p>
+  </div>
+  <div class = 'content-wrap'>
+    <a class = 'c_l'>
+      <img ng-src="{{hasLogin.avatar || 'http://tb.himg.baidu.com/sys/portrait/item/4e39a79c'}}" onerror='this.style.display="none";'>
+    </a>
+    <textarea class="showpc" ng-keyup='checkInput($event)' placeholder="{{placeHolder || (hasLogin ? (commentCount ? '<%=page_config.translater.get("已有", page_config.language); %>' +commentCount+'<%=page_config.translater.get("条评论，说说你的感想吧", page_config.language); %>' : '<%=page_config.translater.get("还没有评论，说说你的感想吧", page_config.language); %>') : '<%=page_config.translater.get("立即登录，说说你的感想吧", page_config.language); %>')}}" ng-click="textOnFocusFn($event)" ng-model = "value" maxlength="40" ></textarea>
+    <textarea  class="showm"  ng-keyup='checkInput($event)' placeholder='{{placeHolder}}' ng-model = "value" maxlength="40" ></textarea>
+    <div class="cmt-input" ng-bind="hasLogin ? (commentCount ? '<%=page_config.translater.get("已有", page_config.language); %>' +commentCount+'<%=page_config.translater.get("条评论，说说你的感想吧", page_config.language); %>' : '<%=page_config.translater.get("还没有评论，说说你的感想吧", page_config.language); %>') : '<%=page_config.translater.get("立即登录，说说你的感想吧", page_config.language); %>'" ng-click="textOnFocusFn($event)"></div>
+  </div>
+  <div class = 'ce-btns'>
+    <p class="ip">{{inputLength}}/40</p>
+    <span class="errorInfo">{{errorInfo}}</span>
+    <button ng-click = 'saveComment()' class = 'comment-btn-save'><span>{{submitBtnText || "<%=page_config.translater.get("发表", page_config.language); %>"}}</span></button>
+    <button ng-click = 'cancelEditComment()' class = 'comment-btn-cancel' ><span><%=page_config.translater.get("取消", page_config.language); %></span></button>
+    <!-- ng-class='{hidden: showCancelBtn!=1}' -->
+  </div>
+</div>

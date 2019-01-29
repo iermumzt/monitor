@@ -1,0 +1,129 @@
+
+<div class='container-fluid main' ng-controller='FaceLibraryIdController' >
+  <div class="face-libary-total">
+    <div class="newsUser">
+      <div class="user-message">
+        <div class="left-user">
+          <div class="show-t">
+            <div class="t-user">
+              <a class="portrait-i">
+                <span ng-style = "{'background-image':'url(' + newsMessage.image_url + ')'}"  style="background-image: url('newsMessage.image_url')" class="user_face"></span>
+              </a>
+            </div>
+            <div class="inform under">
+              <p ng-bind="newsMessage.name !== '' ? newsMessage.name : 'ID：'+newsMessage.face_id"></p>
+              <p class = 'remark' ng-bind = "newsMessage.remark === '' ? '暂无备注' : newsMessage.remark"></p>
+            </div>   
+            <div class="hr"></div>
+            <div class="operate">
+              <!-- <a class = 'open-remind' ng-click="updatePush(newsMessage)" ng-class="{'active': newsMessage.event_push === 1}">
+                <i class = 'remind'></i>
+                <span>开启提醒</span>
+              </a> -->
+              <!-- <a class = 'check-trail'>
+                <i class = 'trail'></i>
+                <span>查看轨迹</span>
+              </a> -->
+            </div>
+          </div>
+        </div>
+        <div class="right-user">
+          <div class="face-top">
+            <div class="time">
+              <div class='input-group date' id='datetimepicker1'>  
+                <input type='text' class="form-control" readonly ng-model="dateOne"/>  
+                <span class="input-c">  
+                  <span class="calendar"></span>  
+                </span>  
+              </div>
+              <div class='input-group date' id='datetimepicker2'>  
+                <input type='text' class="form-control" readonly ng-model="dateTwo" />  
+                <span class="input-c">  
+                  <span class="calendar"></span>  
+                </span>  
+              </div> 
+              <div class="search" ng-click="query()">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-search"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="right-show-user">
+            <ul class = "list-user">
+              <div class = 'no-user ng-hide' ng-show="dynamic_data.length === 0">
+                <div class="img-show">
+                  <img data-defer="/public/images/gismap/no_message.png" >
+                  <p class = 'no-data'>暂无动态信息</p>
+                </div>
+              </div>
+              <li class="lis under-user" ng-class='{hidden:isClusLoading}' ng-click = "update(data)"  ng-repeat="data in dynamic_data track by $index">
+                <div class="t-user">
+                  <a class="portrait-i">
+                    <span ng-style = "{'background-image':'url(' + data.image_url + ')'}"  style="background-image: url('data.image_url')" class="user_face"></span>
+                  </a>
+                </div>
+                <div class="inform">
+                  <i class = "pic-list-camera-checked"></i><p class = 'desc' ng-bind = 'data.desc'></p>
+                  <p class = 'time' ng-bind="data.time*1000 | date:'yyyy/MM/dd HH:mm:ss'"></p>
+                </div>
+              </li>
+              <div loading lw="100%" lh="420px" is-loading="isClusLoading"></div> 
+            </ul>
+            <div page-show size="pageSize" ng-class='{hidden:isClusLoading}' count="userClusCount" is-loading="isClusLoading" on-page-changed="onPageClusChanged" current-page-index="currentClusPageIndex"></div>
+          </div>
+        </div>
+      </div>
+      <div modal close-modal="closeModal" title='<%=page_config.translater.get("来访信息", page_config.language); %>' visible="showModal" class="updateName">
+        <div class="name">
+          <a class="bg-portrait">
+            <img ng-src="{{updateItem.image_url}}" onerror="this.style.display='none';">
+          </a>
+          <div class = "info">
+            <p class="nickname">
+              <a class='nickname' ng-bind="updateItem.face.name !== '' ? updateItem.face.name : 'ID：'+updateItem.face.face_id"></a>
+            </p>
+            <p>
+              <span ng-bind="updateItem.time*1000 | date:'HH:mm:ss'"></span><%=page_config.translater.get("进入视野", page_config.language); %>
+            </p>
+          </div>
+          <p class = "ta">认错人了，TA其实是...</p>
+          <ul class = "nametotal">
+            <li ng-repeat="name in nameList">
+              <a ng-click="changeName(name)" class="exist-name" ng-class="{active:updatedName.name===name.name}" ng-bind="name.name"></a>
+            </li>
+            <div></div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reminder-num ng-hide" ng-show="remindNum > 0">
+    <div class="re-num">
+      <span class="num" ng-bind="remindNum"></span>
+    </div>
+    <div class="remind-grup">
+      <div class="right-show-user">
+        <ul>
+          <li class="lis under-user" ng-repeat="data in remin_num track by $index">
+            <a href="/face-library-id/{{data.face_id}}" target="_blank">
+              <div class="t-user">
+                <p class="portrait-i">
+                  <span ng-style = "{'background-image':'url(' + data.image_url + ')'}"  style="background-image: url('data.image_url')" class="user_face"></span>
+                </p>
+                <span class="red"></span>
+              </div>
+              <div class="inform">
+                <p ng-bind="data.name !== '' ? data.name : 'ID：'+data.face_id"></p>
+                <p>
+                  <span ng-bind="data.time*1000 | date:'HH:mm:ss'"></span></span><%=page_config.translater.get("进入视野", page_config.language); %>
+                </p>
+              </div>
+              <i class = 'glyphicon glyphicon-chevron-right j-com'></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

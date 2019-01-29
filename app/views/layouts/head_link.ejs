@@ -1,0 +1,10 @@
+<% if(page_config.less !== "") {%>
+  <% if(page_config.currentMode == "develop") {%>
+    <%-`<link rel="stylesheet/less" type="text/css" href="/public/pages/${page_config.page}/page.less">
+      <script type="text/javascript" src="/public/js/lib/less.js"></script>`%>
+  <% }else if(page_config.currentMode == "test") {%>
+    <%-`<link rel="stylesheet" type="text/css" href="/public/css/${page_config.md5_css}.css">`%>
+  <%}else{%>
+    <%-`<link rel="stylesheet" type="text/css" href="${page_config.webSiteDomains[0]}public/css/${page_config.md5_css}.css" />`%>
+  <%}%>
+<%}%>

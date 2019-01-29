@@ -1,0 +1,81 @@
+div.p-thumb {
+  z-index: 1;
+  position: relative;
+  .p-pic-default {
+    position: relative;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  a.video-thumbnail {
+    z-index: 111111;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .x-bg("camera-logo.png", no-repeat, center center);
+    background-size: 30% 40%;
+    background-color: #e0e0e0;
+    .x-transition(.25s);
+    overflow: hidden;
+    img {
+      height: 130px;
+      width: 100%;
+      cursor: pointer;
+      .x-transition(transform 1s);
+    }
+    span{
+      position: absolute;
+      display: block;
+      width: 100%;
+      &.s_play {
+        .x-opacity(0);
+        position: absolute;
+        .x-bg("play-logo.png", no-repeat, center center);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        margin: 0;
+        // .x-transition(opacity 1s);
+      }
+    }
+    &:hover {
+      span.s_play {
+        .x-opacity(1);
+      }
+      img {
+        .x-transform(scale3d(1.1, 1.1, 1));
+      }
+    }
+  }
+}
+
+div.video-caption {
+  &.caption {
+    padding: 7px 7px;
+    a.video-name {
+      .x-font-size(14px);
+      display: block;
+      line-height: 1;
+      .x-text-ellipsis();
+      color: #4a4a4a;
+      &:hover {
+        color: #1db1ea;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  div.p-thumb {
+    a.video-thumbnail {
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

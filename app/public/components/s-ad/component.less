@@ -1,0 +1,421 @@
+div.msbody {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 199999;
+  div.sbody {
+    margin: 0 auto;
+    .x-bg("home/ball-bg.jpg", no-repeat, center);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: relative;
+    div.centertu {
+      .x-bg("home/ball-con.png", no-repeat, center);
+      background-size: contain;
+      margin: auto;
+      //.x-layout-vertical-middle(35%);
+      //.x-layout-align-center(60%);
+      width: 50%;
+      height: 91%;
+      max-width: 700px;
+      min-width: 600px;
+      position: relative;
+      a.liaojie {
+        top: 95%;
+        display: block;
+        width: 38%;
+        max-height: 54px;
+        height: 10%;
+        .x-border-radius(4px);
+        text-align: center;
+        line-height: 40px;
+        z-index: 29999999;
+        .x-layout-align-center(38%);
+        bottom: 0;
+        border: 2px solid #fff;
+        padding-top: 7px;
+        text-decoration: none;
+        span.xiangqing {
+          text-align: center;
+          color: #fff;
+          font-weight: bold;
+          z-index: 39999999;
+          .x-font-size(26px);
+          cursor: pointer;
+        }
+        &:hover {
+          .x-opacity(0.8);
+        }
+      }
+    }
+    a.tiaoguo {
+      display: block;
+      width: 80px;
+      height: 40px;
+      .x-border-radius(40px);
+      background-color: #000;
+      .x-opacity(0.3);
+      text-align: center;
+      line-height: 40px;
+      .x-layout-vertical-middle(-20px, 5%);
+      position: absolute;
+      margin-left: -15px;
+      right: 6%;
+      z-index: 200000;
+    }
+    span.tiaoguo2 {
+      cursor: pointer;
+      display: block;
+      .x-layout-vertical-middle(-30px, 5%);
+      position: absolute;
+      margin-right: 2px;
+      color: #fff;
+      right: 7%;
+      .x-font-size(20px);
+      z-index: 300000;
+    }
+  }
+}
+
+@media screen and (min-width:1000px) {
+  div.msbody {
+    div.sbody {
+      span.tiaoguo2 {
+        margin-right: -2px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width:1400px) {
+  div.msbody {
+    div.sbody {
+      span.tiaoguo2 {
+        margin-right: -8px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width:300px) and (max-width:600px) {
+  div.msbody {
+    div.sbody {
+      margin: 0 auto;
+      .x-bg("home/ballm-bg.jpg", no-repeat, center);
+      background-size: cover;
+      div.centertu {
+        .x-bg("home/ballm-con.png", no-repeat, center);
+        background-size: contain;
+        min-width: 378px;
+        a.liaojie {
+          top: 95%;
+          width: 50%;
+          margin-left: -25%;
+          max-height: 42px;
+          padding-top: 1px;
+          border: 1px solid #fff;
+          span.xiangqing {
+            font-weight: bold;
+            .x-font-size(18px);
+          }
+        }
+      }
+      a.tiaoguo {
+        left: 79%;
+        margin-left: -9px;
+        width: 64px;
+        height: 26px;
+        top: 5px;
+        margin-top: 10px;
+      }
+      span.tiaoguo2 {
+        margin-top: 17px;
+        left: 79%;
+        .x-font-size(14px);
+        margin-left: 2px;
+        top: 2px;
+        width: 49px;
+        span.co {
+          .x-font-size(14px);
+        }
+      }
+      a.liaojie {
+        //top: 85%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:320px) {
+  div.msbody {
+    div.sbody {
+      padding-top: 26px;
+      div.centertu {
+        min-width: 328px;
+        height: 86%;
+        a.liaojie {
+          height: 13%;
+          border: 1px solid #fff;
+          top: 98%;
+          padding-top: 0;
+          span.xiangqing {
+            .x-font-size(18px);
+          }
+        }
+      }
+    }
+  }
+}
+div.msbody {
+  display: none;
+  .x-bg("home/mh_fu_new_.jpg", no-repeat, left top);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position-x: 25%;
+  position: fixed;
+  top: 0;
+  z-index: 199999;
+  div.ln {
+    width: 100%;
+    height: 70%;
+    margin-top: 0;
+  }
+  .ssoper {
+    position: absolute;
+    width: 80%;
+    .x-layout-align-center(80%);
+    top: 80%;
+    a {
+      position: absolute;
+      border-color: #fff;
+      border-radius: 4px;
+      border: 1px solid #fff;
+      width: 44%;
+      height: 40px;
+      display: inline-block;
+      text-align: center;
+      padding-top: 3px;
+      &.r {
+        i {
+          margin-top: 2px;
+          span {
+            span {
+              font-family: "Times New Roman", Georgia, Serif;
+            }
+          }
+        }
+        span {
+          span {
+            font-family: "Times New Roman", Georgia, Serif;
+          }
+        }
+      }
+      i.mpic-download {
+        .x-mpic-m-download;
+        vertical-align: bottom;
+        height: 29px;
+        .x-transform(scale(0.6));
+      }
+      i.mpic-skip {
+        .x-mpic-m-skip;
+        vertical-align: bottom;
+        .x-transform(scale(0.6));
+      }
+      span {
+        color: #fff;
+        .x-font-size(18px);
+        .x-line-height(20);
+        position: relative;
+        top: -1px;
+      }
+    }
+    .l {
+      left: 0px;
+      top: 0px;
+    }
+    .r {
+      right: 0px;
+      top: 0px;
+    }
+  }
+  .noprompt {
+    display: none;
+    position: absolute;
+    width: 80%;
+    .x-layout-align-center(80%);
+    top: 88%;
+    text-align: right;
+    i {
+      display: none;
+    }
+    span {
+      color: #fff;
+      .x-font-size(16px);
+      margin-left: 10px;
+    }
+  }
+}
+
+@media screen and (max-width:400px) {
+  div.msbody {
+    background-size: cover;
+    background-position: 20% 20%;
+    .ssoper {
+      a {
+        span {
+          .x-font-size(16px);
+        }
+      }
+    }
+  }
+}
+
+// @media screen and (min-width:450px) and srceen (max-width:680px){
+//   div.msbody{
+//     background-size:cover;
+//     .ssoper{
+//       a{
+//         span{
+//           .x-font-size(16px);
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and (min-width:401px) and srceen (max-width:700px){
+//   div.msbody{
+//     background-size:cover;
+//     .ssoper{
+//       a{
+//         span{
+//           .x-font-size(16px);
+//         }
+//       }
+//     }
+//   }
+// }
+@media screen and (min-width:801px) {
+  div.msbody {
+    .x-bg("home/mh_fu_2_new_.jpg", no-repeat, left top);
+    //background-size: 100% 100%;
+    background-size: cover;
+    background-position-x: 20%;
+  }
+}
+
+@media screen and (min-width:500px) and (max-width:800px) {
+  div.msbody {
+    .x-bg("home/mh_fu_new_.jpg", no-repeat, left top);
+    //background-size: 100% 100%;
+    background-size: 768px;
+    background-position-x: 0px;
+    background-position-y: 17%;
+  }
+}
+
+&.en {
+  div.msbody {
+    display: none;
+    .x-bg("home/mh_y1.jpg", no-repeat, left top);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-position-x: 25%;
+    position: fixed;
+    top: 0;
+    z-index: 199999;
+    .ssoper {
+      position: absolute;
+      width: 80%;
+      .x-layout-align-center(80%);
+      top: 80%;
+      a {
+        position: absolute;
+        border-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #fff;
+        width: 44%;
+        height: 40px;
+        display: inline-block;
+        text-align: center;
+        padding-top: 3px;
+        &.r {
+          i {
+            margin-top: 2px;
+          }
+        }
+        i.mpic-download {
+          .x-mpic-m-download;
+          vertical-align: bottom;
+          height: 29px;
+          .x-transform(scale(0.6));
+        }
+        i.mpic-skip {
+          .x-mpic-m-skip;
+          vertical-align: bottom;
+          .x-transform(scale(0.6));
+        }
+        span {
+          color: #fff;
+          .x-font-size(18px);
+          .x-line-height(20);
+          position: relative;
+          top: -1px;
+        }
+      }
+      .l {
+        left: 0px;
+        top: 0px;
+      }
+      .r {
+        right: 0px;
+        top: 0px;
+      }
+    }
+    .noprompt {
+      display: none;
+      position: absolute;
+      width: 80%;
+      .x-layout-align-center(80%);
+      top: 88%;
+      text-align: right;
+      i {
+        display: none;
+      }
+      span {
+        color: #fff;
+        .x-font-size(16px);
+        margin-left: 10px;
+      }
+    }
+  }
+  @media screen and (max-width:400px) {
+    div.msbody {
+      background-size: cover;
+      background-position: 20% 20%;
+      .ssoper {
+        a {
+          span {
+            .x-font-size(16px);
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width:701px) {
+    div.msbody {
+      .x-bg("home/mh_y2.jpg", no-repeat, center center);
+      //background-size: 100% 100%;
+      background-size: cover;
+    }
+  }
+  @media screen and (min-width:500px) and (max-width:700px) {
+    div.msbody {
+      .x-bg("home/mh_y1.jpg", no-repeat, left top);
+      background-size: cover;
+    }
+  }
+}

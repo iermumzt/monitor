@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  var userAgent = window.navigator.userAgent;
+      document.location.href += "#userAgent=" + userAgent.indexOf("MicroMessenger");
+  if(userAgent.indexOf("MicroMessenger") > -1){
+    if(CURRENT_USERINFO && !CURRENT_USERINFO.error_code){
+    }else{
+      <% if(!page_config.cookies.wx_nickname) {%>
+          window.location.href = "/api/v2/connect/weixin/sync?redirect=" + encodeURIComponent(window.location.href);
+      <%}%>
+    } 
+  }
+</script>

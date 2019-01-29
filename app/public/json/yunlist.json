@@ -1,0 +1,64 @@
+{
+  "count": 2,
+  "list": [
+    {
+      "planid": "1",
+      "connect_type": "2",
+      "cvr_type": "2",
+      "name": "7天24小时",
+      "cvr_day": "7",
+      "plan_month": "1",
+      "orig_price": "30.00",
+      "price": "30.00"
+    },
+    {
+      "planid": "2",
+      "connect_type": "2",
+      "cvr_type": "1",
+      "name": "7天移动侦测",
+      "cvr_day": "7",
+      "plan_month": "1",
+      "orig_price": "30.00",
+      "price": "30.00"
+    },
+    {
+      "planid": "3",
+      "connect_type": "2",
+      "cvr_type": " 2",
+      "name": "30天24小时",
+      "cvr_day": "30",
+      "plan_month": "1",
+      "orig_price": "30.00",
+      "price": "30.00"
+    },
+    {
+      "planid": "1",
+      "connect_type": "2",
+      "cvr_type": "2",
+      "name": "30天24小时",
+      "cvr_day": "30",
+      "plan_month": "12",
+      "orig_price": "30.00",
+      "price": "30.00"
+    },
+    {
+      "planid": "4",
+      "connect_type": "1",
+      "cvr_type": 2,
+      "name": "百度",
+      "cvr_day": "7",
+      "plan_month": "1",
+      "price": "30.00"
+    },
+    {
+      "planid": "5",
+      "connect_type": "1",
+      "cvr_type": 1,
+      "name": "百度222",
+      "cvr_day": "7",
+      "plan_month": "1",
+      "price": "30.00"
+    }
+  ],
+  "request_id": "1461571988209"
+}

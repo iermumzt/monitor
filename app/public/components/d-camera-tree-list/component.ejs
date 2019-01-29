@@ -1,0 +1,157 @@
+<div class='camera-tree' ng-class='{ "show-add-mark": showAddMark, "enable-rudder": enableRudder }'>
+  <div class='camera-search-wrap'>
+    <div class='input-group'>
+      <input type="text" name="" placeholder="请输入搜索内容" class='form-control' ng-keyup="filterByKeywords()" ng-model='keywords'>
+      <span class='input-group-addon glyphicon glyphicon-search'></span>
+    </div>
+  </div>
+  <div class='camera-list-wrap'>
+    <div class="btn-group btn-group-justified type">
+      <a class='btn' role='button' ng-class='{active: showType === "all"}' ng-click='toggleShowType("all")'>全部资源</a>
+      <a class='btn' role='button' ng-class='{active: showType === "byCategory"}' ng-click='toggleShowType("byCategory")'>我的分组</a>
+    </div>
+    <div class='clearfix status-wrap' ng-hide='showType !== "all"'>
+      <!-- <label class='pull-left'>状态：</label> -->
+      <ul class='pull-left clearfix'>
+        <li class='pull-left' ng-click='filterByStatus("all")' ng-class='{active: filterStatus === "all"}'>全部</li>
+        <li class='pull-left' ng-click='filterByStatus("online")' ng-class='{active: filterStatus === "online"}'>在线</li>
+        <li class='pull-left' ng-click='filterByStatus("offline")' ng-class='{active: filterStatus === "offline"}'>离线</li>
+        <li class='pull-left' ng-click='filterByStatus("off")' ng-class='{active: filterStatus === "off"}'>关机</li>
+      </ul>
+    </div>
+    <div class='category-edit-wrap clearfix' ng-hide='showType !== "byCategory"'>
+      <div class='pull-left'>
+        共<span ng-bind="categories.length - 1 < 0 ? 0 : categories.length - 1"></span>个分组
+      </div>
+      <div class='pull-right'>
+        <a role='button' ng-click='editCategoryModal()' ng-hide="setMulti || setMap"><i class="pic-add-category"></i><span>新建分组</span></a>
+      </div>
+    </div>
+    <div class='list-wrap'>
+      <ul>
+        <li ng-repeat='category in categories' ng-class='{collapse: collapseCategoryIndex === $index,"noCategory": (category.noCategory && !setMulti),"all-category": (category.allCategory && !setMulti)}'>
+          <a once-text='category.name' ng-click='collapseCategory($index)' class='category' ng-class="{'z':(showType === 'all')}">
+            <!-- ng-class = '{hide: showType === "all"}' -->
+            <i class='expand-tip' ng-hide="showType === 'all'"></i>
+            <span>{{::category.name}}</span>
+            <span>[</span><span class="f">在线:{{::category.cameraOnlineCount}}</span><span>/总数:{{::category.cameras.length}}]</span>
+            <i class='pull-right pic-map-del' ng-hide='showType === "all" || setMulti || setMap' ng-click='deleteCategory(category.cid,$event)'></i>
+            <i class='pull-right pic-map-edit' ng-hide='showType === "all" || setMulti || setMap' ng-click='editCategoryModal(category,$event)'></i>
+            <i class='pull-right pic-map-check' ng-show='setMulti' ng-class="{'pic-map-checked':category.checked}" ng-click="selectCategorysFn(category,$event)"></i>
+          </a>
+          <ul class='ng-hide' ng-show='showType === "all" || collapseCategoryIndex === $index'>
+            <li class='camera-item' ng-repeat='camera in category.cameras | filter:myFilter' ng-class='{online: camera.status == 1}'  ng-touch='(setMulti || setMap) ? (setMap ? selectCamera(camera,"",$event) : "") : selectItem(camera)' ng-mousedown='(setMulti || setMap) ? (setMap ? selectCamera(camera,"",$event) : "") : selectItem(camera)'>
+              <a class="{{setListStyle(camera) + ' drag-object'}} " ng-class="{checked: (camera.checked && currentDevice.deviceid == camera.deviceid),'z':setMap}">
+                <div class="drag-wrap" ng-show="!camera.isMarked && showAddMark" ng-touchmove="dragCameraFn()" ng-drag="true" ng-drag-data="camera" data-allow-transform="true">
+                  <i class="pic-type"></i>
+                  <span class="desc bak">{{::camera.description}}</span>
+                </div>
+                <i class="pic-type"></i>
+                <!-- ng-class="{z:!camera.isMarked && showAddMark}" -->
+                <img src="/public/images/gismap/video-play-icon.gif">
+                <span class="desc">{{::camera.description}}</span>
+                <i class="pic-marked" ng-show="setMap && camera.isMarked"></i>
+                <!-- <span class="added" ng-show="camera.isMarked && showAddMark">（已添加）</span> -->
+                <!-- && showAddMark -->
+                <i class='pic-del pull-right' ng-click='deleteFromCategory(camera, category,$event)' ng-hide='showType === "all" || setMulti || setMap' ng-class='{enable: showType === "byCategory"}'></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="ctlcloud" ng-show='enableRudder'>
+    <a class='cloud' ng-class='{expand: showRudder && enableRudder}' ng-hide="showPreset" ng-click='toggleExpand()' role='button'>
+      <i class="pic-mon-arr-up"></i>
+      <span>{{showRudder ? "收起云台" : "展开云台"}}</span>
+    </a>
+    <div class='rudder-wrap' ng-show='showRudder && enableRudder'>
+      <div class='rudder' ng-hide="showPreset">
+        <img src="/public/images/gismap/mon-cloud.png">
+        <a class='r-up' ng-click="cloudUp()" title="向上"><i class="pic-mon-up"></i></a>
+        <a class='r-ru' ng-click="cloudRightUp()" title="右上"><i class="pic-mon-ru"></i></a>
+        <a class='r-right' ng-click="cloudRight()" title="向右"><i class="pic-mon-right"></i></a>
+        <a class='r-rd' ng-click="cloudRightDown()" title="右下"><i class="pic-mon-rd"></i></a>
+        <a class='r-down' ng-click="cloudDown()" title="向下"><i class="pic-mon-down"></i></a>
+        <a class='r-lu' ng-click="cloudLeftUp()" title="左上"><i class="pic-mon-lu"></i></a>
+        <a class='r-left' ng-click="cloudLeft()" title="向左"><i class="pic-mon-left"></i></a>
+        <a class='r-ld' ng-click="cloudLeftDown()" title="左下"><i class="pic-mon-ld"></i></a>
+        <a class='r-auto' ng-click="isAuto ? yuntaiStop() : yuntaiAuto()"><i ng-class="isAuto ? 'pic-mon-stop' : 'pic-mon-auto'"></i></a>
+      </div>
+      <div class='fix-position-wrap'>
+        <div class="preset-header">
+          <a class="ps" ng-class="{p:showPreset}" ng-click="showPreset ? '' : showPresetFn()"><i class="pic-mon-preset" ng-hide="showPreset"></i><span>常用位置</span></a>
+          <a class="close-pre" ng-click="showYuntai()" ng-show="showPreset"><i class="pic-mon-close"></i></a>
+        </div>
+        <div class="nopreset" ng-show="noHasPreset && showPreset">
+          <img src="/public/images/gismap/mon-preset-nodata.png">
+          <span>您还没有添加常用位置</span>
+          <a class="addpreset" ng-click="editPresetFn()">添加常用位置</a>
+        </div>
+        <div class="preset-add-wrap" ng-show="editPreset && showPreset">
+          <div class="p-thumb">
+            <div class="imgload ng-hide" ng-show="picLoading">
+              <span></span>
+            </div>
+            <img src="/public/images/mbackground.png">
+            <a href="" target='_blank'>
+              <img class='story-thumbnail' ng-src='{{cThumbnail}}' onerror="this.style.visibility='hidden'" onload="this.style.visibility='visible'" />
+            </a>
+          </div>
+          <div class='caption ext'>
+            <span class='p-label'><%=page_config.translater.get("常用标签:", page_config.language); %></span>
+            <a class='gate' ng-repeat='label in labels' ng-click="getTextValue(label)"><span ng-bind-html = "label.desc"></span></a>
+          </div>
+          <div class="p-text">
+            <input type="text" placeholder="<%=page_config.translater.get('请输入常用位置名称', page_config.language); %>" ng-model='textValue' maxlength='10'>
+          </div>
+          <div class="btns">
+            <a class="btn cancel" ng-click="showPresetFn()">取消</a>
+            <a class="btn submit" ng-click="submitEditPreset()">保存</a>
+          </div>
+        </div>
+        <div class="presetlist" ng-show="hasPreset && showPreset">
+          <div class="preset-oper">
+            <a class="add" ng-click="editPresetFn()"><i class="pic-mon-pre-add"></i></a>
+            <a class="del" ng-click="showDelBtnFn()"><i class="pic-mon-pre-del"></i></a>
+          </div>
+          <div class="preset-list">
+            <div class="preset-item" ng-repeat="preset in presetList" ng-class="{r:($index + 1)%2 == 0,checked:(currentPreset && preset.preset == currentPreset)}"  ng-click="moveByPresetFn(preset, $index)">
+              <div class="thumb">
+                <a class="del" ng-click="delPresetFn(preset,$event)" ng-show="showDelBtn"><i class="pic-mon-pre-drop"></i></a>
+                <img src="/public/images/mbackground.png">
+                <a href="" target='_blank'>
+                  <img class='story-thumbnail' ng-src='{{cThumbnail}}' onerror="this.style.visibility='hidden'" onload="this.style.visibility='visible'" />
+                </a>
+              </div>
+              <div class='caption'>
+                <span ng-bind-html="preset.title"></span>
+                <a class="edit" ng-click="editPresetFn(preset,$event)"><i class="pic-mon-pre-edit"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <modal title='<%=page_config.translater.get("编辑分组", page_config.language); %>' ng-model="currentEditCategory" visible='categoryModalVisible' class="editCategory" close-modal="closeModal">
+    <div class='group-wrap'>
+      <input type="text" class='categoryName' ng-model="currentEditCategory.categoryName" placeholder="<%=page_config.translater.get('请输入摄像机分组名称', page_config.language); %>">
+      <div class="camera-table">
+        <div class="search-name">
+          <input type="text" class='deviceName' ng-model="currentEditCategory.searchName" placeholder="<%=page_config.translater.get('搜索摄像机', page_config.language); %>">
+          <!-- <span class='search'>搜索</span> -->
+          <i class="pic-mon-search"></i>
+        </div>
+        <ul class="name">
+          <li class='camera-item' ng-repeat='camera in videosList | filter:searchFilter' ng-click='ckIschecked(camera)'><i class="pic-checkbox" ng-class="{'pic-checked' : camera.checkboxIschecked}"></i><i class="pic-camera"></i><span ng-bind='camera.description'></span></li>
+        </ul>
+      </div>
+      <div class='btns'>
+        <a class='btn cancel' ng-click='cancelEditCategory()'><span><%=page_config.translater.get("取消", page_config.language); %></span></a>
+        <a class='btn ok' ng-click='saveEditCategory()'><span><%=page_config.translater.get("确定", page_config.language); %></span></a>
+      </div>
+    </div>
+  </modal>
+</div>

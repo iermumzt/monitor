@@ -1,0 +1,440 @@
+body.face-library-id {
+  @top-size: 14px;
+  @top-color: #b3b2b7;
+  min-width: 1100px;
+  overflow: auto;
+  background: #29282e;
+  .t-user() {
+    height: 134px;
+    width: 100px;
+    .x-bg("gismap/professional_monitor_distinguish_frame.png",no-repeat,center center);
+    background-size: 100%;
+    position: relative;
+  }
+  .portrait-i() {
+    width: 92px;
+    height: 125px;
+    .x-bg("defaultphoto.jpg", no-repeat, center center);
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+  .user_face() {
+    width: 92px;
+    height: 125px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .x-pagination() {
+    div.pagination-wrap {
+      nav.pagination {
+        ul.pager {
+          background-color: transparent;
+          li {
+            a {
+              background-color: transparent;
+            }
+            &.n.selected {
+              a {
+                background-color: #1db1ea;
+              }
+            }
+            &.prev,&.next {
+              a {
+                border: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  div.container-fluid.main {
+    div.face-libary-total {
+      div.newsUser {
+        margin-top: 15px;
+        padding-bottom: 20px;
+        div.user-message {
+          .x-display-flex();
+          min-height: 400px;
+          div.left-user {
+            padding-top: 50px;
+            background-color: #303136;
+            width: 240px;
+            .x-flex-box();
+            div.show-t {
+              div.t-user {
+                .x-bg("gismap/image_circle.png",no-repeat,center center);
+                background-size: 100%;
+                position: relative;
+                width: 127px;
+                height: 118px;
+                margin: 0 auto;
+                a.portrait-i {
+                  width: 110px;
+                  height: 110px;
+                  .x-bg("defaultphoto.jpg", no-repeat, center center);
+                  background-size: cover;
+                  display: inline-block;
+                  position: absolute;
+                  top: 4px;
+                  left: 9px;
+                  .x-border-radius(55px);
+                  span.user_face {
+                    width: 110px;
+                    height: 110px;
+                    .x-border-radius(55px);
+                    display: inline-block;
+                    background-size: cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                  }
+                }
+              }
+              div.inform {
+                margin-top: 15px;
+                text-align: left;
+                p {
+                  color: #fff;
+                  .x-font-size(16px);
+                  margin-top: 3px;
+                  &.desc, &.time, &.remark {
+                    color: #b7b7b7;
+                    .x-font-size(14px);
+                  }
+                  &.desc {
+                    width: 110px;
+                    .x-text-ellipsis(110px);
+                  }
+                }
+                &.under {
+                  text-align: center;
+                }
+              }
+              div.hr {
+                width: 200px;
+                border: 1px dashed #4a4b4f;
+                margin: 0 auto;
+                margin-top: 25px;
+              }
+              div.operate {
+                a {
+                  width: 113px;
+                  .x-border-radius(20px);
+                  height: 35px;
+                  line-height: 32px;
+                  display: block;
+                  border: 1px solid #b7b7b7;
+                  margin: 0 auto;
+                  text-align: center;
+                  cursor: pointer;
+                  i {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    display: inline-block;
+                    background-size: 100%;
+                    width: 15px;
+                    &.remind {
+                      .x-bg("gismap/remind.png", no-repeat, center center);
+                      height: 15px;
+                    }
+                    &.trail {
+                      .x-bg("gismap/trail.png", no-repeat, center center);
+                      height: 21px;
+                    }
+                  }
+                  span {
+                    .x-font-size(13px);
+                    color: #b7b7b7;
+                    display: inline-block;
+                  }
+                  &.open-remind {
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                  }
+                  &.active {
+                    border: 1px solid #28b3ee;
+                    i {
+                      &.remind {
+                        .x-bg("gismap/active_remind.png", no-repeat, center center);
+                      }
+                      &.trail {
+                        .x-bg("gismap/active_trail.png", no-repeat, center center);
+                        height: 21px;
+                      }
+                    }
+                    span {
+                      color: #28b3ee;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          div.right-user {
+            background-color: #303136;
+            .x-flex-box(1);
+            height: 100%;
+            margin-left: 15px;
+            div.no-user {
+              div.img-show {
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                margin-left: 70px;
+                img {
+                  display: inline-block;
+                  width: 120px;
+                  margin-left: -16px;
+                }
+                p.no-data {
+                  .x-font-size(14px);
+                  color: #48474c;
+                  margin-top: 15px;
+                }
+              }
+            }
+            div.right-show-user {
+              ul{
+                padding-top: 15px;
+                height: 100%;
+                overflow: auto;
+                padding-left: 25px;
+                li{
+                  padding-bottom: 20px;
+                  display: inline-block;
+                  margin-right: 20px;
+                  div.t-user {
+                    .t-user();
+                    a.portrait-i {
+                      .portrait-i();
+                      span.user_face {
+                        .user_face();
+                      }
+                    }
+                  }
+                  div.inform {
+                    margin-top: 5px;
+                    text-align: left;
+                    i.pic-list-camera-checked {
+                      .x-pic-list-camera-checked();
+                      vertical-align: middle;
+                      margin-top: -11px;
+                      margin-left: -4px;
+                    }
+                    p {
+                      color: #fff;
+                      .x-font-size(13px);
+                      margin-top: 5px;
+                      &.time {
+                        color: #b7b7b7;
+                        .x-font-size(12px);
+                        margin-left: 14px;
+                        margin-top: -3px;
+                      }
+                      &.desc {
+                        color: #28b3ee;
+                        display: inline-block;
+                        width: 110px;
+                        .x-text-ellipsis(110px);
+                      }
+                    }
+                  }
+                  &.under-user {
+                    cursor: pointer;
+                  }
+                }
+              }
+              div.zbase-ui-pagination {
+                .x-pagination();
+                // position: absolute;
+                // bottom: 0px;
+              }
+            }
+            div.face-top {
+              margin-top: 15px;
+              padding-bottom: 15px;
+              background-color: #303136;
+              div.time {
+                margin-left: 35px;
+                margin-right: 30px;
+                text-align: right;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #3c3d41;
+                p {
+                  .x-font-size(@top-size);
+                  color: @top-color;
+                  display: inline-block;
+                  vertical-align: middle;
+                  margin-top: -27px;
+                  margin-right: 20px;
+                }
+                div.input-group {
+                  display: inline-block;
+                  width: 170px;
+                  margin-right: 15px;
+                  cursor: pointer;
+                  input {
+                    width: 170px;
+                    background-color: #4c4d54;
+                    border: none;
+                    color: @top-color;
+                    .x-font-size(@top-size);
+                  }
+                  span.input-c{
+                    display: inline-block;
+                    position: absolute;
+                    right: 4px;
+                    background: #4c4d54;
+                    border: none;
+                    z-index: 4;
+                    top: 4px;
+                    span {
+                      .x-bg("signwall/calendar.png", no-repeat, center center);
+                      width: 25px;
+                      height: 25px;
+                      display: block;
+                    }
+                  }
+                  &#datetimepicker2 {
+                    margin-right: 0;
+                  }
+                }
+                div.search {
+                  display: inline-block;
+                  vertical-align: top;
+                  cursor: pointer;
+                  span.input-group-addon {
+                    border: none;
+                    background: transparent;
+                    width: 50px;
+                    span.glyphicon-search {
+                      color: #8d8d8f;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        div.updateName {
+          div.modal-dialog {
+            width: 360px;
+            div.modal-content {
+              background-color: #414149;
+              div.modal-header {
+                border-bottom: none;
+                padding-bottom: 0px;
+                h4 {
+                  .x-font-size(14px);
+                  color: #fff;
+                }
+                button {
+                  cursor: pointer;
+                  .x-opacity(1);
+                  width: 25px;
+                  height: 25px;
+                  right:-9px;
+                  top:0;
+                  i.pic-close {
+                    float: right;
+                    .x-bg("signwall/close_win.png", no-repeat, center center);
+                    background-size: cover;
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                  }
+                }
+              }
+              div.modal-body {
+                padding-bottom: 20px;
+                padding-top: 5px;
+                a.bg-portrait {
+                  display: inline-block;
+                  width: 80px; // height: 100px;
+                  min-height: 85px;
+                  .x-bg("defaultphoto.jpg", no-repeat, center center);
+                  background-size: cover;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+                div.info {
+                  display: inline-block;
+                  margin-left: 15px;
+                  vertical-align: bottom;
+                  p {
+                    .x-font-size(12px);
+                    color: #999;
+                    a {
+                      color: #555;
+                      .x-font-size(15px);
+                    }
+                    span {
+                      color: #999;
+                      .x-font-size(12px);
+                      display: inline-block;
+                      margin-right: 5px;
+                    }
+                    &.nickname {
+                      a {
+                        color: #fff;
+                      }
+                    }
+                  }
+                }
+                p.ta {
+                  color: #999;
+                  .x-font-size(12px);
+                  margin: 15px 0;
+                  margin-bottom: 10px;
+                }
+                ul.nametotal {
+                  display: inline-block;
+                  overflow: auto;
+                  max-height: 72px;
+                  width: 310px;
+                  li {
+                    display: inline-block;
+                    float: left;
+                    line-height: 2;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    a {
+                      text-align: center;
+                      color: #1db1ea;
+                      border: 1px solid #1db1ea;
+                      padding: 0 6px;
+                      .x-border-radius(4px);
+                      .x-font-size(12px);
+                      width: 68px;
+                      display: inline-block;
+                      .x-text-ellipsis(68px);
+                      height: 26px;
+                      &.active {
+                        background-color: #1db1ea;
+                        color: #fff;
+                      }
+                    }
+                    &:nth-child(4n) {
+                      margin-right: 0;
+                    }
+                  }
+                  div {
+                    .x-clearfix();
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<style>
+#wc_main1_checkNavagation.zh div.content p:first-child{
+  font-size:24px;margin-top: 31px;margin-bottom: 12px;
+}
+#wc_main1_checkNavagation.en div.content p{
+  font-size:13px;width:500px;margin: 0 auto;
+}
+#wc_main1_checkNavagation.en div.content p:first-child{
+  font-size:19px;margin-top: 40px;margin-bottom: 12px;color:#637488;
+}
+#wc_main1_checkNavagation.en div.content div.content1 span.span1{
+  display:none;
+}
+#wc_main1_checkNavagation.en div.content div.content1 span.span2{
+  display:none;
+}
+
+</style>
+<div id="wc_main_checkNavagation"  style="position:fixed;top:0px;filter:alpha(opacity:50); opacity:0.5; -moz-opacity:0.5;-khtml-opacity: 0.5;background-color:black;width:200%;height:1100px;z-index:2000;display:none;left:0">
+</div>
+<div id="wc_main1_checkNavagation" class = '<%=page_config.language%>' style="position:fixed;width:564px;top:50%;margin-top:-118px;background-color:white;z-index:2001;left:50%;margin-left:-282px;text-align:center;-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius:4px;display:none;color:#637488;">
+  <div class="content">
+    <p><%=page_config.translater.get("抱歉，暂时还无法兼容您当前的浏览器！", page_config.language); %></p>
+    <p><%=page_config.translater.get("系统检测你使用的浏览器无法正确显示页面，请尝试下面的浏览器吧！", page_config.language); %></p>
+    <div style="width:20px;height:20px;-moz-border-radius: 20px;-webkit-border-radius: 20px;border-radius:20px;top:20px;right:20px;border:1px solid #dedede;position:absolute;background-color:#C8C8C8;cursor:hand;cursor:pointer" onclick='document.getElementById("wc_main1_checkNavagation").style.display="none";document.getElementById("wc_main_checkNavagation").style.display="none"'><span style="top:-3px;left:5px;color:#F8F8F8;position:absolute">x</span></div>
+    <div class="content1" style="margin-top:32px;margin-bottom:20px">
+      <span class="span3" style="margin-right: 10px;margin-left: 5px;"><a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank"><img data-defer='/public/images/home/<%=(page_config.language=="en")? "en_":""%>googlebrowser.jpg'/></a></span>
+      <span class="span4" style="margin-right: 10px;"><a href="http://www.firefox.com.cn/" target="_blank"><img data-defer='/public/images/home/<%= (page_config.language=="en")? "en_":""%>firefoxbrowser.jpg'/></a></span>
+      <span class="span1" style="margin-right: 10px;"><a href="http://www.360.com/" target="_blank"><img data-defer='/public/images/home/360browser.jpg'/></a></span>
+      <span class="span2" style="margin-right: 10px;"><a href="http://rj.baidu.com/soft/detail/11339.html?ald" target="_blank"><img data-defer='/public/images/home/baidubrowser.jpg'/></a></span>  
+    </div>
+  </div>
+</div>
+<div id="wc_main1_checkNavagation1" style="position:fixed;width:564px;top:316px;background-color:white;z-index:2001;left:50%;margin-left:-282px;text-align:center;-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius:4px;display:none;">
+  <div class="content" >
+    <p style="font-size:19px;margin-top: 40px;margin-bottom: 12px;color:#637488">Sorry, it is not compatible with your current browser!</p>
+    <p style="font-size:13px;width:500px;margin: 0 auto">The system detects that you use the browser can not correctly display the page, please try the following browser!</p>
+    <div  style="width:20px;height:20px;-moz-border-radius: 20px;-webkit-border-radius: 20px;border-radius:20px;top:20px;right:20px;border:1px solid #dedede;position:absolute;background-color:#C8C8C8;cursor:hand;cursor:pointer" onclick='document.getElementById("wc_main1_checkNavagation1").style.display="none";document.getElementById("wc_main_checkNavagation").style.display="none"'><span style="top:-3px;left:6px;color:#F8F8F8;position:absolute">x</span></div>
+    <div class="content1" style="margin-top:32px;margin-bottom:20px">
+      <span class="span3" style="margin-right: 10px;margin-left: 5px;"><a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank"><img src='/public/images/home/en_googlebrowser.jpg'/></a></span>
+      <span class="span4" style="margin-right: 10px;"><a herf="http://www.firefox.com.cn/" target="_blank"><img src='/public/images/home/en_firefoxbrowser.jpg'/></a></span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+ var pathname=window.location.pathname;
+  if(pathname.substr(0,6)==="/main"||pathname.substr(0,6)==="/video"||pathname.substr(0,6)==="/zhibo"){
+  document.getElementById("wc_main_checkNavagation").style.marginLeft="-180px";
+    
+  }
+</script>
+

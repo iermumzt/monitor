@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@x-base-font-size : 16px;
+@x-base-font-family : e('"Microsoft Yahei","Hiragino Sans GB","宋体",Tahoma,Verdana,sans-serif,simsun,Arial');
+@x-base-font-family2 : e('Arial,"Microsoft Yahei","Hiragino Sans GB","宋体",Tahoma,Verdana,sans-serif,simsun');
+@x-ltxh-font-family : e('"FZLTCHK","Microsoft Yahei", "Hiragino Sans GB"');
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+  
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: none;
+  font-family: @x-base-font-family;
+  .x-font-size(@x-base-font-size);
+  outline: none;
+}
+
+body:after{
+  border: 1px solid transparent;
+}
+
+textarea,
+input,
+select {
+  vertical-align: middle;
+  resize: none;
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #fafafa;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #e9ebed;
+  -webkit-border-radius: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+.glyphicon {
+  font-family: "Glyphicons Halflings"!important;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.font-ltxh-all {
+  &,
+  & * {
+    font-family: @x-ltxh-font-family;
+  }
+  &.en,
+  &.en * {
+    font-family: @x-base-font-family2;
+  }
+}
+
+.font-yahei-all() {
+  &,
+  & * {
+    font-family: @x-base-font-family;
+  }
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.visibility-visible {
+  visibility: visible;
+}
+
+.hl_keywords {
+  color: red;
+  .x-font-size(16px);
+}

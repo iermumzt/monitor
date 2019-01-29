@@ -1,0 +1,102 @@
+{
+  "count": 5,
+  "list": [{
+    "type": "1",
+    "tid": "349",
+    "location_type": "amap",
+    "location_name": "\u5317\u4eac\u5e02\u671d\u9633\u533a\u9ad8\u7891\u5e97\u9547\u5eb7\u5bb6\u56ed\u5c0f\u533a(\u767d\u9886\u5bb6\u56ed\u897f)\u5eb7\u5bb6\u56ed\u5c0f\u533a",
+    "location_address": "\u5317\u4eac\u5e02\u671d\u9633\u533a\u9ad8\u7891\u5e97\u9547\u5eb7\u5bb6\u56ed\u5c0f\u533a(\u767d\u9886\u5bb6\u56ed\u897f)\u5eb7\u5bb6\u56ed\u5c0f\u533a",
+    "location_latitude": "39.909469",
+    "location_longitude": "116.518890",
+    "time": "1495159694",
+    "marker": {
+      "bid": "349",
+      "name": "\u6e05\u6e05\u6d45\u6d45",
+      "intro": "",
+      "type": "0",
+      "minfloor": "-2",
+      "maxfloor": "2",
+      "time": "1495159694",
+      "preview": [{
+        "pid": "567",
+        "floor": "0",
+        "image": "building_preview1498221573910.jpg",
+        "time": "1495159694",
+        "device": []
+      }]
+    }
+  }, {
+    "type": "1",
+    "tid": "350",
+    "location_type": "amap",
+    "location_name": "\u5317\u4eac\u5e02\u4e1c\u57ce\u533a\u4e1c\u534e\u95e8\u8857\u9053\u5929\u5b89\u95e8-\u57ce\u697c",
+    "location_address": "\u5317\u4eac\u5e02\u4e1c\u57ce\u533a\u4e1c\u534e\u95e8\u8857\u9053\u5929\u5b89\u95e8-\u57ce\u697c",
+    "location_latitude": "39.909230",
+    "location_longitude": "116.397428",
+    "time": "1495423465",
+    "marker": {
+      "bid": "350",
+      "name": "soso",
+      "intro": "",
+      "type": "0",
+      "minfloor": "-2",
+      "maxfloor": "2",
+      "time": "1495423465",
+      "preview": [{
+        "pid": "568",
+        "floor": "0",
+        "image": "building_preview1498221573910.jpg",
+        "time": "1495423465",
+        "device": [{
+          "deviceid": "137894281147",
+          "left": "0.571809",
+          "top": "0.284870",
+          "time": "1495423465"
+        }]
+      }, {
+        "pid": "569",
+        "floor": "2",
+        "image": "building_preview1498221573910.jpg",
+        "time": "1495423465",
+        "device": []
+      }]
+    }
+  }, {
+    "tid": "137893647419",
+    "location_type": "amap",
+    "location_name": "\u5317\u4eac\u5e02\u671d\u9633\u533a\u671d\u5916\u8857\u9053\u5409\u5e02\u53e3\u8def\u77f3\u5316\u516c\u5bd3",
+    "location_address": "\u5317\u4eac\u5e02\u671d\u9633\u533a\u671d\u5916\u8857\u9053\u5409\u5e02\u53e3\u8def\u77f3\u5316\u516c\u5bd3",
+    "location_latitude": "39.926477",
+    "location_longitude": "116.437425",
+    "time": "1496642814",
+    "type": "0",
+    "marker": {
+      "deviceid": "137893647419"
+    }
+  }, {
+    "tid": "137893708859",
+    "location_type": "amap",
+    "location_name": "\u5317\u4eac\u5e02\u897f\u57ce\u533a\u6708\u575b\u8857\u9053\u771f\u6b66\u5e99\u4e09\u91cc",
+    "location_address": "\u5317\u4eac\u5e02\u897f\u57ce\u533a\u6708\u575b\u8857\u9053\u771f\u6b66\u5e99\u4e09\u91cc",
+    "location_latitude": "39.903502",
+    "location_longitude": "116.344728",
+    "time": "1495508523",
+    "type": "0",
+    "marker": {
+      "deviceid": "137893708859"
+    }
+  }, {
+    "tid": "137898142859",
+    "location_type": "amap",
+    "location_name": "\u5317\u4eac\u5e02\u6d77\u6dc0\u533a\u4e07\u5bff\u8def\u8857\u9053\u592a\u5e73\u8def\u753212\u53f7\u5317\u4eac\u5e02\u5341\u4e00\u5b9e\u9a8c\u4e2d\u5b66",
+    "location_address": "\u5317\u4eac\u5e02\u6d77\u6dc0\u533a\u4e07\u5bff\u8def\u8857\u9053\u592a\u5e73\u8def\u753212\u53f7\u5317\u4eac\u5e02\u5341\u4e00\u5b9e\u9a8c\u4e2d\u5b66",
+    "location_latitude": "39.899617",
+    "location_longitude": "116.279668",
+    "time": "1495609865",
+    "type": "0",
+    "marker": {
+      "deviceid": "137898142859"
+    }
+  }],
+  "request_id": "1496642816966"
+}

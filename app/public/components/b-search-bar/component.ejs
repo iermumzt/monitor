@@ -1,0 +1,9 @@
+<div class = 'search-box' >
+  <div class="ier-wrapper">
+    <div class="ier-input-wrapper">
+      <input id="kws" type="text" class="ier-input" placeholder="<%=page_config.translater.get("请输入关键字", page_config.language); %>" onkeydown="return searchByKey(event);" oninput = 'return iconHide(event);' ></input><a id="del" class="clear" onclick="delWholeInput(this);"><i class = 'pic-del'></i></a>
+       <span class = "ier-submit" onclick = 'return getKeys()' ><i class = 'pic-search'></i><%=page_config.translater.get("全场搜索", page_config.language); %></span>
+       <span class = "m-submit" onclick = 'return getKeys()' ><i class = 'x-mpic-search'></i><%=page_config.translater.get("搜索", page_config.language); %></span>
+    </div>
+    </div>
+</div>

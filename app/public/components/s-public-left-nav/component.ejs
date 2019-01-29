@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top left-nav" ng-controller="SlidebarController">
+  <div class = 'menus'>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" ng-class='{active: currentPathName=="/main"}'>
+        <a href = '/main'  class="m">
+          <i class = 'pic-iermu-logo'></i>
+          <span class = 'd'><%=page_config.translater.get("爱耳目精选", page_config.language); %></span>
+          <span class = 't'><%=page_config.translater.get("精选", page_config.language); %></span>
+        </a>
+      </li>
+      <li role="presentation" ng-class='{active: currentPathName=="/zhibo"}'>
+        <a href = '/zhibo?cg=451&st=5'>
+          <i class = 'pic-zhibo'></i>
+          <span class = 'd'><%=page_config.translater.get("视频直播", page_config.language); %></span>
+          <span class = 't'><%=page_config.translater.get("直播", page_config.language); %></span>
+        </a>
+      </li>
+      <!--<li role="presentation" ng-class='{active: currentPathName=="/myiermu"}'>
+        <a href = '/myiermu'>
+          <i class = 'pic-myiermu'></i>
+          <span class = 'd'><%=page_config.translater.get("我的爱耳目", page_config.language); %></span>
+          <span class = 't'><%=page_config.translater.get("我的", page_config.language); %></span>
+        </a>
+      </li>
+      <li role="presentation" ng-class='{active: currentPathName=="/hao"}'>
+        <a href = "hao.html">
+          <i class = 'glyphicon glyphicon-heart'></i>
+          <span class = 'd'><%=page_config.translater.get("猜你喜欢", page_config.language); %></span>
+          <span class = 't'><%=page_config.translater.get("喜欢", page_config.language); %></span>
+        </a>
+      </li>
+      <li role="presentation" ng-class='{active: currentPathName=="/xihuan"}'>
+        <a href = '/xihuan'>
+          <i class ='pic-like_gray'></i>
+          <span class = 'd'><%=page_config.translater.get("猜你喜欢", page_config.language); %></span>
+          <span class = 't'><%=page_config.translater.get("喜欢", page_config.language); %></span>
+        </a>
+      </li>-->
+      <li role="presentation" ng-class='{active: currentPathName=="/playrecord"}'>
+        <a href = '/playrecord'>
+          <i class ='pic-view-history'></i>
+          <span class = 'd'><%=page_config.translater.get("播放记录", page_config.language); %></span>
+          <span class = 't r'><%=page_config.translater.get("记录", page_config.language); %></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

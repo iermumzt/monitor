@@ -1,0 +1,200 @@
+    <style>
+      .zloading.zbase-ui {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        top: 0;
+        background-color: white;
+      }
+      .zloading.zbase-ui .loading-block {
+        position: relative;
+        top: 35%;
+      }
+      .zloading.zbase-ui .loading-block .loading-text {
+        font-size: 20px;
+        height: 60px;
+        margin: 0 auto;
+        line-height: 60px;
+        text-align: center;
+        font-family: "Microsoft Yahei", "Hiragino Sans GB", "宋体", Tahoma, Verdana, sans-serif, simsun, Arial;
+      }
+      @keyframes rotate_ani {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          transition: transform rotate(0deg);
+          -moz-transition: -moz-transform rotate(0deg);
+          -webkit-transition: -webkit-transform rotate(0deg);
+          -o-transition: -o-transform rotate(0deg);
+          -ms-transition: -ms-transform rotate(0deg);
+        }
+        50% {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+          transition: transform rotate(180deg);
+          -moz-transition: -moz-transform rotate(180deg);
+          -webkit-transition: -webkit-transform rotate(180deg);
+          -o-transition: -o-transform rotate(180deg);
+          -ms-transition: -ms-transform rotate(180deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+          transition: transform rotate(360deg);
+          -moz-transition: -moz-transform rotate(360deg);
+          -webkit-transition: -webkit-transform rotate(360deg);
+          -o-transition: -o-transform rotate(360deg);
+          -ms-transition: -ms-transform rotate(360deg);
+        }
+      }
+      @-moz-keyframes rotate_ani {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          transition: transform rotate(0deg);
+          -moz-transition: -moz-transform rotate(0deg);
+          -webkit-transition: -webkit-transform rotate(0deg);
+          -o-transition: -o-transform rotate(0deg);
+          -ms-transition: -ms-transform rotate(0deg);
+        }
+        50% {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+          transition: transform rotate(180deg);
+          -moz-transition: -moz-transform rotate(180deg);
+          -webkit-transition: -webkit-transform rotate(180deg);
+          -o-transition: -o-transform rotate(180deg);
+          -ms-transition: -ms-transform rotate(180deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+          transition: transform rotate(360deg);
+          -moz-transition: -moz-transform rotate(360deg);
+          -webkit-transition: -webkit-transform rotate(360deg);
+          -o-transition: -o-transform rotate(360deg);
+          -ms-transition: -ms-transform rotate(360deg);
+        }
+      }
+      @-webkit-keyframes rotate_ani {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          transition: transform rotate(0deg);
+          -moz-transition: -moz-transform rotate(0deg);
+          -webkit-transition: -webkit-transform rotate(0deg);
+          -o-transition: -o-transform rotate(0deg);
+          -ms-transition: -ms-transform rotate(0deg);
+        }
+        50% {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+          transition: transform rotate(180deg);
+          -moz-transition: -moz-transform rotate(180deg);
+          -webkit-transition: -webkit-transform rotate(180deg);
+          -o-transition: -o-transform rotate(180deg);
+          -ms-transition: -ms-transform rotate(180deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+          transition: transform rotate(360deg);
+          -moz-transition: -moz-transform rotate(360deg);
+          -webkit-transition: -webkit-transform rotate(360deg);
+          -o-transition: -o-transform rotate(360deg);
+          -ms-transition: -ms-transform rotate(360deg);
+        }
+      }
+      @-o-keyframes rotate_ani {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          transition: transform rotate(0deg);
+          -moz-transition: -moz-transform rotate(0deg);
+          -webkit-transition: -webkit-transform rotate(0deg);
+          -o-transition: -o-transform rotate(0deg);
+          -ms-transition: -ms-transform rotate(0deg);
+        }
+        50% {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+          transition: transform rotate(180deg);
+          -moz-transition: -moz-transform rotate(180deg);
+          -webkit-transition: -webkit-transform rotate(180deg);
+          -o-transition: -o-transform rotate(180deg);
+          -ms-transition: -ms-transform rotate(180deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+          transition: transform rotate(360deg);
+          -moz-transition: -moz-transform rotate(360deg);
+          -webkit-transition: -webkit-transform rotate(360deg);
+          -o-transition: -o-transform rotate(360deg);
+          -ms-transition: -ms-transform rotate(360deg);
+        }
+      }
+      .zloading.zbase-ui .loading-block .loading-circle {
+        border: 3px solid rgba(136, 136, 136, 0.8);
+        border-top-color: #2297bc;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        animation: rotate_ani 0.5s linear infinite 0s;
+        -moz-animation: rotate_ani 0.5s linear infinite 0s;
+        -webkit-animation: rotate_ani 0.5s linear infinite 0s;
+        -o-animation: rotate_ani 0.5s linear infinite 0s;
+        -ms-animation: rotate_ani 0.5s linear infinite 0s;
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: -3px;
+        left: 50%;
+        margin-left: -33px;
+      }
+    </style>
+    <div class="zbase-ui zloading" id="J_MiLoading">
+        <div class="loading-block">
+            <div class="loading-text" id = 'zloading_text'>0%</div>
+            <div class = 'loading-circle'></div>
+        </div>
+    </div>

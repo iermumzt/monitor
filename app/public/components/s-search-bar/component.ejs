@@ -1,0 +1,29 @@
+<%- include ../b-search-bar/component %>
+
+<script>
+  function getKeys(){
+    var kws = escape(document.getElementById("kws").value.trim());
+    if(!_.isEmpty(kws))document.location.href = "/search?kws=" + kws;
+  }
+
+  function searchByKey(event){
+    var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+       if (keyCode == 13) {
+          getKeys();
+       }
+  }
+  function iconHide(){
+    var kws = document.getElementById("kws").value.trim();
+    if(!kws){
+      document.getElementById("del").style.display= "none";
+    }else{
+      document.getElementById("del").style.display= "inline";
+    }
+  }
+
+  function delWholeInput(obj) {
+      document.getElementById("kws").value= "";
+      document.getElementById("del").style.display= "none";
+  }
+
+</script>

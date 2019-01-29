@@ -1,0 +1,137 @@
+<nav class="navbar navbar-default navbar-fixed-top top-header">
+  <div class = 'bg'></div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed login"  data-target="#navbar1">
+        <img data-defer="/public/images/home/m-denglu.png">
+        <span class='login'><%=page_config.translater.get("登录", page_config.language); %></span>
+        <span class='logout'><%=page_config.translater.get("退出", page_config.language); %></span>
+      </button>
+      <button type="button" class="navbar-toggle collapsed chan" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="chan"><%=page_config.translater.get("频道", page_config.language); %></span>
+      </button>
+      <button type="button" class="navbar-toggle collapsed e"  data-target="#navbar1">
+        <img data-defer="/public/images/home/language2.png">
+        <span class='caption'>EN</span>
+        <span class='caption e'>中文</span>
+      </button>
+      <a class="navbar-brand" href="#"><img data-defer="/public/images/logo.png"><p><span><%=page_config.translater.get("爱耳目", page_config.language); %></span><span class="h"><%=page_config.translater.get("智能摄像机", page_config.language); %></span></p></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse navbar-menus navbar-left">
+      <ul class="nav navbar-nav top-menus">
+        <li data-menu='index'><a href="/"><%=page_config.translater.get("首页", page_config.language); %></a></li>
+        <li data-menu='product'  class = 'product'>
+
+          <a data-target="#product" class="nav-header collapsed" data-toggle="collapse"><%=page_config.translater.get("产品", page_config.language); %> <span class="s"></span></a>
+          <ul id="product" class="nav collapse">
+            <li class="hb"><a href="/product" class="hb"><img data-defer="/public/images/home/xiala_hb.png"><%=page_config.translater.get("小黑/小白", page_config.language); %></a></li>
+            <li class="ptz"><a href="/ptz" class="pa"><img data-defer="/public/images/home/ptz/xiala_xz.png"><%=page_config.translater.get("Z1/Z1H", page_config.language); %></a></li>
+            <li class="p1h"><a href="/p1h" class="p1h"><img data-defer="/public/images/home/p1h/p1h.png"><%=page_config.translater.get("P1H", page_config.language); %></a></li>
+            <li class="ai"><a href="/ai" class="ai"><img data-defer="/public/images/home/ai/ai.png"><%=page_config.translater.get("AIH1/AIH2", page_config.language); %></a></li>
+            <li class="q1h"><a href="/q1h" class="q1h"><img data-defer="/public/images/home/q1h/q1h.png"><%=page_config.translater.get("Q1H", page_config.language); %></a></li>
+            <li class="k1"><a href="/k1" class="k1"><img data-defer="/public/images/home/k1/k1_n.png"><%=page_config.translater.get("K1", page_config.language); %></a></li>
+           <!--  <li class="xiaoqiu"><a href="/ball" class="xiaoqiu"><img data-defer="/public/images/home/ball_cd.png"><%=page_config.translater.get("精灵球", page_config.language); %></a></li> -->
+            <li class="xiaoshangpu"><a href="/shop" class="xiaoshangpu"><img data-defer="/public/images/home/xiaoshangpudaohangn.png"><%=page_config.translater.get("大卫", page_config.language); %></a></li>
+            <li class="peijian"><a href="/peripherals" class="peijian"><img data-defer="/public/images/home/peijiandaohang.png"><%=page_config.translater.get("配件", page_config.language); %></a></li>
+          </ul>
+        </li>
+        <li data-menu='sCheme'><a href="/sCheme"><%=page_config.translater.get("解决方案", page_config.language); %></a></li>
+        <li data-menu='platform'><a href = "/platform"><%=page_config.translater.get("开放平台", page_config.language); %></a></li>
+        <li data-menu='main'><a href="/main"><%=page_config.translater.get("爱直播", page_config.language); %></a></li>
+        <li data-menu='profile' class="profile"><a href="/"><%=page_config.translater.get("个人中心", page_config.language); %></a></li>
+        <li data-menu='support' class = 'support'><a onclick="_hmt.push(['_trackEvent', '首页在线帮助', 'click', '在线帮助点击', '']);" role='button' href = '/support'><%=page_config.translater.get("在线帮助", page_config.language); %></a><a role='button' href = '/support' style="display:none"><%=page_config.translater.get("退出向导", page_config.language); %></a></li>
+        <li class = 'app-download'>
+          <div class = 'qccode'>
+            <div>
+              <img data-defer="/public/images/app-<%=page_config.language%>.png">
+              <p><%=page_config.translater.get("扫描二维码下载APP", page_config.language); %></p>
+              <p class = 'andios'>
+                <a href="<%=page_config.language == "en" ? "https://play.google.com/store/apps/details?id=com.intl.iermu":"http://a.app.qq.com/o/simple.jsp?pkgname=com.cms.iermu"%>" target="_blank" class="dl nth nw"><span><%=page_config.translater.get("Android版", page_config.language); %></span></a> 
+                <a href="<%=page_config.language == "en" ? "https://itunes.apple.com/us/app/iermu-smart-camera/id1097445131?mt=8": "https://itunes.apple.com/us/app/id698550170" %>" target="_blank" class="dl nth"><span><%=page_config.translater.get("iOS版", page_config.language); %></span></a>
+              </p>
+              <a href="<%=page_config.language == "en" ? "": "http://shouji.baidu.com/software/10188817.html" %>" target="_blank" class="dl r"><span><%=page_config.translater.get("点击下载 TV", page_config.language); %></span><span class = 'bordTv'><%=page_config.translater.get("Beta版", page_config.language); %></span></a>
+            </div>
+          </div>
+          <a><%=page_config.translater.get("APP下载", page_config.language); %></a>
+        </li>
+         <!-- <li data-menu='about'><a href="/about"><%=page_config.translater.get("公司介绍", page_config.language); %></a></li> -->
+      </ul>
+    </div>
+    <div id="navbar1" class="navbar-collapse collapse navbar-menus navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li class = 'login'><a role='button'><%=page_config.translater.get("登录", page_config.language); %></a></li>
+        <li class = 'mycamera hidden' ng-class="{active:currentNav==('/myiermu')}">
+          <div class = 'per-suspend-info'>
+            <span class="sp1"> </span> 
+            <div class="per-sinfo">
+              <a href='#'><img data-defer="/public/images/person-info.png"></a>
+              <div class="info">
+                <p>
+                  <a class = 'nickname'>疯狂的小猫咪</a>
+                </p>
+              </div>  
+              <div class = 'third-share'>
+                <a>
+                  <i class= 'qq'></i>
+                </a>
+                <a>
+                  <i class= 'wb'></i>
+                </a>
+                <a>
+                  <i class= 'bd'></i>
+                </a>
+                <span>积分：8800</span>
+              </div>
+            </div>
+            <div class="per-stask">
+              <div class="lblock">
+                <p>去完成任务
+                  <a><span class='view-all'>查看全部&gt;</span></a>
+                </p>
+                <p class = 'lo'><a>看视频，赚积分</a></p>
+                <p>6.24前完成观看分享直播视频10个</p>
+                <p>奖励:积分+20</p>
+                <p><a><span class = 'gt'>领任务</span></a></p>
+              </div>
+              <div class="rblock">
+                 <ul>
+                  <li><a>我的主页</a> </li>
+                  <li><a>我的爱耳目</a></li>
+                  <li><a>购买云录制</a></li>
+                  <li><a>账号设置</a></li>
+                  <li><a>我的订阅</a></li>
+                 </ul>
+              </div>
+            </div>
+          </div>
+          <a class = 'user-info'  href = '/'></a>
+        </li>-->
+        <li class = 'uinfo'><a class = 'user-info'  href = '/'></a><a class = 'split'>|</a><a class = 'logout' role='button'><%=page_config.translater.get("退出", page_config.language); %></a><a class = 'login' role='button'><%=page_config.translater.get("登录", page_config.language); %></a><a class = 'split s1'>|</a></li>
+        <li data-menu='support' class = 'support'><a onclick="_hmt.push(['_trackEvent', '首页在线帮助', 'click', '在线帮助点击', '']);" role='button' href = '/support'><%=page_config.translater.get("在线帮助", page_config.language); %></a><a role='button' href = '/support' style="display:none"><%=page_config.translater.get("退出向导", page_config.language); %></a></li>
+        <li class="language-sel">
+          <a role='button' class = 'l zh'>中文</a><a class = 'split'>|</a>
+          <a role='button' class = 'l en'>English</a></li>
+      </ul>
+    </div>
+    <div class = 'dropdown-menu xiala '>
+      <hr class='hr'>
+      <a href="/product" class="hb"><img data-defer="/public/images/home/xiala_hb.png"><p><%=page_config.translater.get("小黑/小白", page_config.language); %></p></a>
+      <a href="/p1h" class="p1h"><img data-defer="/public/images/home/p1h/p1h.png"><p><%=page_config.translater.get("P1H", page_config.language); %></p></a>
+      <a href="/ai" class="ai"><img data-defer="/public/images/home/ai/ai.png"><p><%=page_config.translater.get("AIH1/AIH2", page_config.language); %></p></a>
+      <a href="/ptz" class="xiaozhuan"><img data-defer="/public/images/home/ptz/xiala_xz.png"><p><%=page_config.translater.get("Z1/Z1H", page_config.language); %></p></a>
+      <a href="/q1h" class="q1h"><img data-defer="/public/images/home/q1h/q1h.png"><p><%=page_config.translater.get("Q1H", page_config.language); %></p></a>
+      <a href="/k1" class="k1"><img data-defer="/public/images/home/k1/k1_n.png"><p><%=page_config.translater.get("K1", page_config.language); %></p></a>
+      <!-- <a href="/ball" class="xiaoqiu"><img data-defer="/public/images/home/ball_cd.png"><p><%=page_config.translater.get("精灵球", page_config.language); %></p></a> -->
+      <a href="/shop" class="xiaoshangpu"><img data-defer="/public/images/home/xiaoshangpudaohangn.png"><p><%=page_config.translater.get("大卫", page_config.language); %></p></a>
+      <a href="/peripherals" class="peijian"><img data-defer="/public/images/home/peijiandaohang.png"><p><%=page_config.translater.get("配件", page_config.language); %></p></a>
+    </div>
+  </div>
+</nav>
+<div class = 'sc-party'>
+  <a onclick='this.parentNode.style.display="none"' class = "close"></a>
+  <!-- <a href="http://www.iermu.com/xabaidu" target='_blank'><img data-defer="/public/images/home/hacker/enter2.png" class = "xa"></a> -->
+  <a href="http://x.baidu.com/" target='_blank'><img data-defer="/public/images/pp1_.png?woshi"></a>
+</div>

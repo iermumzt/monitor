@@ -1,0 +1,63 @@
+.zbase-ui.app-log {
+  position: fixed;
+  z-index: 999999;
+  height: 0 !important;
+  margin-top: 50px;
+  width: 100%;
+  top: 40%;
+  left: 0;
+  &>div {
+    margin: 10px auto;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    .x-border-radius(5px);
+    &.jiayu{
+      background-color: #000;
+      position: absolute;
+      left: 50%;
+      margin-left: -15%;
+      opacity: 0.8;
+      width: 30%;
+      text-align: center;
+      top: 50%;
+      margin-top: -1%;
+      p{
+        color: #fff;
+      }
+    }
+    &.remove {
+      .x-opacity(0);
+      .x-transition(e("opacity 1s linear 0s"));
+    }
+    &>p {
+      padding: 15px;
+      &,
+      * {
+        .x-font-size(14px);
+      }
+    }
+    &>a {
+      display: none;
+      position: absolute;
+      cursor: pointer;
+      line-height: 1;
+      right: 10px;
+      top: 50%;
+      margin-top: -10px;
+      .x-font-size(20px);
+      color: #00b0ed;
+      &:before {
+        content: "\00d7";
+      }
+    }
+  }
+  @media screen and  (max-width: 1000px) {
+    &>div {
+      &.jiayu{
+        width: 60%;
+        margin-left: -30%;
+      }
+    }
+  }
+}
