@@ -15,11 +15,11 @@ module.exports = {
     page: "face-library-id"
   },
   {
-    url: "/profile/statistics",
+    url: "/profile/data-statistics",
     page: "data-statistics"
   },
   {
-    url: "/profile/data-statistics",
+    url: "/profile/statistics",
     page: "data-minzhengt"
   }, {
     url: "/multiview",
