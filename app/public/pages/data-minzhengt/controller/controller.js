@@ -1,4 +1,4 @@
-define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "s_profile", "s_profess", "d_data_left_nav",], function(Controllers, OAuth, Dialog, echarts) {
+define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "s_profile", "s_profess", "d_data_left_nav", "ui_videoplayer", "s_layoutmanager", "socketio", "s_profile", "d_modal", "d_camera_tree_list", "d_camera_multiview", "d_camera_summary_list", "d_camera_identification", "d_camera_bident","d_finish_filters"], function(Controllers, OAuth, Dialog, echarts , VideoPlayer, LayoutManager , io) {
   Controllers.controller("DataMinzhengtController", ["$scope", "$element", "$timeout", "ProfileService","ProfessService",
     function($scope, $element, $timeout, ProfileService, ProfessService) {
       var user = OAuth.getUser();
@@ -24,6 +24,8 @@ define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "s_
           }
         })
       };
+      console.log(3333);
+      console.log(io);
       var bindAiReport = function(_params, isToday) {
         ProfessService.getGraphData(_params).then(function(_data) {
           var data = [],
@@ -168,7 +170,6 @@ define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "s_
           et: parseInt($scope.endTime)/1000,
           deviceid: $scope.choseDeviceData.join(",")
         }).then(function(_data) {
-          console.log(_data.total);
           $scope.captureInfo = _data.total;
           $scope.captureAge = _data.data.age;
           $scope.captureClass = _data.data.class;
@@ -213,7 +214,6 @@ define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "s_
           });
           $scope.data = name;
           $scope.item = total;
-          console.log($scope);
           echartTip2();
           echartTip();
           echartTip3();
