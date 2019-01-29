@@ -27,6 +27,8 @@ define(["app", "oauth", "ui_videoplayer", "s_layoutmanager", "socketio", "s_prof
           "lp13": "Set Up",
         }
       }
+        console.log(3333);
+        console.log(io);
       if (navigator.userAgent.indexOf('Firefox') >= 0) {
         $element.find(".poin-wrap").css("overflow", "hidden");
       }
