@@ -32,9 +32,8 @@
             <div class="bot-wrap" ng-mouseenter="showOver = true" ng-mouseleave="showOver = false">
               <div class='video-player-module-wrap ng-show' ng-hide="single"></div>
               <div class='morepic ng-hide' ng-show="single" on-finish-render-filters ng-controller='MultiViewController'>
-              <!--<div class='morepic ng-hide' ng-show="single" on-finish-render-filters >-->
                 <div class="multi">
-                  <div class='top-menus' ng-show="single">
+                  <!-- <div class='top-menus' ng-show="single">
                     <div class="poinMenus" ng-hide="setMulti">
                       <ul>
                         <li class="MultiScreenSet" ng-click="toggleEnableConfig()">
@@ -48,21 +47,7 @@
                         </li>
                       </ul>
                     </div>
-                    <!-- <ul class='pull-right'>
-                      <li class='pull-left' ng-click='toggleEnableConfig()' ng-class='{"checked":setMulti}' ng-hide="setMulti">
-                        <a type='button'>
-                          <i class="pic-mon-config"></i>设置</a>
-                      </li>
-                      <li class='pull-left split' ng-hide="setMulti"></li>
-                      <li class='pull-left' ng-click='fullscreen()' ng-hide="setMulti">
-                        <a class="fullscreen" type='button'>
-                          <i class="pic-map-fullscreen" ng-hide="isFullscreen"></i>
-                          <i class="pic-map-exit-fullscreen ng-hide" ng-show="isFullscreen"></i>
-                          <span class="fs">全屏</span>
-                        </a>
-                      </li>
-                    </ul> -->
-                  </div>
+                  </div> -->
                   <div class="mutiConfig" ng-class='{m: !setMulti}'>
                     <div class="screenShow" ng-hide='showMultiView' ng-class="{'c':!setMulti}">
                       <a class="cancelMobileFull ng-hide" ng-show="mobileFull" ng-click='cancelMobileFull()'>退出全屏</a>
@@ -142,9 +127,11 @@
               <div camera-identification class="ident" show-modal-detail = "showModalDetail" detail-data = "detailData"  get-data="haveface" results="results" noai="noai" emp="emp" eyes="eyes" ul-height="ulHeight"></div>
             </div>
           </div>
+          <!--
           <div class="botsnap">
             <div camera-bident class="snap" capture-list="noface" results="results" eyes="eyes" emp="emp"></div>
           </div>
+          -->
         </div>
         <%# 视频播放器 #%>
 
