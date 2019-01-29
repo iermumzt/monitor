@@ -1,0 +1,260 @@
+div.ident{
+  width: 284px;
+  height:100%;
+  &.action{
+    width: 55px;
+  }
+  div.nav{
+    width: 100%;
+    padding: 11px 0;
+    padding-bottom: 8px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    span.idpic1{
+      float: left;
+      width: 18px;
+      height:18px;
+      display: inline-block;
+      .x-bg("pro/professional_monitor_distinguish_one.png",no-repeat,center center);
+      background-size:cover;
+      margin-left:5px;
+    }
+    h3{
+      color:#fff;
+      float: left;
+      line-height:18px;
+      margin-left:10px;
+    }
+    // i.toright{
+    //   float: right;
+    //   display: inline-block;
+    //   width: 23px;
+    //   height:23px;
+    //   .x-bg("pro/professional_monitor_retract.png",no-repeat,center center);
+    //   background-size:100% 100%;
+    //   margin-right:20px;
+    //   cursor: pointer;
+    // }
+  }
+  div.zero{
+    color:#838486;
+    text-align: center;
+    margin-top:400px;
+  }
+  ul.diffList{
+    width: 100%;
+    background-size: 3px 3px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      height:4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #707890;
+    }
+    &::-webkit-scrollbar-thumb {
+      background:#7e859d;
+      .x-box-shadow-base(0,0,4px,#7e859d,inset);
+      .x-border-radius(4px);
+    }
+    div.topTab{
+      width: 100%;
+      height: 20px;
+      margin-top: 10px;
+      p{
+        float: left;
+        color:#afb0b2;
+        .x-font-size(13px);
+      }
+      p:nth-child(1){
+        margin-left:58px;
+      }
+      p:nth-child(2){
+        margin-left:90px;
+      }
+    }
+    li{
+      width: 95%;
+      margin-left: 5%;
+      margin-top: 10px;
+      div.swin-wrap{
+        height:150px;
+        width: 95%;
+        margin:0 auto;
+        div.picWrap{
+          width: 94px;
+          height:115px;
+          .x-bg("defaultphoto.jpg", no-repeat, center center);
+          background-size: cover;
+          margin:0 5px;
+          display: inline-block;
+          span{
+            width: 94px;
+            height:115px;
+            display: inline-block;
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+        }
+        label.idpic2{
+          width: 12px;
+          height:24px;
+          .x-bg("pro/professional_monitor_matching.png",no-repeat,center center);
+          background-size: 100%;
+          display: inline-block;
+          margin: 46px 1px;
+        }
+        div.chartpie{
+          margin-top: 5px;
+          margin-left: 5px;
+          p{
+            color:#afb0b2;
+            .x-font-size(14px);
+            margin-bottom:0px;
+            &.qing {
+              cursor: pointer;
+            }
+          }
+          div.progress2{
+            position: relative;
+            display: inline-block;
+            // background: transparent;
+            // .x-box-shadow-none();
+            div.progress {
+              display: inline-block;
+              height: 2px;
+              width: 195px;
+              margin-bottom: 10px;
+              background-color: rgba(255,255,255,0.2)!important;
+              background-color: #fff;
+              filter:Alpha(opacity=20);
+              position: relative;
+              span.bar {
+                display: block;
+                width: 0;
+                position: relative;
+                .x-toright-gradient-linear(#598efb,#6dcdff);
+                height: 2px;
+              }
+            }
+            // div.pie_right, div.pie_left {
+            //   width: 66px; 
+            //   height: 66px; 
+            //   position: absolute; 
+            //   top: 0;
+            //   left: 0;
+            //   box-sizing: border-box;
+            //   div.comm {
+            //     width:66px; 
+            //     height:66px; 
+            //     box-sizing: border-box;
+            //     background:#515756;
+            //     .x-border-radius(50%);
+            //     position: absolute; 
+            //     top: 0; 
+            //     left: 0; 
+            //   }
+            // }
+            // div.pie_right{
+            //   div.right {
+            //     clip: rect(0,auto,auto,33px);
+            //   }
+            // }
+            // div.pie_left {
+            //   div.left {
+            //     clip: rect(0,33px,auto,0);
+            //   }
+            // }
+            div.inner{
+              .x-font-size(12px);
+              color:#afb0b2;
+              vertical-align: middle;
+              display: inline-block;
+              margin-top: -15px;
+              span{
+                .x-font-size(12px);
+              }
+            }
+          }
+        }
+      }
+      div.divce{
+        margin-top: 0px;
+        h4{
+          margin:45px 0 0 14px;
+          i.pic-list-camera-checked{
+            width: 13px;
+            height: 13px;
+            display: inline-block;
+            .x-pic-list-camera-checked();
+            vertical-align: middle;
+          }
+          span{
+            display: inline-block;
+            color:#598efb;
+            .x-font-size(14px);
+          }
+        }
+        p{
+          margin-left: 14px;
+          display: inline-block;
+          color:#afb0b2;
+          .x-font-size(12px);
+        }
+      }
+    }
+  }
+  @media screen and (max-width:1300px){
+    &.ident{
+      width:265px;
+      ul.diffList{
+        div.topTab{
+          p:nth-child(1){
+            margin-left:51px;
+          }
+          p:nth-child(2){
+            margin-left:75px;
+          }
+        }
+        li{
+          margin-top:5px;
+          div.swin-wrap{
+            div.picWrap{
+              width:80px;
+              height: 97px;
+              span{
+                width:80px;
+                height: 97px;
+              }
+            }
+            label.idpic2{
+              margin:40px 1px;
+            }
+          }
+        }
+        div.divce{
+          margin-top:-8px;
+        }
+      }
+    }
+  }
+  // div.open{
+  //   width: 55px;
+  //   height:100%;
+  //   span{
+  //     display: block;
+  //     width: 23px;
+  //     height:23px;
+  //     background-size:100% 100%;
+  //     margin:10px auto;
+  //     cursor: pointer;
+  //     &.s1{
+  //       margin-top:16px;
+  //       .x-bg("pro/professional_monitor_open.png",no-repeat,center center);
+  //     }
+  //     &.s2{
+        
+  //     }
+  //   }
+  // }
+}

@@ -89,6 +89,8 @@ var APP_CONFIG = {
 
     d_camera_tree_list: "components/d-camera-tree-list/component",
     d_camera_identification: "components/d-camera-identification/component",
+    //  民政通
+    d_camera_identification_mzt: "components/d-camera-identification-mzt/component",
     d_camera_bident: "components/d-camera-bident/component",
 
     d_echarts_line: "components/d-echarts-line/component",

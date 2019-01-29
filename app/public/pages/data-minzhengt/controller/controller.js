@@ -1,4 +1,4 @@
-define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "socketio", "s_profile", "s_profess", "d_data_left_nav", "ui_videoplayer", "s_layoutmanager", "s_profile", "d_modal", "d_camera_tree_list", "d_camera_multiview", "d_camera_summary_list", "d_camera_identification", "d_camera_bident","d_finish_filters"], function(Controllers, OAuth, Dialog, echarts , VideoPlayer, LayoutManager , io) {
+define(["app", "oauth", "d_modal", "Echarts", "Echarts_line","ui_dateRange", "socketio", "s_profile", "s_profess", "d_data_left_nav", "ui_videoplayer", "s_layoutmanager", "s_profile", "d_modal", "d_camera_tree_list", "d_camera_multiview", "d_camera_summary_list", "d_camera_identification_mzt", "d_camera_bident","d_finish_filters"], function(Controllers, OAuth, Dialog, echarts , VideoPlayer, LayoutManager , io) {
   Controllers.controller("DataMinzhengtController", ["$scope", "$element", "$timeout", "ProfileService","ProfessService",
     function($scope, $element, $timeout, ProfileService, ProfessService) {
       var user = OAuth.getUser();

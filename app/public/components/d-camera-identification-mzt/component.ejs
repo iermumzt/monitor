@@ -1,0 +1,53 @@
+<div class="ident" ng-class="{action:results}" ng-hide="noai">
+  <div class="nav" ng-hide="results">
+    <span class="idpic1"></span>
+    <h3>识别结果</h3>
+    <!-- <i class="toright" ng-click="down()"></i> -->
+  </div>
+  <div class="zero" ng-show="emp">暂无识别结果</div>
+  <ul class="diffList" ng-hide="results || emp">
+    <div class="topTab">
+      <p>抓拍</p>
+      <p>入库人脸666</p>
+    </div>
+    <li class="lis" ng-repeat="user in contrast track by $index" on-finish-render-filters>
+      <div class="swin-wrap">
+        <div class="picWrap">
+          <span class="pai" ng-style = "{'background-image':'url(' + user.image_url + ')'}" style="background-image: url('user.image_url')"></span>
+        </div>
+        <label class="idpic2"></label>
+        <div class="picWrap">
+          <span class="ku" ng-style = "{'background-image':'url(' + user.face.image_url + ')'}" style="background-image: url('user.face.image_url')"></span>
+        </div>
+        <div class="chartpie">
+          <p class="name">{{user.face.name == '' ? 'ID:'+user.face.face_id : '姓名：'+user.face.name}}</p>
+          <p class="card">{{"身份证："+user.face.id_card}}</p>
+          <p class = "qing" ng-click = "showModal(user)">查看详情 》</p>
+          <div class="progress2 pro{{$index}}">
+            <div class = "progress circle{{$index}}"><span class = "bar"></span></div>
+            <!-- <div class="pie_left">
+              <div class="left{{$index}} left comm"></div>
+            </div>
+            <div class="pie_right">
+              <div class="right{{$index}} right comm"></div>
+            </div> -->
+            <div class="inner">
+              <span ng-bind="user.score/100|number:0"></span>{{user.score == 0 ? '' : '%'}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divce">
+        <h4>
+          <!-- <i class="pic-list-camera-checked"></i> -->
+          <span>{{user.desc}}</span>
+        </h4>
+        <p ng-bind = "(user.time)*1000|date:'yyyy/MM/dd HH:mm:ss'"></p>
+      </div>
+    </li>
+  </ul>
+  <!-- <div class="open ng-hide" ng-show="results">
+    <span class="s1" ng-click="openup()"></span>
+    <span class="s2"></span>
+  </div> -->
+</div>
