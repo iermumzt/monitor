@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
+  <head>
+    <% include head_meta %>
+    <%- include(page_config.component_path + "s-bootstrap-css/component") %>
+    <% include head_link %>
+    <%- include(page_config.component_path + "s-baidu-tongji/component-init") %>
+    <% include head_super_script %>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=3a6ce4a5b4925c5f19d30732a1bcee35&plugin=AMap.AdvancedInfoWindow,AMap.CitySearch"></script> 
+  </head>
+  <body class = '<%=page_config.bodyClass + " " + page_config.language%>'>
+    <%- include(page_config.component_path + "s-pro-top-nav-mzt/component") %>
+    <%-body %>
+    <%- include(page_config.component_path + "s-check-navigator/component") %>
+    <%- include script %>
+    <%- include(page_config.component_path + "s-baidu-tongji/component-script") %>
+  </body>
+</html>
