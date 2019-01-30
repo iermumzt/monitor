@@ -1,60 +1,60 @@
 {
-  "total":10,
+  "total":1053,
   "data":{
     "age":[
       {
         "name":"35岁以下", 
-        "total":0
+        "total":233
       },
       {
         "name":"35-60岁", 
-        "total":0
+        "total":120
       },
       {
         "name":"60-80岁", 
-        "total":12
+        "total":453
       },
       {
         "name":"80岁以上", 
-        "total":1
+        "total":247
       }
     ],
     "class":[
         {
           "name":"伤残人员",
-          "total":13
+          "total":132
         },
         {
           "name":"三属",
-          "total":33
+          "total":334
         },
         {
           "name":"三红",
-          "total":33
+          "total":28
         },
         {
           "name":"在乡复员军人",
-          "total":33
+          "total":112
         },
         {
           "name":"带病回乡退伍军人",
-          "total":33
+          "total":340
         },
         {
           "name":"参战人员",
-          "total":33
+          "total":194
         },
         {
           "name":"60周岁以上农村籍退役人员",
-          "total":33
+          "total":88
         },
         {
           "name":"部分烈士子女",
-          "total":33
+          "total":43
         },
         {
           "name":"铀矿开采军队退役人员",
-          "total":33
+          "total":80
         }
     ],
     "area":[
